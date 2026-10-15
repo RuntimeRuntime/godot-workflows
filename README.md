@@ -106,5 +106,5 @@ No hooks, persistent reviewer configuration, CI, export certification, performan
 adapter, game-local skill installer or automatic waiver engine is included. An
 owner's explicit risk acceptance retains failed evidence; it never supplies missing
 required observations. Local reports are inspectable evidence, not an independent
-enforcement or tamper-proof boundary. The repository is local; no GitHub remote is
-created.
+enforcement or tamper-proof boundary. The source repository is
+[RuntimeRuntime/godot-workflows](https://github.com/RuntimeRuntime/godot-workflows).
