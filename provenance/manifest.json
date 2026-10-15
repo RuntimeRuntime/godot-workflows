@@ -1,0 +1,39 @@
+{
+  "research_date": "2026-10-15",
+  "inputs": [
+    {
+      "research_path": "godot-feature-coverage-research/coverage.json",
+      "sha256": "151eaf619edff64465ea0ed76a8f4d23a312368b04275e39729c23083c683dc5"
+    },
+    {
+      "research_path": "godot-feature-coverage-research/sources.json",
+      "sha256": "80f1a6e8212acc488bd92ba1a2fdf6de2a46a0ecdb4fe576fc5d7d6c02ca307b"
+    },
+    {
+      "research_path": "godot-agent-workflow-proposal/rule-mapping.json",
+      "sha256": "2d2bd21cb901e59661b1921672c99253c4b9afd5843c6999f030ec336065d0e5"
+    },
+    {
+      "research_path": "godot-research-pack/candidate-rules.json",
+      "sha256": "bc2e547df81db03d7fbbc06e1fbf70d16be0a6267908e7eacc652016f50a4c6c"
+    },
+    {
+      "research_path": "godot-research-pack/resources.json",
+      "sha256": "c66dd358130d3675d242620967bbd2de3d881ef735903a6ff7ecff29a92a4827"
+    },
+    {
+      "research_path": "godot-agent-workflow-research/avenues/03-sources.json",
+      "sha256": "183dd2104d8ce2ddd9ae01a39c9ad0d56892aeb79b112badcb2250d2895e5a9f"
+    },
+    {
+      "research_path": "godot-agent-workflow-research/recommendations.json",
+      "sha256": "1a0ba33c73af2218ee04a61cebccba4d42e207e5e0a2da893335cb464dbd7fc2"
+    },
+    {
+      "research_path": "godot-agent-workflow-research/sources.json",
+      "sha256": "78279c05b235637b4c4ec2f6c57e423cc140fdfa3cb233d46af6595e919f5718"
+    }
+  ],
+  "origin": "godot-research; retained separately from the implementation",
+  "refresh_command": "python3 tools/import_research.py /path/to/godot-research"
+}

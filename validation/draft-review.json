@@ -1,0 +1,427 @@
+{
+  "scope": "Complete initial toolkit draft against empty tree; agreed runnable advisory v0.1 scope",
+  "standards": {
+    "findings": 5,
+    "fixed": 5,
+    "remaining_in_focused_followup": 0
+  },
+  "spec": {
+    "findings": 1,
+    "fixed": 1,
+    "remaining_in_focused_followup": 0
+  },
+  "helper_tests": {
+    "count": 30,
+    "outcome": "pass",
+    "command": "python3 -m unittest discover -s tests"
+  },
+  "helper_sha256": "194fd57ad94d042e75c07792b0a486ca7454e60ea64339a27d6a22739be18c58",
+  "reviewed_tool_hashes": {
+    "tools/bootstrap_fixture.py": "82ffd17721c6490a55ab0f2c4f31fa68bbed1c3f071c49a703d8cc5ff877c3b5",
+    "tools/calibrate_fixture.py": "39d247517626f55bfe56e94b59504c8d5b9ba4b9100759653bbcb8981f1b9bd3",
+    "tools/godot_workflow.py": "194fd57ad94d042e75c07792b0a486ca7454e60ea64339a27d6a22739be18c58",
+    "tools/import_research.py": "4d77ede972889372f1abd15aa1af588847a661b0b6ff293eff5a1e7d0a34f88d",
+    "tools/package_skills.py": "55cdb48fda4a9562a1dac5d31f8a9a424162443ab0e2d1769b708c6540d2a892"
+  },
+  "engine": {
+    "path": "/Applications/Godot.app/Contents/MacOS/Godot",
+    "version": "4.7.1.stable.official.a13da4feb",
+    "sha256": "ecc8da2d60100102cfca6e833d3860d7436b46ae062fa072ce89a6c95d664a3f"
+  },
+  "gut_pin": {
+    "repository": "https://github.com/bitwes/Gut.git",
+    "tag": "v9.7.1",
+    "commit": "aeb5d4f3f7f0a6c9b5e178876d6c99b791fda605",
+    "license": "MIT",
+    "scope": "Disposable fixture only; ignored dependency cache",
+    "addon_tree_sha256": "0854258aed870c4dcba9294e76fe618d3b69d193d92cb0cbcdcf4011008dab14"
+  },
+  "calibration": {
+    "case_count": 34,
+    "all_matched": true,
+    "cases": [
+      {
+        "case": "valid-baseline",
+        "expected": "pass",
+        "actual": "pass",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "pass"
+        },
+        "candidate_user_data_isolated": true
+      },
+      {
+        "case": "valid-user-log-path",
+        "expected": "pass",
+        "actual": "pass",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "pass"
+        }
+      },
+      {
+        "case": "external-log-path",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true,
+        "checks": {
+          "preflight": "blocked"
+        }
+      },
+      {
+        "case": "traversing-log-path",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true,
+        "checks": {
+          "preflight": "blocked"
+        }
+      },
+      {
+        "case": "feature-log-path-alias",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true,
+        "checks": {
+          "preflight": "blocked"
+        }
+      },
+      {
+        "case": "invalid-script-hidden-diagnostics",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "fail",
+          "parse": "fail"
+        }
+      },
+      {
+        "case": "valid-section-name-alias",
+        "expected": "pass",
+        "actual": "pass",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "pass"
+        },
+        "candidate_user_data_isolated": true
+      },
+      {
+        "case": "valid-root-name-alias",
+        "expected": "pass",
+        "actual": "pass",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "pass"
+        },
+        "candidate_user_data_isolated": true
+      },
+      {
+        "case": "root-custom-directory",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true,
+        "checks": {
+          "preflight": "blocked"
+        }
+      },
+      {
+        "case": "section-feature-name",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true,
+        "checks": {
+          "preflight": "blocked"
+        }
+      },
+      {
+        "case": "settings-override-selector",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true,
+        "checks": {
+          "preflight": "blocked"
+        }
+      },
+      {
+        "case": "feature-override-selector",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true,
+        "checks": {
+          "preflight": "blocked"
+        }
+      },
+      {
+        "case": "override-config-file",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true,
+        "checks": {
+          "preflight": "blocked"
+        }
+      },
+      {
+        "case": "binary-project-settings",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true,
+        "checks": {
+          "preflight": "blocked"
+        }
+      },
+      {
+        "case": "valid-spaced-name",
+        "expected": "pass",
+        "actual": "pass",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "pass"
+        },
+        "candidate_user_data_isolated": true
+      },
+      {
+        "case": "valid-quoted-name",
+        "expected": "pass",
+        "actual": "pass",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "pass"
+        },
+        "candidate_user_data_isolated": true
+      },
+      {
+        "case": "feature-name-override",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true,
+        "checks": {
+          "preflight": "blocked"
+        }
+      },
+      {
+        "case": "custom-user-directory",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true,
+        "checks": {
+          "preflight": "blocked"
+        }
+      },
+      {
+        "case": "feature-user-directory",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true,
+        "checks": {
+          "preflight": "blocked"
+        }
+      },
+      {
+        "case": "invalid-script",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "fail",
+          "parse": "fail"
+        }
+      },
+      {
+        "case": "missing-asset",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "fail",
+          "parse": "fail"
+        }
+      },
+      {
+        "case": "shared-mutable-state",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "fail"
+        }
+      },
+      {
+        "case": "ignored-tuning",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "fail"
+        }
+      },
+      {
+        "case": "lost-owned-child",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "fail"
+        }
+      },
+      {
+        "case": "wrong-assertion",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "fail"
+        }
+      },
+      {
+        "case": "empty-suite",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "fail"
+        }
+      },
+      {
+        "case": "pending-case",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "fail"
+        }
+      },
+      {
+        "case": "hung-test",
+        "expected": "error",
+        "actual": "error",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "error"
+        }
+      },
+      {
+        "case": "valid-procedural-content",
+        "expected": "pass",
+        "actual": "pass",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "pass"
+        }
+      },
+      {
+        "case": "valid-dynamic-boundary",
+        "expected": "pass",
+        "actual": "pass",
+        "matches": true,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "pass"
+        }
+      },
+      {
+        "case": "dirty-after-success",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true
+      },
+      {
+        "case": "missing-report-after-success",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true
+      },
+      {
+        "case": "corrupt-report-after-success",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true
+      },
+      {
+        "case": "unobserved-required-play",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true
+      }
+    ]
+  },
+  "attempts": [
+    {
+      "report": ".godot-workflow-artifacts/draft-review-calibration/calibration.json",
+      "sha256": "15a8c84bb84db22e87ee553b28d0a32ea31852a93398c50f2b3b68c51ecbcd78",
+      "case_count": 21,
+      "all_matched": false,
+      "mismatches": [
+        {
+          "case": "hung-test",
+          "expected": "error",
+          "actual": "blocked"
+        }
+      ]
+    },
+    {
+      "report": ".godot-workflow-artifacts/draft-review-calibration-v2/calibration.json",
+      "sha256": "9cfc4db700be6788082cf3273e3b39fea0c9fb35e8dac904f6dc7ff79bf19eb5",
+      "case_count": 29,
+      "all_matched": true,
+      "mismatches": []
+    },
+    {
+      "report": ".godot-workflow-artifacts/draft-review-calibration-final/calibration.json",
+      "sha256": "c92e1646aa3f4a08cde9e9744543b7efa073dd55c8af1d1d896c1ccf20619f46",
+      "case_count": 34,
+      "all_matched": true,
+      "mismatches": []
+    }
+  ],
+  "timeout_resolution": "The first review attempt exhausted the four-second clean-probe allowance before reaching its intentional hung test. The allowance for that calibration case is now ten seconds per process; affected checks were rerun in the complete expanded suite.",
+  "evidence_scope": "Current native calibration is explicitly machine-only. Historical native editor/play observations retain their original source and helper identities; no fresh GUI claim is made.",
+  "stage": "advisory; real-game pilot remains unselected"
+}

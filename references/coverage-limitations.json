@@ -1,0 +1,54 @@
+[
+  {
+    "domain": "C#, GDExtension and native library integration",
+    "coverage": "discovery_only",
+    "next_step": "Use language/build/ABI and platform primary docs before implementation; current skills still target GDScript.",
+    "source_ids": [
+      "FD01",
+      "FD02",
+      "FD03"
+    ]
+  },
+  {
+    "domain": "XR device profiles, comfort and target certification",
+    "coverage": "introductory_discovery_only",
+    "next_step": "XR-01 is an entry point; actual headset/runtime, input profiles, rendering and comfort need targeted work.",
+    "source_ids": [
+      "FD12"
+    ]
+  },
+  {
+    "domain": "Advanced compute, RenderingServer/PhysicsServer use and large procedural simulations",
+    "coverage": "not_fully_surveyed",
+    "next_step": "Consult the appropriate official server/compute/procedural documentation for a concrete workload and measure it.",
+    "source_ids": [
+      "FD01",
+      "FD02"
+    ]
+  },
+  {
+    "domain": "Specialist vehicles, joints, ragdolls and soft-body simulations",
+    "coverage": "named_discovery_only",
+    "next_step": "Check the actual class/backend/engine version and a representative simulation rather than extrapolating from basic body guidance.",
+    "source_ids": [
+      "FD02"
+    ]
+  },
+  {
+    "domain": "Complete platform, console and third-party addon certification",
+    "coverage": "not_fully_surveyed",
+    "next_step": "Dedicated target/addon documentation and actual access are required; a class listing or export preset cannot certify them.",
+    "source_ids": [
+      "FD01",
+      "FD03"
+    ]
+  },
+  {
+    "domain": "Untrusted mods, network/application security and production service protocols",
+    "coverage": "not_a_security_audit",
+    "next_step": "Use threat- and protocol-specific research; feature discovery does not establish safe deserialization, authority or service behavior.",
+    "source_ids": [
+      "FD01"
+    ]
+  }
+]

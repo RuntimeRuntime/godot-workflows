@@ -1,0 +1,10 @@
+{
+  "gut": {
+    "repository": "https://github.com/bitwes/Gut.git",
+    "tag": "v9.7.1",
+    "commit": "aeb5d4f3f7f0a6c9b5e178876d6c99b791fda605",
+    "license": "MIT",
+    "scope": "Disposable fixture only; ignored dependency cache",
+    "addon_tree_sha256": "0854258aed870c4dcba9294e76fe618d3b69d193d92cb0cbcdcf4011008dab14"
+  }
+}

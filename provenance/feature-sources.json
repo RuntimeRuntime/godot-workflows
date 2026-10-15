@@ -1,0 +1,1372 @@
+[
+  {
+    "id": "F2D01",
+    "title": "TileMapLayer class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_tilemaplayer.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Description, one-layer/deprecated TileMap distinction, deferred scene tiles, coordinate range, debug visibility and enabled/collision/navigation properties.",
+    "supports": [
+      "D2-01",
+      "D2-03"
+    ],
+    "limitations": "Class reference; does not show the full TileSet editor workflow or performance benchmarks.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D02",
+    "title": "Using TileSets",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/2d/using_tilesets.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "TileSet and atlas authoring; scene collections/per-tile overhead; physics/navigation/occlusion; custom data; terrains; alternative tiles.",
+    "supports": [
+      "D2-01",
+      "D2-02",
+      "D2-03"
+    ],
+    "limitations": "Tutorial scope; only sample sheets and editor workflows are shown, not every layout or renderer target.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D03",
+    "title": "Using TileMaps",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/2d/using_tilemaps.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "TileMapLayer painting, external TileSet reuse, multiple layers, terrain paint modes, patterns, collision/navigation visibility and navigation limitations.",
+    "supports": [
+      "D2-01",
+      "D2-02",
+      "D2-14"
+    ],
+    "limitations": "Tutorial covers editor-authored tilemaps; it does not certify behavior on any project fixture.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D04",
+    "title": "TileSetScenesCollectionSource class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_tilesetscenescollectionsource.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Scene tile PackedScene assignment, deferred instantiation, CanvasItem requirement, IDs and runtime add/remove behavior.",
+    "supports": [
+      "D2-03"
+    ],
+    "limitations": "API reference; no measured per-map performance guidance.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D05",
+    "title": "Importing images",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/assets_pipeline/importing_images.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Texture resource types, TextureAtlas, Detect 3D reimport, 2D compression/mipmap defaults and CanvasItem filtering/repeat settings.",
+    "supports": [
+      "D2-04"
+    ],
+    "limitations": "Renderer/platform compression behavior remains target-dependent.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D06",
+    "title": "2D lights and shadows",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/2d/2d_lights_and_shadows.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "CanvasModulate, PointLight2D/DirectionalLight2D, LightOccluder2D, tile occluders, masks, filtering, normal maps and additive-sprite caveats.",
+    "supports": [
+      "D2-04",
+      "D2-12"
+    ],
+    "limitations": "Visual output and cost depend on viewport resolution, renderer and target hardware.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D07",
+    "title": "2D sprite animation",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/2d/2d_sprite_animation.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "AnimatedSprite2D with separate images or spritesheets/SpriteFrames; Sprite2D Hframes/Vframes with AnimationPlayer; runtime play/stop and processing caveat.",
+    "supports": [
+      "D2-05"
+    ],
+    "limitations": "Tutorial examples illustrate basic frame animation; they do not prescribe a universal animation architecture.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D08",
+    "title": "Using AnimationTree",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/animation/animation_tree.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "AnimationTree's AnimationPlayer dependency, blend trees/blend spaces/state machines, transitions and 2D/3D applicability.",
+    "supports": [
+      "D2-06"
+    ],
+    "limitations": "Tutorial examples include 3D scenes; the general AnimationPlayer/AnimationTree relation is explicitly dimension-independent.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D09",
+    "title": "Animation",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/animation/index.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Official animation topic index listing animation features, track types, cutout, 2D skeletons and AnimationTree.",
+    "supports": [],
+    "limitations": "Index only; detailed choices are supported by the linked feature tutorials.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D10",
+    "title": "Cutout animation",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/animation/cutout_animation.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "2D cutout hierarchy/pivots, RemoteTransform2D, skeleton setup, editor IK, keyframing and rest poses.",
+    "supports": [
+      "D2-07"
+    ],
+    "limitations": "Page explicitly says Work in progress and that content may be outdated; notably states IK chains are editor-only.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D11",
+    "title": "2D skeletons",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/animation/2d_skeletons.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Polygon2D textured pieces, Skeleton2D/Bone2D hierarchy, rest pose, bone synchronization, weights and deform geometry.",
+    "supports": [
+      "D2-07"
+    ],
+    "limitations": "Page explicitly says Work in progress and that content may be outdated; verify current editor mechanics on the project's engine pin.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D12",
+    "title": "Physics introduction",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/physics/physics_introduction.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "2D collision-object/body roles, collision layers/masks, Area2D detection/influence, StaticBody2D, RigidBody2D and CharacterBody2D behavior.",
+    "supports": [
+      "D2-08",
+      "D2-09"
+    ],
+    "limitations": "Overview; use class references for full shape, contact and solver details.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D13",
+    "title": "Using CharacterBody2D/3D",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/physics/using_character_body_2d.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "CharacterBody2D scripted authority, physics callback, move_and_collide versus move_and_slide, slopes/platformer and top-down examples.",
+    "supports": [
+      "D2-08"
+    ],
+    "limitations": "Includes 3D applicability note; movement examples are illustrative, not a game-ready universal controller.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D14",
+    "title": "AnimatableBody2D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_animatablebody2d.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Manual/animation movement, affecting other bodies, moving platforms/doors and sync_to_physics interaction.",
+    "supports": [
+      "D2-08"
+    ],
+    "limitations": "Short class reference; full platform behavior needs project-level play verification.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D15",
+    "title": "Using Area2D",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/physics/using_area_2d.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Area2D overlap setup and body-versus-area signals, detection use cases, physics space overrides and priority.",
+    "supports": [
+      "D2-09"
+    ],
+    "limitations": "Short tutorial; does not cover every interaction among multiple areas or all monitoring flags.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D16",
+    "title": "Ray-casting",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/physics/ray-casting.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Node raycasts versus direct PhysicsDirectSpaceState queries, safe physics callback timing, exclusions and collision masks.",
+    "supports": [
+      "D2-10"
+    ],
+    "limitations": "Some later examples are 3D; 2D examples explicitly provide PhysicsDirectSpaceState2D behavior.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D17",
+    "title": "ShapeCast2D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_shapecast2d.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Swept shape detection, multiple results, immediate overlap update and relative cost versus raycasting.",
+    "supports": [
+      "D2-10"
+    ],
+    "limitations": "Class API does not provide comparative benchmark data.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D18",
+    "title": "Camera2D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_camera2d.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Camera anchor, drag margins, process callback and camera properties for viewport follow/control.",
+    "supports": [
+      "D2-11"
+    ],
+    "limitations": "Property reference; multi-camera/SubViewport behavior needs a specific project scenario.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D19",
+    "title": "2D Parallax",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/2d/2d_parallax.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Parallax2D recommendation, scroll scale/repeat sizing and positioning pitfalls.",
+    "supports": [
+      "D2-11"
+    ],
+    "limitations": "Example backgrounds and dimensions are illustrative; check target viewport and zoom.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D20",
+    "title": "CanvasItem class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_canvasitem.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Y-sort, Z ordering and CanvasItem draw behavior.",
+    "supports": [
+      "D2-11"
+    ],
+    "limitations": "Class reference does not cover all scene-specific draw-order combinations.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D21",
+    "title": "GPUParticles2D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_gpuparticles2d.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "ParticleProcessMaterial/ShaderMaterial setup, emitter lifecycle, optional LightOccluder2D collision, seed and restart behavior.",
+    "supports": [
+      "D2-13"
+    ],
+    "limitations": "GPU availability/cost and visual output depend on renderer and target hardware.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D22",
+    "title": "2D particle systems",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/2d/particle_systems_2d.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Particle authoring workflow, GPU/CPU nodes, materials, flipbook settings and effect parameters.",
+    "supports": [
+      "D2-13"
+    ],
+    "limitations": "Page explicitly says Work in progress and that content may be outdated; use current class refs and pin-specific validation.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D23",
+    "title": "2D navigation overview",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/navigation/navigation_introduction_2d.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "AStar2D/AStarGrid2D versus NavigationServer2D mesh paths, NavigationRegion2D, NavigationAgent2D, NavigationLink2D and NavigationObstacle2D distinctions.",
+    "supports": [
+      "D2-14"
+    ],
+    "limitations": "Overview and minimal examples; performance/avoidance tuning depends on world scale and actor count.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D24",
+    "title": "AStarGrid2D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_astargrid2d.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Partial-grid pathfinding, configuration, heuristics, diagonal policy, jumping and solid grid points.",
+    "supports": [
+      "D2-14"
+    ],
+    "limitations": "API reference does not specify actor movement or collision handling; those remain game responsibilities.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D25",
+    "title": "CPUParticles2D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_cpuparticles2d.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "CPU particle node and reference to GPU alternative.",
+    "supports": [
+      "D2-13"
+    ],
+    "limitations": "Does not establish which node is faster on a given target; benchmark the actual target if this decision matters.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D26",
+    "title": "RayCast2D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_raycast2d.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Closest-hit behavior, physics-frame result caching, immediate updates, local target position, collision masks/exclusions and TileMapLayer collider type.",
+    "supports": [
+      "D2-10"
+    ],
+    "limitations": "API reference; query timing and geometry should still be verified against the project's physics configuration.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D27",
+    "title": "2D coordinate systems and 2D transforms",
+    "url": "https://docs.godotengine.org/en/4.7/engine_details/architecture/2d_coordinate_systems.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Item-local, parent-item, canvas/world, viewport, embedder/screen coordinates; Node2D/CanvasItem, CanvasLayer, Camera2D canvas transform, stretch and SubViewportContainer transforms.",
+    "supports": [
+      "D2-11"
+    ],
+    "limitations": "Architecture overview; deeply nested Window/SubViewport combinations still require checking the actual scene and input path.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D28",
+    "title": "CanvasLayer class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_canvaslayer.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Independent canvas rendering/order, follow-viewport default, viewport scope, duplicate layer ordering and CanvasItem behavior.",
+    "supports": [
+      "D2-11"
+    ],
+    "limitations": "Class reference; multiple-window and split-screen use should be tested in the specific scene tree.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F2D29",
+    "title": "Mouse and input coordinates",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/inputs/mouse_and_input_coordinates.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "InputEventMouseButton/InputEventMouseMotion position in viewport coordinates, viewport size and captured-mouse position/relative-motion behavior.",
+    "supports": [
+      "D2-11"
+    ],
+    "limitations": "Focuses on mouse/display coordinate examples; conversion into a specific 2D game's world/canvas must follow its viewport and camera transforms.",
+    "avenue": "avenues/01-2d-authoring.md"
+  },
+  {
+    "id": "F3D01",
+    "title": "Importing 3D scenes",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/assets_pipeline/importing_3d_scenes/index.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Formats, importer and import-configuration overview.",
+    "supports": [
+      "D3-01"
+    ],
+    "limitations": "Overview links to detailed importer settings; does not test third-party asset fidelity.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D02",
+    "title": "Import configuration",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/assets_pipeline/importing_3d_scenes/import_configuration.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Import dock/advanced settings, import scripts, animation-library import, inherited scenes and source reimport behavior.",
+    "supports": [
+      "D3-01",
+      "D3-11"
+    ],
+    "limitations": "Specific import options depend on asset format and settings.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D03",
+    "title": "MeshInstance3D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_meshinstance3d.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Mesh resource instancing, skin/skeleton properties and MultiMesh recommendation for many nearby instances.",
+    "supports": [
+      "D3-02",
+      "D3-04"
+    ],
+    "limitations": "Class reference; not a comparative performance benchmark.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D04",
+    "title": "Standard Material 3D and ORM Material 3D",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/3d/standard_material_3d.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Material assignment scopes, standard material settings and transparency modes.",
+    "supports": [
+      "D3-02"
+    ],
+    "limitations": "Renderer-specific features should be checked against project's renderer.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D05",
+    "title": "Using GridMaps",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/3d/using_gridmaps.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "MeshLibrary scene format, material/collision/navigation relationships, export and GridMap editor workflow.",
+    "supports": [
+      "D3-03"
+    ],
+    "limitations": "Covers fixed grid mesh cells, not arbitrary node placement.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D06",
+    "title": "Using MultiMeshInstance3D",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/3d/using_multi_mesh_instance.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Editor surface population with target/source meshes and MultiMesh properties.",
+    "supports": [
+      "D3-04"
+    ],
+    "limitations": "Tutorial demonstrates one authoring workflow; does not benchmark all rendering workloads.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D07",
+    "title": "Physics introduction",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/physics/physics_introduction.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Collision-object/body conceptual distinctions, areas, static/rigid/character behavior and shapes.",
+    "supports": [
+      "D3-05"
+    ],
+    "limitations": "Some overview examples use 2D class names; paired 3D classes must be checked.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D08",
+    "title": "Collision shapes (3D)",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/physics/collision_shapes_3d.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Direct CollisionShape3D children, primitive/convex/concave options and collision-performance considerations.",
+    "supports": [
+      "D3-05"
+    ],
+    "limitations": "Actual performance and solver behavior depend on project backend and workload.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D09",
+    "title": "Ray-casting",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/physics/ray-casting.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "RayCast3D and direct physics-space query approaches.",
+    "supports": [
+      "D3-06"
+    ],
+    "limitations": "Does not prescribe a universal query architecture.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D10",
+    "title": "ShapeCast3D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_shapecast3d.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Swept-shape query node behavior and result interface.",
+    "supports": [
+      "D3-06"
+    ],
+    "limitations": "Physics backend may affect exact query results.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D11",
+    "title": "CharacterBody3D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_characterbody3d.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Code-controlled body and move_and_slide behavior, collision/platform properties.",
+    "supports": [
+      "D3-07"
+    ],
+    "limitations": "Controller feel requires project-specific design and runtime calibration.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D12",
+    "title": "Using CharacterBody2D/3D",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/physics/using_character_body_2d.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Character movement ownership and move_and_slide/move_and_collide concepts; documentation states concepts also apply in 3D.",
+    "supports": [
+      "D3-05",
+      "D3-07"
+    ],
+    "limitations": "Most examples and sample scene are 2D, so 3D-specific behavior must be checked separately.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D13",
+    "title": "RigidBody3D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_rigidbody3d.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Force-driven body semantics, force integration, transform-write warning, contacts and CCD.",
+    "supports": [
+      "D3-08"
+    ],
+    "limitations": "Does not determine suitable mass/solver values for a particular game.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D14",
+    "title": "Third-person camera with spring arm",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/3d/spring_arm.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Pivot/SpringArm3D/Camera3D hierarchy, direct camera child collision shape and input-driven orbit example.",
+    "supports": [
+      "D3-10"
+    ],
+    "limitations": "Specific example is third-person; other camera styles require separate design.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D15",
+    "title": "Using AnimationTree",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/animation/animation_tree.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "AnimationPlayer ownership, AnimationTree role, blend/state-machine model and blending/reset guidance.",
+    "supports": [
+      "D3-11"
+    ],
+    "limitations": "A complete character animation pipeline also depends on imported rig and clip conventions.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D16",
+    "title": "Skeleton3D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_skeleton3d.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Bone hierarchy, pose/rest interpretation and animation/ragdoll support.",
+    "supports": [
+      "D3-11"
+    ],
+    "limitations": "Detailed rig authoring still depends on source DCC/export conventions.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D17",
+    "title": "SkeletonModifier3D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_skeletonmodifier3d.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Modifier ordering and built-in/custom extension points for skeleton constraints and IK.",
+    "supports": [
+      "D3-11"
+    ],
+    "limitations": "Lists a broad modifier family; individual modifier maturity/use cases require class-level inspection.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D18",
+    "title": "3D navigation overview",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/navigation/navigation_introduction_3d.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "AStar3D versus mesh NavigationServer, regions, links, agents, obstacles and basic 3D setup.",
+    "supports": [
+      "D3-12"
+    ],
+    "limitations": "Overview setup is minimal and does not certify complex navigation quality.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D19",
+    "title": "Using NavigationAgents",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/navigation/navigation_using_navigationagents.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Path queries/following, parent movement responsibility, map synchronization, avoidance behavior and pitfalls.",
+    "supports": [
+      "D3-12"
+    ],
+    "limitations": "RVO avoidance assumptions can fail in pathological symmetric scenarios; project movement must integrate results.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D20",
+    "title": "Using NavigationLinks",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/navigation/navigation_using_navigationlinks.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "NavigationLink3D connections and need for custom traversal behavior.",
+    "supports": [
+      "D3-12"
+    ],
+    "limitations": "Link records path connectivity, not animation or traversal mechanics.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D21",
+    "title": "3D lights and shadows",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/3d/lights_and_shadows.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Light sources, ambient/reflection sources, GI families and light properties.",
+    "supports": [
+      "D3-13"
+    ],
+    "limitations": "No universal lighting recipe; quality/performance depend on renderer and target.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D22",
+    "title": "Environment and post-processing",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/3d/environment_and_post_processing.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Environment resource activation/priority, WorldEnvironment, camera overrides, editor preview limitations.",
+    "supports": [
+      "D3-13"
+    ],
+    "limitations": "Project-specific renderer and camera setup remain relevant.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D23",
+    "title": "Internal rendering architecture",
+    "url": "https://docs.godotengine.org/en/4.7/engine_details/architecture/internal_rendering_architecture.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Renderer capability constraints for VoxelGI/SDFGI, LightmapGI baking/rendering and LOD/occlusion implementation context.",
+    "supports": [
+      "D3-13",
+      "D3-15"
+    ],
+    "limitations": "Architecture overview, not a product-facing setup guide; verify current version and device.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D24",
+    "title": "Particle systems (3D)",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/3d/particles/index.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "GPU/CPU particle distinction, process material, emitters, collisions, attractors and advanced topics.",
+    "supports": [
+      "D3-14"
+    ],
+    "limitations": "Actual device support and performance need project-target testing.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D25",
+    "title": "Occlusion culling",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/3d/occlusion_culling.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Use cases, occluder baking limits, debug views, layout and performance pitfalls.",
+    "supports": [
+      "D3-04",
+      "D3-14",
+      "D3-15"
+    ],
+    "limitations": "Benefits depend on view/layout; no benchmark across target hardware.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D26",
+    "title": "Visibility ranges (HLOD)",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/3d/visibility_ranges.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Manual visibility-range use and relationship to mesh LOD/occlusion.",
+    "supports": [
+      "D3-15"
+    ],
+    "limitations": "Thresholds are project/art specific and require visual/performance tuning.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D27",
+    "title": "AnimatableBody3D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_animatablebody3d.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "Manually moved body semantics, physics synchronization and moving-platform use.",
+    "supports": [
+      "D3-05",
+      "D3-09"
+    ],
+    "limitations": "Does not prescribe a universal moving-platform controller.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "F3D28",
+    "title": "Area3D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_area3d.html",
+    "accessed": "2026-10-15",
+    "version": "Godot 4.7",
+    "reading_scope": "3D overlap region, child shape relationship, signals, and local physics overrides.",
+    "supports": [
+      "D3-05"
+    ],
+    "limitations": "Overlap signal support can vary by physics backend for specialized body combinations.",
+    "avenue": "avenues/02-3d-authoring.md"
+  },
+  {
+    "id": "FS01",
+    "title": "Using Containers",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/ui/gui_containers.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Anchor-versus-container choice, child positioning ownership, nested layout, sizing flags and built-in container families.",
+    "supports": [
+      "SH-01"
+    ],
+    "limitations": "Layout examples are illustrative; test target aspect ratios and project UI scale.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS02",
+    "title": "Size and anchors",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/ui/size_and_anchors.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Anchor offsets and responsive Control placement as parent/viewport sizes change.",
+    "supports": [
+      "SH-01"
+    ],
+    "limitations": "Does not define a universal project resolution/stretch policy.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS03",
+    "title": "Introduction to GUI skinning",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/ui/gui_skinning.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Theme resources, cascading visual customization, theme items and focus StyleBox behavior.",
+    "supports": [
+      "SH-01",
+      "SH-07"
+    ],
+    "limitations": "Custom controls must implement theme consumption appropriately.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS04",
+    "title": "Keyboard/Controller Navigation and Focus",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/ui/gui_navigation.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Control focus, neighbors, initial focus, built-in UI actions and navigation pitfalls.",
+    "supports": [
+      "SH-02"
+    ],
+    "limitations": "Controller layouts and menus still require project-specific observed verification.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS05",
+    "title": "Control class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_control.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Control input/focus/theme semantics and accessibility properties.",
+    "supports": [
+      "SH-02",
+      "SH-03",
+      "SH-07"
+    ],
+    "limitations": "Class reference documents available API, not complete accessibility or interaction design.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS06",
+    "title": "Using InputEvent",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/inputs/inputevent.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Input propagation order, InputMap action abstraction, runtime remapping persistence note, and GUI/gameplay event routing.",
+    "supports": [
+      "SH-02",
+      "SH-03"
+    ],
+    "limitations": "Examples do not substitute for physical-device testing.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS07",
+    "title": "Pausing games and process mode",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/scripting/pausing_games.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "SceneTree pause, per-node process modes, physics and signal behavior while paused.",
+    "supports": [
+      "SH-04"
+    ],
+    "limitations": "Project-specific systems may have additional pause semantics.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS08",
+    "title": "Timer class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_timer.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Countdown timer signals, one-shot/autostart, process callback, time scale and pause behavior.",
+    "supports": [
+      "SH-04"
+    ],
+    "limitations": "Actual timing precision depends on process/physics frame schedule.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS09",
+    "title": "Tween class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_tween.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Tween use for dynamically chosen values, creation, lifetime and non-reuse warning.",
+    "supports": [
+      "SH-04"
+    ],
+    "limitations": "Does not cover authored AnimationPlayer/AnimationTree workflows, assigned to another lane.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS10",
+    "title": "Engine class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_engine.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "time_scale effects on delta/time-driven systems, audio and physics tick caveats.",
+    "supports": [
+      "SH-04"
+    ],
+    "limitations": "Does not prescribe an intended game time model.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS11",
+    "title": "Audio buses",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/audio/audio_buses.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Bus routing/effects, decibels, master output and web playback caveat.",
+    "supports": [
+      "SH-05"
+    ],
+    "limitations": "Mix architecture and acceptable levels depend on authored audio and target.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS12",
+    "title": "Audio streams",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/audio/audio_streams.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Non-positional versus 2D/3D spatial players, Areas and stream resources.",
+    "supports": [
+      "SH-05"
+    ],
+    "limitations": "The page explicitly says its content may be outdated for 4.7; rely on version-matched class references for detailed behavior.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS13",
+    "title": "AudioStreamPlayer2D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_audiostreamplayer2d.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "2D positional attenuation, listener and bus behavior; visibility does not disable audio.",
+    "supports": [
+      "SH-05"
+    ],
+    "limitations": "2D-specific reference only.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS14",
+    "title": "AudioStreamPlayer3D class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_audiostreamplayer3d.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "3D positional effects, attenuation, listener, buses and Doppler options.",
+    "supports": [
+      "SH-05"
+    ],
+    "limitations": "3D-specific reference only.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS15",
+    "title": "Internationalizing games",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/i18n/internationalizing_games.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Translation import, TranslationServer, locale, translated resources, font fallback and testing.",
+    "supports": [
+      "SH-06"
+    ],
+    "limitations": "Does not provide a project-specific localization production process.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS16",
+    "title": "Localization using spreadsheets",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/i18n/localization_using_spreadsheets.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "CSV translation format/encoding and since-4.6 plural/context support.",
+    "supports": [
+      "SH-06"
+    ],
+    "limitations": "CSV automatic Control translation has documented limitations for plurals.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS17",
+    "title": "Creating applications",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/ui/creating_applications.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "AccessKit screen reader integration, supported desktop readers, labels, reading order and scaling caveats.",
+    "supports": [
+      "SH-07"
+    ],
+    "limitations": "Screen reader UX needs target-platform assistive technology testing; app guidance is not a full game accessibility standard.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS18",
+    "title": "ConfigFile class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_configfile.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Section/key Variant storage and explicit save/load behavior.",
+    "supports": [
+      "SH-08"
+    ],
+    "limitations": "A simple configuration helper, not a general save-game architecture.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS19",
+    "title": "Saving games",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/io/saving_games.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Persistence selection, JSON/binary tradeoffs, and example groups/object serialization.",
+    "supports": [
+      "SH-08"
+    ],
+    "limitations": "Tutorial explicitly leaves larger save design to the project; sample has simplifying assumptions.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS20",
+    "title": "File system",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/scripting/filesystem.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "res:// and user:// path behavior, project resource model and exported filesystem behavior.",
+    "supports": [
+      "SH-08",
+      "SH-09"
+    ],
+    "limitations": "OS-specific user data folder names depend on project settings/target.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS21",
+    "title": "Runtime file loading and saving",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/io/runtime_file_loading_and_saving.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "FileAccess and external/user-provided media/content use cases; warning against bypassing ResourceLoader for project assets.",
+    "supports": [
+      "SH-09"
+    ],
+    "limitations": "Supported formats and permissions still vary by platform.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS22",
+    "title": "Background loading",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/io/background_loading.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Threaded ResourceLoader request/status/get API and the possibility get() blocks before completion.",
+    "supports": [
+      "SH-10"
+    ],
+    "limitations": "Does not guarantee an application-specific loading screen is hitch-free.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS23",
+    "title": "Thread-safe APIs",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/performance/thread_safe_apis.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Active SceneTree restrictions, deferred integration, shared Resource hazards and subsystem-specific thread support.",
+    "supports": [
+      "SH-10"
+    ],
+    "limitations": "Thread safety is API/subsystem-specific; enabling separate-thread settings does not certify a whole project.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS24",
+    "title": "High-level multiplayer",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/networking/high_level_multiplayer.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "SceneTree networking, peer/RPC modes, protocol/platform boundaries, security and Android permission guidance.",
+    "supports": [
+      "SH-11",
+      "SH-12"
+    ],
+    "limitations": "Network security, topology, prediction and deployment need project-specific design/testing.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS25",
+    "title": "MultiplayerSpawner class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_multiplayerspawner.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Authority-driven spawn replication and custom spawn function constraints.",
+    "supports": [
+      "SH-11"
+    ],
+    "limitations": "Does not specify the game's authority/network model.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS26",
+    "title": "MultiplayerSynchronizer class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_multiplayersynchronizer.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Configured property replication, visibility, and unsupported Object/Resource values.",
+    "supports": [
+      "SH-11"
+    ],
+    "limitations": "Only selected replicated properties; not a complete state-sync architecture.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS27",
+    "title": "HTTPRequest class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_httprequest.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "HTTP(S) request signal flow, non-concurrent request limitation and Android INTERNET permission.",
+    "supports": [
+      "SH-12"
+    ],
+    "limitations": "The versioned Godot 4.7 HTTPRequest class reference is the basis for HTTPRequest claims. Separately inspected companion: HTTPClient class tutorial at https://docs.godotengine.org/en/stable/tutorials/networking/http_client_class.html (stable manual, accessed 2026-10-15), whose WIP/not-updated-for-4.7 notice applies to that tutorial only, not this HTTPRequest class reference. Confirm low-level HTTPClient details against its versioned class reference and target tests.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS28",
+    "title": "Using Viewports",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/rendering/viewports.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "SubViewport render-to-texture uses, input/listener/camera behavior, update/clear modes.",
+    "supports": [
+      "SH-13"
+    ],
+    "limitations": "Render target cost and composition are scenario-specific.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS29",
+    "title": "SubViewport class reference",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_subviewport.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "SubViewport size and display-surface requirements, update modes, and default input propagation limit.",
+    "supports": [
+      "SH-13"
+    ],
+    "limitations": "Does not replace visual/performance checks in the project renderer.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS30",
+    "title": "Autoloads versus regular nodes",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/best_practices/autoloads_versus_regular_nodes.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Godot options to avoid global state, valid broad-scope Autoload uses, and Autoload not being an enforced singleton.",
+    "supports": [
+      "SH-14"
+    ],
+    "limitations": "A best-practices guide; project lifetime and state requirements decide the final architecture.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS31",
+    "title": "Exporting projects",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/export/exporting_projects.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Export presets/templates, resource inclusion choices, non-resource filters and export configuration.",
+    "supports": [
+      "SH-15"
+    ],
+    "limitations": "Per-platform requirements are described in each platform export guide and can change by version.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FS32",
+    "title": "Feature tags",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/export/feature_tags.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "OS.has_feature tags, platform/build categories, case sensitivity and web-on-mobile caveat.",
+    "supports": [
+      "SH-15"
+    ],
+    "limitations": "Runtime feature tags are not a substitute for a platform API capability query or target-device verification.",
+    "avenue": "avenues/03-shared-systems.md"
+  },
+  {
+    "id": "FD01",
+    "title": "Tutorials topic index",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/index.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Targeted official page/index sections described in limitations.",
+    "supports": [
+      "DOC-01"
+    ],
+    "limitations": "Topic inventory only; not a source for detailed feature semantics.",
+    "avenue": "avenues/04-discovery-editor-specialists.md"
+  },
+  {
+    "id": "FD02",
+    "title": "All classes",
+    "url": "https://docs.godotengine.org/en/4.7/classes/index.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Targeted official page/index sections described in limitations.",
+    "supports": [
+      "DOC-01"
+    ],
+    "limitations": "Class-name/relationship discovery only; individual API behavior requires class pages.",
+    "avenue": "avenues/04-discovery-editor-specialists.md"
+  },
+  {
+    "id": "FD03",
+    "title": "List of features",
+    "url": "https://docs.godotengine.org/en/4.7/about/list_of_features.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Targeted official page/index sections described in limitations.",
+    "supports": [
+      "DOC-01"
+    ],
+    "limitations": "Breadth inventory; historical web/export/import wording observed. Do not use as current platform certification.",
+    "avenue": "avenues/04-discovery-editor-specialists.md"
+  },
+  {
+    "id": "FD04",
+    "title": "Making plugins",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/plugins/editor/making_plugins.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Targeted official page/index sections described in limitations.",
+    "supports": [
+      "ED-01"
+    ],
+    "limitations": "Editor plugin lifecycle source review; no plugin run.",
+    "avenue": "avenues/04-discovery-editor-specialists.md"
+  },
+  {
+    "id": "FD05",
+    "title": "Inspector plugins",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/plugins/editor/inspector_plugins.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Targeted official page/index sections described in limitations.",
+    "supports": [
+      "ED-01"
+    ],
+    "limitations": "Inspector registration/property-update sections inspected; no widget run.",
+    "avenue": "avenues/04-discovery-editor-specialists.md"
+  },
+  {
+    "id": "FD06",
+    "title": "EditorUndoRedoManager",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_editorundoredomanager.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Targeted official page/index sections described in limitations.",
+    "supports": [
+      "ED-01"
+    ],
+    "limitations": "Scene/global history descriptions inspected; no undo operation run.",
+    "avenue": "avenues/04-discovery-editor-specialists.md"
+  },
+  {
+    "id": "FD07",
+    "title": "Import plugins",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/plugins/editor/import_plugins.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Targeted official page/index sections described in limitations.",
+    "supports": [
+      "ED-02"
+    ],
+    "limitations": "Explicit WIP/outdated warning for 4.7; introductory mechanism only, checked against class reference.",
+    "avenue": "avenues/04-discovery-editor-specialists.md"
+  },
+  {
+    "id": "FD08",
+    "title": "EditorImportPlugin",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_editorimportplugin.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Targeted official page/index sections described in limitations.",
+    "supports": [
+      "ED-02"
+    ],
+    "limitations": "Importer registration/generated output description inspected; not executed.",
+    "avenue": "avenues/04-discovery-editor-specialists.md"
+  },
+  {
+    "id": "FD09",
+    "title": "EditorExportPlugin",
+    "url": "https://docs.godotengine.org/en/4.7/classes/class_editorexportplugin.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Targeted official page/index sections described in limitations.",
+    "supports": [
+      "ED-02"
+    ],
+    "limitations": "Export callback/customization description inspected; not executed.",
+    "avenue": "avenues/04-discovery-editor-specialists.md"
+  },
+  {
+    "id": "FD10",
+    "title": "Overview of debugging tools",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/scripting/debug/overview_of_debugging_tools.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Targeted official page/index sections described in limitations.",
+    "supports": [
+      "ED-03"
+    ],
+    "limitations": "Runtime overlays, remote scene inspection and multi-instance descriptions inspected; no debugger connection.",
+    "avenue": "avenues/04-discovery-editor-specialists.md"
+  },
+  {
+    "id": "FD11",
+    "title": "Introduction to shaders",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/shaders/introduction_to_shaders.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Targeted official page/index sections described in limitations.",
+    "supports": [
+      "ED-04"
+    ],
+    "limitations": "Shader domains/execution overview inspected; class/built-in capability and performance still require project-specific checking.",
+    "avenue": "avenues/04-discovery-editor-specialists.md"
+  },
+  {
+    "id": "FD12",
+    "title": "Setting up XR",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/xr/setting_up_xr.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Targeted official page/index sections described in limitations.",
+    "supports": [
+      "XR-01"
+    ],
+    "limitations": "Rig/interface overview and unavailable-interface warning inspected; no headset/runtime test.",
+    "avenue": "avenues/04-discovery-editor-specialists.md"
+  },
+  {
+    "id": "FD13",
+    "title": "Vector math",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/math/vector_math.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Native Vector2/Vector3 operations and game-math context.",
+    "supports": [
+      "MATH-01"
+    ],
+    "limitations": "Introductory source reading only; not a complete mathematics or runtime correctness audit.",
+    "avenue": "avenues/04-discovery-editor-specialists.md"
+  },
+  {
+    "id": "FD14",
+    "title": "Matrices and transforms",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/math/matrices_and_transforms.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Transforms, coordinate-space composition and native transform representation.",
+    "supports": [
+      "MATH-01"
+    ],
+    "limitations": "Introductory source reading only; not a complete mathematics or runtime correctness audit.",
+    "avenue": "avenues/04-discovery-editor-specialists.md"
+  },
+  {
+    "id": "FD15",
+    "title": "Using 3D transforms",
+    "url": "https://docs.godotengine.org/en/4.7/tutorials/3d/using_transforms.html",
+    "accessed": "2026-10-15",
+    "version": "4.7",
+    "reading_scope": "Native 3D orientation/transform use and rotation interpolation pitfalls.",
+    "supports": [
+      "MATH-01"
+    ],
+    "limitations": "Introductory source reading only; not a complete mathematics or runtime correctness audit.",
+    "avenue": "avenues/04-discovery-editor-specialists.md"
+  }
+]

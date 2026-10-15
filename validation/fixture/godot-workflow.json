@@ -1,0 +1,31 @@
+{
+  "format_version": 1,
+  "engine_version": "4.7.1.stable.official.a13da4feb",
+  "language": "GDScript",
+  "dimension": "2d",
+  "checks": ["import", "parse", "tests"],
+  "script_excludes": ["addons/**"],
+  "test": {
+    "framework": "gut",
+    "version": "9.7.1",
+    "directory": "res://tests",
+    "expected_cases": [
+      "test_saved_children",
+      "test_inspector_tuning_affects_damage",
+      "test_mutable_state_is_instance_owned",
+      "test_definition_is_intentionally_shared",
+      "test_remove_reenter_does_not_duplicate_callbacks",
+      "test_teardown_settles",
+      "test_pause_resume_does_not_hit",
+      "test_native_save_ownership"
+    ]
+  },
+  "observations": [
+    {"id": "editor-reopen", "gate": "GT05", "scene": "res://enemy.tscn", "expected": "After a fresh editor reopen Body, Health and Pulse remain authored and state/definition assignments are inspectable."},
+    {"id": "tuning-effect", "gate": "GT05", "scene": "res://main.tscn", "expected": "Inspector health set from three to five in a saved/reopened variant changes hits-to-defeat to five; the second enemy remains independent."},
+    {"id": "visible-pause", "gate": "GT06", "scene": "res://main.tscn", "expected": "Hit left changes only left health; pause/menu/resume through real input leaves hit count unchanged; gameplay resumes."}
+  ],
+  "adopted_rules": [],
+  "conventions": {"purpose": "Disposable calibration fixture; seed failures only in copies"},
+  "feature_topics": {"SH-02": "present", "SH-04": "present"}
+}

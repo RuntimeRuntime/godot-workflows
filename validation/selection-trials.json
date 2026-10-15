@@ -1,0 +1,116 @@
+{
+  "kind": "independent guidance and metadata-selection forward test",
+  "runtime_checks_executed": false,
+  "external_sources_fetched_by_tester": false,
+  "discovery_certified_in_fresh_desktop_chat": false,
+  "initial_requests": [
+    {
+      "request": "Paint a fixed garden level with walls and interactive gates",
+      "selection": [
+        "scenes",
+        "verify"
+      ],
+      "references": [
+        "D2-01",
+        "D2-03",
+        "D2-08"
+      ]
+    },
+    {
+      "request": "Damaging one enemy changes another enemy health",
+      "selection": [
+        "state",
+        "verify"
+      ],
+      "references": [
+        "state",
+        "feature-planning"
+      ]
+    },
+    {
+      "request": "Clicking Resume also fires weapon; verify repair",
+      "selection": [
+        "state",
+        "verify"
+      ],
+      "references": [
+        "SH-02",
+        "SH-04"
+      ]
+    },
+    {
+      "request": "Arithmetic-only strength*2 to strength*3",
+      "selection": [
+        "verify"
+      ],
+      "references": [
+        "verification"
+      ]
+    },
+    {
+      "request": "Downloaded .tres mods; safe handling claim",
+      "selection": [
+        "scenes"
+      ],
+      "references": [
+        "SH-09",
+        "discovery"
+      ],
+      "result": "Threat-specific follow-up required; safety claim blocked"
+    },
+    {
+      "request": "Keep 3D model customizations after reexport",
+      "selection": [
+        "scenes"
+      ],
+      "references": [
+        "D3-01"
+      ]
+    },
+    {
+      "request": "One-time procedural smoke nodes",
+      "selection": [
+        "scenes",
+        "state",
+        "verify"
+      ],
+      "result": "Overbroad scene selection; author-scenes description narrowed to require saved authoring for transient-only tasks"
+    },
+    {
+      "request": "Authoritative multiplayer position updates",
+      "selection": [
+        "scenes when replication scene config changes",
+        "state",
+        "verify"
+      ],
+      "references": [
+        "SH-11",
+        "discovery"
+      ]
+    }
+  ],
+  "focused_followup": [
+    {
+      "request": "One-time procedural smoke, explicitly no saved asset changes",
+      "selection": [
+        "state",
+        "verify"
+      ]
+    },
+    {
+      "request": "Explain vector dot products in README",
+      "selection": []
+    },
+    {
+      "request": "Saved reusable smoke particles with Inspector controls",
+      "selection": [
+        "scenes",
+        "verify"
+      ],
+      "conditional": "state when restart/completion/cleanup ownership matters"
+    }
+  ],
+  "limits": [
+    "Selection and guidance only; no game execution, measured effectiveness or automatic host-discovery claim."
+  ]
+}

@@ -1,0 +1,1155 @@
+{
+  "default": "advisory until explicitly adopted by a game",
+  "rules": [
+    {
+      "rule_id": "G01",
+      "statement": "Save fixed game objects and UI hierarchy as native scenes.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "specialist_judgment",
+      "supporting_treatments": [
+        "runtime_editor_evidence"
+      ],
+      "check_ids": [
+        "GT05.reopen",
+        "GT05.inspectability"
+      ],
+      "rationale": "Fixed versus procedural intent needs saved-scene inspection; a .tscn or Node.new search cannot settle it.",
+      "source_refs": [
+        "pack:O02",
+        "pack:P01",
+        "workflow:GD12"
+      ],
+      "preserved_exception": "Procedural or transient content can be constructed at runtime.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G02",
+      "statement": "Spawn authored PackedScenes for repeated gameplay objects.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "specialist_judgment",
+      "supporting_treatments": [
+        "runtime_editor_evidence"
+      ],
+      "check_ids": [
+        "GT05.inspectability",
+        "GT04.contracts"
+      ],
+      "rationale": "Repeated gameplay authoring should be inspected; trivial native helpers are legitimate without PackedScene.",
+      "source_refs": [
+        "pack:O18",
+        "pack:O13",
+        "workflow:GD12"
+      ],
+      "preserved_exception": "Plain native nodes suffice for trivial helpers.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G03",
+      "statement": "Code-generated authoring output must survive editor reopen.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT05.reopen"
+      ],
+      "rationale": "Compare intended generated descendants and properties after actual save and fresh reopen.",
+      "source_refs": [
+        "pack:O14",
+        "pack:O13",
+        "workflow:GD12"
+      ],
+      "preserved_exception": "Runtime instances need no authoring persistence.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G04",
+      "statement": "Distinguish node parentage, scene ownership and saving.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "deterministic_check",
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT05.reopen",
+        "GT03.scene_scripts"
+      ],
+      "rationale": "Engine-loaded ownership and reopened composition distinguish parentage from persistence and nested boundaries.",
+      "source_refs": [
+        "pack:O12",
+        "pack:O13",
+        "workflow:GD10",
+        "workflow:GD12"
+      ],
+      "preserved_exception": "Do not change ownership indiscriminately in instances.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G05",
+      "statement": "Use existing native nodes before designing custom replacements.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "advisory_guidance",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT05.inspectability"
+      ],
+      "rationale": "Native alternatives inform design; specialized requirements can justify a replacement without violating a syntactic rule.",
+      "source_refs": [
+        "pack:A05",
+        "pack:O04"
+      ],
+      "preserved_exception": "Specialized gameplay may justify custom behavior.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Advisory design guidance; no automatic blocking. A separately adopted concrete project contract may be reviewed with evidence; do not promote this whole rule to a regex gate."
+    },
+    {
+      "rule_id": "G06",
+      "statement": "Give reusable scenes one coherent responsibility and a usable harness.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT04.contracts",
+        "GT05.inspectability"
+      ],
+      "rationale": "Harness exercises real dependency boundaries; coherence remains a design assessment rather than a passing fixture alone.",
+      "source_refs": [
+        "pack:O01",
+        "pack:A01",
+        "workflow:GD10",
+        "workflow:GD12"
+      ],
+      "preserved_exception": "A harness can supply intentional external dependencies.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G07",
+      "statement": "Prefer explicit typed references over cross-scene path traversal.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "deterministic_check",
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT03.parse",
+        "GT04.contracts"
+      ],
+      "rationale": "Native typing and relocation/reparent fixtures expose some failures; scope and deliberate internal paths need review.",
+      "source_refs": [
+        "pack:O10",
+        "pack:A01",
+        "workflow:GD10",
+        "workflow:GD13"
+      ],
+      "preserved_exception": "Short internal paths remain useful.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G08",
+      "statement": "Use unique node names within their documented scene scope.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT04.contracts",
+        "GT05.reopen"
+      ],
+      "rationale": "Resolve names in actual nested instances and owner scopes; textual unique-name presence is insufficient.",
+      "source_refs": [
+        "pack:O07",
+        "workflow:GD10"
+      ],
+      "preserved_exception": "Explicitly enter a nested scene before accessing its unique names.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G09",
+      "statement": "Expose reusable contracts through methods and semantic signals.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "specialist_judgment",
+      "supporting_treatments": [
+        "runtime_editor_evidence"
+      ],
+      "check_ids": [
+        "GT04.contracts",
+        "GT05.inspectability"
+      ],
+      "rationale": "Trace consumer meaning and public boundaries; small direct references can be the clearest contract.",
+      "source_refs": [
+        "pack:O11",
+        "pack:A03"
+      ],
+      "preserved_exception": "A small local direct reference can be clearer.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G10",
+      "statement": "Let a common ancestor wire sibling scenes.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "specialist_judgment",
+      "supporting_treatments": [
+        "runtime_editor_evidence"
+      ],
+      "check_ids": [
+        "GT05.inspectability",
+        "GT04.contracts"
+      ],
+      "rationale": "Assess wiring direction and reuse consequences against actual dependencies, allowing documented scoped providers.",
+      "source_refs": [
+        "pack:O01",
+        "pack:A01"
+      ],
+      "preserved_exception": "A documented scoped provider can replace mediation.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G11",
+      "statement": "Keep fixed signal wiring traceable in scenes or one setup function.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT05.reopen",
+        "GT04.lifecycle"
+      ],
+      "rationale": "Inspect serialized/setup wiring and exercise duplicate or missing reactions across dynamic-instance lifetime.",
+      "source_refs": [
+        "pack:O11",
+        "pack:A03",
+        "workflow:GD10"
+      ],
+      "preserved_exception": "Connect dynamic instances in code.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G12",
+      "statement": "Introduce a global event bus only for justified distant events.",
+      "original_proposed_strength": "conditional",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "specialist_judgment",
+      "supporting_treatments": [
+        "runtime_editor_evidence"
+      ],
+      "check_ids": [
+        "GT04.lifecycle"
+      ],
+      "rationale": "Review distant event purpose, publishers, listeners and lifetime; bus existence/count cannot establish need.",
+      "source_refs": [
+        "pack:A10",
+        "pack:C04",
+        "workflow:GD10"
+      ],
+      "preserved_exception": "Prefer local events for scene-local behavior.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G13",
+      "statement": "Restrict autoloads to narrow systems needing application lifetime.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "specialist_judgment",
+      "supporting_treatments": [
+        "runtime_editor_evidence"
+      ],
+      "check_ids": [
+        "GT04.lifecycle"
+      ],
+      "rationale": "Review application lifetime and owned global state; a narrow justified service is valid.",
+      "source_refs": [
+        "pack:O06",
+        "workflow:GD10"
+      ],
+      "preserved_exception": "A justified session or dialogue service is acceptable.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G14",
+      "statement": "Use groups for tags and collective operations.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT04.contracts"
+      ],
+      "rationale": "Empty/multiple group fixtures test timing and cardinality; suitability for a required singleton remains judgment.",
+      "source_refs": [
+        "pack:O15",
+        "workflow:GD10"
+      ],
+      "preserved_exception": "Required single dependencies should be explicit.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G15",
+      "statement": "Expose tunable gameplay data as typed exports or custom Resources.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment",
+        "deterministic_check"
+      ],
+      "check_ids": [
+        "GT05.inspectability",
+        "GT03.parse",
+        "GT05.tuning_effect"
+      ],
+      "rationale": "Inspect and change nominated tuning through normal Inspector use, save/reopen and verify its expected runtime effect in a recorded scratch variant; intended tunability remains a domain judgment.",
+      "source_refs": [
+        "pack:O10",
+        "pack:O05",
+        "workflow:GD11"
+      ],
+      "preserved_exception": "Keep implementation details private by convention.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G16",
+      "statement": "Declare whether mutable resource state is shared or per instance.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT04.resource_isolation",
+        "GT05.inspectability"
+      ],
+      "rationale": "Two-instance mutation and identity observations establish declared isolation or deliberate immutable sharing for selected resources.",
+      "source_refs": [
+        "pack:P09",
+        "pack:O05",
+        "workflow:GD11"
+      ],
+      "preserved_exception": "Shared definitions are useful when intentionally immutable.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G17",
+      "statement": "Verify nested resource duplication on the project engine version.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "deterministic_check",
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT04.resource_isolation",
+        "GT00.versions"
+      ],
+      "rationale": "Nested container/subresource fixtures must match the actual engine and explicitly intended sharing.",
+      "source_refs": [
+        "pack:P09",
+        "workflow:GD11"
+      ],
+      "preserved_exception": "Sharing large immutable subresources is acceptable.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G18",
+      "statement": "Separate content definitions from temporary actor and UI state.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "specialist_judgment",
+      "supporting_treatments": [
+        "runtime_editor_evidence"
+      ],
+      "check_ids": [
+        "GT04.resource_isolation",
+        "GT04.contracts"
+      ],
+      "rationale": "Trace definition versus live-state lifetime; two actors supply evidence but a prototype may use simpler data.",
+      "source_refs": [
+        "pack:video-02",
+        "pack:R2-07",
+        "workflow:GD11"
+      ],
+      "preserved_exception": "Small prototypes can start with simpler data.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G19",
+      "statement": "Use static types for public APIs and stable gameplay data.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "deterministic_check",
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT03.parse",
+        "GT03.inventory",
+        "GT03.public_types"
+      ],
+      "rationale": "Native parsing checks validity and script inventory checks file scope; separate judgment reviews affected public declarations, stable gameplay data and justified Variant/dynamic boundaries under adopted policy.",
+      "source_refs": [
+        "pack:O08",
+        "workflow:GD13"
+      ],
+      "preserved_exception": "Use Variant deliberately for genuinely dynamic interfaces.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G20",
+      "statement": "Follow one GDScript style convention and formatter configuration.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "M",
+      "primary_treatment": "deterministic_check",
+      "supporting_treatments": [],
+      "check_ids": [
+        "GT01.format",
+        "GT01.lint"
+      ],
+      "rationale": "Pinned selected-file formatting and configured style are decidable after suppressions/exceptions are explicit.",
+      "source_refs": [
+        "pack:O09",
+        "pack:T03",
+        "workflow:GD04",
+        "workflow:GD05"
+      ],
+      "preserved_exception": "Record justified deviations instead of alternating styles.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption and negative-case calibration: a disallowed configured result blocks the defined boundary; exceptions remain scoped and recorded."
+    },
+    {
+      "rule_id": "G21",
+      "statement": "Keep scripts cohesive; extract behavior after a concrete need appears.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "specialist_judgment",
+      "supporting_treatments": [],
+      "check_ids": [
+        "GT04.adequacy",
+        "GT05.inspectability"
+      ],
+      "rationale": "Concrete change cost and responsibility matter; line/method metrics can reward harmful fragmentation.",
+      "source_refs": [
+        "pack:VTXT02",
+        "pack:C11",
+        "workflow:GD05",
+        "workflow:AW16"
+      ],
+      "preserved_exception": "No universal line limit or mandatory component count.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G22",
+      "statement": "Prefer composition for independent capabilities; use shallow meaningful inheritance.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "specialist_judgment",
+      "supporting_treatments": [
+        "runtime_editor_evidence"
+      ],
+      "check_ids": [
+        "GT04.contracts",
+        "GT05.inspectability"
+      ],
+      "rationale": "Assess capability changes and overrides; stable inherited variants are valid and no universal depth applies.",
+      "source_refs": [
+        "pack:A09",
+        "pack:C12"
+      ],
+      "preserved_exception": "Inherited scenes can represent real stable variants.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G23",
+      "statement": "Start simple state behavior with an enum; split states when complexity warrants it.",
+      "original_proposed_strength": "conditional",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "specialist_judgment",
+      "supporting_treatments": [
+        "runtime_editor_evidence"
+      ],
+      "check_ids": [
+        "GT04.contracts"
+      ],
+      "rationale": "Transition assertions reveal behavior errors; enum versus state objects/nodes remains an appropriate-complexity decision.",
+      "source_refs": [
+        "pack:A02",
+        "pack:R2-01"
+      ],
+      "preserved_exception": "Node or object state implementations are valid alternatives.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G24",
+      "statement": "Initialize dependencies according to enter-tree and ready ordering.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT04.lifecycle"
+      ],
+      "rationale": "Exercise standalone, spawn and reentry order with explicit setup/deferred alternatives; callback text order is inadequate.",
+      "source_refs": [
+        "pack:A07",
+        "pack:O12",
+        "workflow:GD10"
+      ],
+      "preserved_exception": "Use explicit setup or deferred initialization when needed.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G25",
+      "statement": "Manage teardown for spawned nodes, subscriptions and delayed actions.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT04.lifecycle",
+        "GT08.lifetime"
+      ],
+      "rationale": "Repeat death/reload/restart, await settled cleanup and verify owners, late actions and duplicate reactions.",
+      "source_refs": [
+        "pack:T02",
+        "pack:T07",
+        "workflow:GD10",
+        "workflow:GD08"
+      ],
+      "preserved_exception": "Retained session state must have an explicit owner.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G26",
+      "statement": "Surface missing component configuration through editor warnings.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT05.feedback_recovery"
+      ],
+      "rationale": "Remove selected required configuration and observe refreshed feedback; runtime-only failures use runtime diagnostics.",
+      "source_refs": [
+        "pack:O14",
+        "pack:O01",
+        "workflow:GD10"
+      ],
+      "preserved_exception": "Use runtime diagnostics for failures unavailable in the editor.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid.",
+      "check_case_selection": {
+        "GT05.feedback_recovery": [
+          "configuration_feedback"
+        ]
+      }
+    },
+    {
+      "rule_id": "G27",
+      "statement": "Make authoring automation reversible and separate editor behavior from runtime.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT05.feedback_recovery",
+        "GT05.reopen",
+        "GT05.editor_runtime"
+      ],
+      "rationale": "Exercise intended editor and game behavior, reject unintended editor-only mutations during play, and verify independent undo/recovery then saved reopen; preserve reviewed disposable-conversion exceptions.",
+      "source_refs": [
+        "pack:T09",
+        "pack:O14",
+        "workflow:GD12"
+      ],
+      "preserved_exception": "A disposable one-off conversion can use a reviewed script.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid.",
+      "check_case_selection": {
+        "GT05.feedback_recovery": [
+          "authoring_recovery"
+        ]
+      }
+    },
+    {
+      "rule_id": "G28",
+      "statement": "Use native Controls, Containers and anchors for authored interface layout.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT05.inspectability",
+        "GT06.presentation"
+      ],
+      "rationale": "Inspect native layout and real resize/long-text/focus behavior; specialized drawing remains valid.",
+      "source_refs": [
+        "pack:P01",
+        "pack:R2-03",
+        "workflow:AW02"
+      ],
+      "preserved_exception": "Custom drawing can serve specialized visuals.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G29",
+      "statement": "Centralize repeated styling in Theme resources and variations.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "specialist_judgment",
+      "supporting_treatments": [],
+      "check_ids": [
+        "GT05.inspectability",
+        "GT06.presentation"
+      ],
+      "rationale": "Review repeated styling and shared theme edits; local variation may be intentional.",
+      "source_refs": [
+        "pack:P02"
+      ],
+      "preserved_exception": "Local overrides can express intentional exceptions.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G30",
+      "statement": "Use semantic InputMap actions and document their bindings.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT04.contracts",
+        "GT06.play"
+      ],
+      "rationale": "Reconcile action references/settings and exercise intended devices; semantic names and bindings need review.",
+      "source_refs": [
+        "pack:P03"
+      ],
+      "preserved_exception": "Raw events may be necessary for remapping or text entry.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G31",
+      "statement": "Respect GUI consumption and gameplay input routing.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT04.contracts",
+        "GT06.play"
+      ],
+      "rationale": "Exercise focused/hovered UI with gameplay and continuous polling modes; callback choice alone proves no consumption.",
+      "source_refs": [
+        "pack:P03",
+        "workflow:GD10"
+      ],
+      "preserved_exception": "Continuous polling requires separate mode or focus gating.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G32",
+      "statement": "Use native body movement APIs with correct timestep handling.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT04.contracts",
+        "GT06.play"
+      ],
+      "rationale": "Collision and varied-rate fixtures test selected movement expectations; a delta/movement call regex cannot verify units.",
+      "source_refs": [
+        "pack:P04",
+        "pack:R2-09",
+        "workflow:GD10"
+      ],
+      "preserved_exception": "Direct transforms are appropriate for nonphysical visuals.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G33",
+      "statement": "Name collision layers and keep layer/mask intent explicit.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT05.inspectability",
+        "GT04.contracts"
+      ],
+      "rationale": "Named settings plus positive and negative contact fixtures check project-specific layer/mask intent.",
+      "source_refs": [
+        "pack:P04"
+      ],
+      "preserved_exception": "Use project-specific categories rather than a universal schema.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G34",
+      "statement": "Author reusable animations in native resources with a deliberate reset pose.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT05.inspectability",
+        "GT06.presentation",
+        "GT04.contracts"
+      ],
+      "rationale": "Preview interrupt/reload sequences and reset state; native track presence does not prove intended pose.",
+      "source_refs": [
+        "pack:P05"
+      ],
+      "preserved_exception": "Tweens fit runtime-dependent transitions.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G35",
+      "statement": "Separate animation-state playback from gameplay-state responsibility.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "specialist_judgment",
+      "supporting_treatments": [
+        "runtime_editor_evidence"
+      ],
+      "check_ids": [
+        "GT04.contracts",
+        "GT06.presentation"
+      ],
+      "rationale": "Review state authority and transition outcomes; cohesive small scripts may legitimately combine responsibilities.",
+      "source_refs": [
+        "pack:VTXT01",
+        "pack:A02"
+      ],
+      "preserved_exception": "Small scenes may keep both in one cohesive script.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G36",
+      "statement": "Declare pause behavior through process modes and event handling.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT04.contracts",
+        "GT06.play"
+      ],
+      "rationale": "Pause/menu/resume scenarios exercise process modes and still-active signals under actual routing.",
+      "source_refs": [
+        "pack:P08",
+        "workflow:GD10"
+      ],
+      "preserved_exception": "Signals can still run while processing is paused.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G37",
+      "statement": "Separate save data, user preferences and live scene objects.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT04.contracts"
+      ],
+      "rationale": "Round-trip, missing and invalid save fixtures test selected persistence boundaries; layout alone is insufficient.",
+      "source_refs": [
+        "pack:P06"
+      ],
+      "preserved_exception": "Tutorial schemas need game-specific extension.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G38",
+      "statement": "Version persistent data and define recovery from incompatible saves.",
+      "original_proposed_strength": "conditional",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT04.contracts"
+      ],
+      "rationale": "Older and corrupt data need explicit recovery assertions; a version field is not migration correctness.",
+      "source_refs": [
+        "pack:P06"
+      ],
+      "preserved_exception": "Disposable prototypes may not need migrations.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G39",
+      "statement": "Organize around coherent features and colocate closely related assets.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "advisory_guidance",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT09.findings"
+      ],
+      "rationale": "Feature location/removal and dependency traces inform organization; folder naming is no coherence predicate.",
+      "source_refs": [
+        "pack:O03",
+        "pack:C08"
+      ],
+      "preserved_exception": "Existing consistent structure may be preferable.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Advisory design guidance; no automatic blocking. A separately adopted concrete project contract may be reviewed with evidence; do not promote this whole rule to a regex gate."
+    },
+    {
+      "rule_id": "G40",
+      "statement": "Commit native source, import settings and required UID sidecars; ignore caches.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "deterministic_check",
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT02.cold",
+        "GT02.import"
+      ],
+      "rationale": "Tracked source/import/UID inspection plus cold load exposes selected missing-reference and cache masking problems.",
+      "source_refs": [
+        "pack:O17",
+        "pack:U01",
+        "workflow:GD02"
+      ],
+      "preserved_exception": "Follow the exact engine version ignore rules.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G41",
+      "statement": "Preserve identity when moving assets and keep scene diffs focused.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "deterministic_check",
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT02.cold",
+        "GT03.scene_scripts",
+        "GT05.reopen"
+      ],
+      "rationale": "Compare moved identities and load affected consumers; focused diffs and legitimate resave normalization need judgment.",
+      "source_refs": [
+        "pack:U01",
+        "pack:T08",
+        "workflow:GD12"
+      ],
+      "preserved_exception": "Editor resaves can legitimately normalize fields.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G42",
+      "statement": "Document public scene contracts and important architecture decisions.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "advisory_guidance",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT09.findings"
+      ],
+      "rationale": "A new reader must locate accurate entry/extension contracts; document presence cannot establish usability.",
+      "source_refs": [
+        "pack:O16",
+        "pack:A06",
+        "workflow:AW08"
+      ],
+      "preserved_exception": "Avoid comments that merely repeat code.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Advisory design guidance; no automatic blocking. A separately adopted concrete project contract may be reviewed with evidence; do not promote this whole rule to a regex gate."
+    },
+    {
+      "rule_id": "G43",
+      "statement": "Pin engine, export templates and relevant addon/tool versions.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "M",
+      "primary_treatment": "deterministic_check",
+      "supporting_treatments": [],
+      "check_ids": [
+        "GT00.versions"
+      ],
+      "rationale": "Compare actual binary, tools, addon pins and required templates with adopted declarations; suitability remains separate.",
+      "source_refs": [
+        "pack:T01",
+        "pack:T04",
+        "pack:T05",
+        "workflow:GD02",
+        "workflow:GD06",
+        "workflow:GD08"
+      ],
+      "preserved_exception": "Upgrades use a deliberate compatibility review.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption and negative-case calibration: a disallowed configured result blocks the defined boundary; exceptions remain scoped and recorded."
+    },
+    {
+      "rule_id": "G44",
+      "statement": "Run import, parse and relevant runtime checks as different gates.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "deterministic_check",
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT02.import",
+        "GT03.inventory",
+        "GT03.parse",
+        "GT04.results",
+        "GT09.integrity"
+      ],
+      "rationale": "Separate completed scoped evidence is required; command names or successful startup are not a project audit.",
+      "source_refs": [
+        "pack:T01",
+        "workflow:GD02",
+        "workflow:GD03"
+      ],
+      "preserved_exception": "A successful startup is not a whole-project audit.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G45",
+      "statement": "Choose one test framework and test valuable behavior boundaries.",
+      "original_proposed_strength": "default",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "specialist_judgment",
+      "supporting_treatments": [
+        "deterministic_check"
+      ],
+      "check_ids": [
+        "GT04.adequacy",
+        "GT04.results"
+      ],
+      "rationale": "Review external expectations, assertions and real boundaries; counts/framework choice cannot establish test value.",
+      "source_refs": [
+        "pack:T04",
+        "pack:T05",
+        "pack:video-03",
+        "workflow:GD06",
+        "workflow:GD07",
+        "workflow:GD08",
+        "workflow:GD09",
+        "workflow:AW03"
+      ],
+      "preserved_exception": "Avoid brittle tests of private implementation details.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G46",
+      "statement": "Inspect authored scenes and visibly exercise the changed gameplay.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT05.reopen",
+        "GT06.play",
+        "GT06.presentation"
+      ],
+      "rationale": "Saved authoring and visible changed-loop evidence answer different questions; absent GUI observation remains a declared gap.",
+      "source_refs": [
+        "pack:T02",
+        "workflow:AW02"
+      ],
+      "preserved_exception": "Headless-only environments must report the missing evidence.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G47",
+      "statement": "Measure representative performance and lifetime behavior before optimizing.",
+      "original_proposed_strength": "conditional",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "deterministic_check",
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT08.measure",
+        "GT08.lifetime",
+        "GT08.representative"
+      ],
+      "rationale": "Representative comparisons and repeated settled cleanup support bounded claims, not universal performance numbers.",
+      "source_refs": [
+        "pack:T07",
+        "pack:A08",
+        "workflow:GD14",
+        "workflow:AW15"
+      ],
+      "preserved_exception": "A tiny game may only need targeted monitoring.",
+      "rollout_phase": "S3",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G48",
+      "statement": "Verify exported builds and resource inclusion on intended targets.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "deterministic_check",
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT07.artifact",
+        "GT07.target_launch"
+      ],
+      "rationale": "Launch the hashed target artifact and exercise packaging/dynamic loads; editor success cannot substitute.",
+      "source_refs": [
+        "pack:P07",
+        "workflow:GD15"
+      ],
+      "preserved_exception": "Editor execution cannot substitute for platform execution.",
+      "rollout_phase": "S3",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G49",
+      "statement": "Attach source, version, exception and acceptance evidence to each adopted rule.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "J",
+      "primary_treatment": "specialist_judgment",
+      "supporting_treatments": [
+        "deterministic_check"
+      ],
+      "check_ids": [
+        "GT09.integrity",
+        "GT09.findings"
+      ],
+      "rationale": "Provenance fields are mechanically checkable; source relevance, exception validity and policy soundness need judgment.",
+      "source_refs": [
+        "pack:VTXT02",
+        "pack:C06",
+        "workflow:AW05",
+        "workflow:AW08"
+      ],
+      "preserved_exception": "Personal conventions must be labeled as such.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    },
+    {
+      "rule_id": "G50",
+      "statement": "Review MCP and agent actions through actual files, editor state and logs.",
+      "original_proposed_strength": "required",
+      "whole_rule_audit_class": "P",
+      "primary_treatment": "runtime_editor_evidence",
+      "supporting_treatments": [
+        "deterministic_check",
+        "specialist_judgment"
+      ],
+      "check_ids": [
+        "GT05.reopen",
+        "GT06.play",
+        "GT09.integrity"
+      ],
+      "rationale": "Compare claimed automation success with saved files, fresh editor/runtime observations and appropriate logs; MCP remains optional.",
+      "source_refs": [
+        "pack:T13",
+        "pack:T14",
+        "pack:C01",
+        "workflow:GD17"
+      ],
+      "preserved_exception": "Automation integrations are optional workflow tools.",
+      "rollout_phase": "S2",
+      "blocking_policy": "Only after explicit project adoption: a reproduced violated expectation or missing required evidence blocks the defined boundary. Reviewer preference or a text proxy alone cannot block; approved exceptions stay valid."
+    }
+  ]
+}

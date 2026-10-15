@@ -1,0 +1,47 @@
+{
+  "id": "tuning-effect",
+  "gate": "GT05",
+  "run_id": "20261015T174724-7d6857b9",
+  "source_digest": "29a705f96d228a35e70e8bca7a85f9bd0b62ea72b37fe6e466560659ea8e94f8",
+  "scene": "res://main.tscn",
+  "expected": "Inspector health set from three to five in a saved/reopened variant changes hits-to-defeat to five; the second enemy remains independent.",
+  "actual": "Reopened Inspector Health was 5. Runtime started left=5/right=3; after three hits left=2; after four left=1; fifth defeated left. Right stayed 3 throughout. Baseline defeated on third hit.",
+  "outcome": "pass",
+  "observer": "Codex via CUA native macOS controls",
+  "method": "Native editor/Inspector accessibility plus real mouse interaction and captured running-game frames",
+  "sequence": "Select Left; set Inspector Health stepper 3 to 5; save; quit and fresh editor reopen; confirm Left Health 5; launch main scene; click Hit left three, four, then five times",
+  "artifacts": [
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/transformations.json",
+      "sha256": "4f4f6a6d1c4f78c9e3f53584df5590a2487fbc6c877056ab2d0b4771f29d9784"
+    },
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/tuning-inspector-saved-five.txt",
+      "sha256": "f45f1087a76a97912415683e490d9e03515f83f419e33fdce221cd3e09646578"
+    },
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/tuning-inspector-after-reopen.txt",
+      "sha256": "231c3325c3b93cbcc7304a21570b41510bed3809e5b818438aeeb4d0abfc6b7b"
+    },
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/tuned-game-baseline.png",
+      "sha256": "ac1c02323523b8d45c7f4de5a5b7a1ed62134b01569c0dc493597466c2bc2a00"
+    },
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/tuned-game-three-hits.png",
+      "sha256": "4534b85230f96dac3935192e674967e9a5f39ee471545bb297de5174ac7168b3"
+    },
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/tuned-game-four-hits.png",
+      "sha256": "092a220a31477c63788e98db996365b533abb70cbb2fc300d691a60497e360e2"
+    },
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/tuned-game-five-hit-defeat.png",
+      "sha256": "9807932f2046596c6d3a3f45b43eb58a12e0eb78b802c783f3e1a5d649e702be"
+    }
+  ],
+  "created_at": 1792091755.200387,
+  "transformation": "Generated application identity and native serialization; tuning case additionally changes Left.health 3 to 5. Exact identities/diff in transformations.json.",
+  "variant_root": "/Users/kyle/Documents/code/godot-workflows/.godot-workflow-artifacts/tuning-preparation/20261015T200329-2c1de913/project",
+  "variant_digest": "a9bd4aed10923e031c9731c27cba30c86a610595a08483c5b7f37a9f93542ba7"
+}

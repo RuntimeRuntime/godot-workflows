@@ -1,0 +1,353 @@
+{
+  "status": "Historical pre-review implementation snapshot; current reviewed-helper evidence is in draft-review.json",
+  "helper_tests": {
+    "count": 26,
+    "result": "pass",
+    "command": "python3 -m unittest discover -s tests"
+  },
+  "engine": {
+    "path": "/Applications/Godot.app/Contents/MacOS/Godot",
+    "version": "4.7.1.stable.official.a13da4feb",
+    "sha256": "ecc8da2d60100102cfca6e833d3860d7436b46ae062fa072ce89a6c95d664a3f"
+  },
+  "gut_pin": {
+    "repository": "https://github.com/bitwes/Gut.git",
+    "tag": "v9.7.1",
+    "commit": "aeb5d4f3f7f0a6c9b5e178876d6c99b791fda605",
+    "license": "MIT",
+    "scope": "Disposable fixture only; ignored dependency cache"
+  },
+  "calibration": {
+    "all_matched": true,
+    "case_count": 16,
+    "cases": [
+      {
+        "case": "valid-baseline",
+        "expected": "pass",
+        "actual": "pass",
+        "matches": true,
+        "cli_exit_code": 0,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "pass"
+        },
+        "test_counts": {
+          "discovered": 8,
+          "executed": 8,
+          "passed": 8,
+          "failed": 0,
+          "errored": 0,
+          "skipped_or_pending": 0
+        },
+        "runner_exit_codes": [
+          0
+        ]
+      },
+      {
+        "case": "invalid-script",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "cli_exit_code": 1,
+        "checks": {
+          "preflight": "pass",
+          "import": "fail",
+          "parse": "fail"
+        }
+      },
+      {
+        "case": "missing-asset",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "cli_exit_code": 1,
+        "checks": {
+          "preflight": "pass",
+          "import": "fail",
+          "parse": "fail"
+        }
+      },
+      {
+        "case": "shared-mutable-state",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "cli_exit_code": 1,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "fail"
+        },
+        "test_counts": {
+          "discovered": 8,
+          "executed": 8,
+          "passed": 7,
+          "failed": 1,
+          "errored": 0,
+          "skipped_or_pending": 0
+        },
+        "runner_exit_codes": [
+          1
+        ]
+      },
+      {
+        "case": "ignored-tuning",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "cli_exit_code": 1,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "fail"
+        },
+        "test_counts": {
+          "discovered": 8,
+          "executed": 8,
+          "passed": 7,
+          "failed": 1,
+          "errored": 0,
+          "skipped_or_pending": 0
+        },
+        "runner_exit_codes": [
+          1
+        ]
+      },
+      {
+        "case": "lost-owned-child",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "cli_exit_code": 1,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "fail"
+        },
+        "test_counts": {
+          "discovered": 8,
+          "executed": 8,
+          "passed": 7,
+          "failed": 1,
+          "errored": 0,
+          "skipped_or_pending": 0
+        },
+        "runner_exit_codes": [
+          1
+        ]
+      },
+      {
+        "case": "wrong-assertion",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "cli_exit_code": 1,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "fail"
+        },
+        "test_counts": {
+          "discovered": 8,
+          "executed": 8,
+          "passed": 7,
+          "failed": 1,
+          "errored": 0,
+          "skipped_or_pending": 0
+        },
+        "runner_exit_codes": [
+          1
+        ]
+      },
+      {
+        "case": "empty-suite",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "cli_exit_code": 1,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "fail"
+        },
+        "test_counts": {
+          "discovered": 0,
+          "executed": 0,
+          "passed": 0,
+          "failed": 0,
+          "errored": 0,
+          "skipped_or_pending": 0
+        },
+        "runner_exit_codes": [
+          0
+        ]
+      },
+      {
+        "case": "pending-case",
+        "expected": "fail",
+        "actual": "fail",
+        "matches": true,
+        "cli_exit_code": 1,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "fail"
+        },
+        "test_counts": {
+          "discovered": 9,
+          "executed": 8,
+          "passed": 8,
+          "failed": 0,
+          "errored": 0,
+          "skipped_or_pending": 1
+        },
+        "runner_exit_codes": [
+          0
+        ]
+      },
+      {
+        "case": "hung-test",
+        "expected": "error",
+        "actual": "error",
+        "matches": true,
+        "cli_exit_code": 1,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "error"
+        },
+        "test_counts": null,
+        "runner_exit_codes": [
+          -15
+        ]
+      },
+      {
+        "case": "valid-procedural-content",
+        "expected": "pass",
+        "actual": "pass",
+        "matches": true,
+        "cli_exit_code": 0,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "pass"
+        },
+        "test_counts": {
+          "discovered": 8,
+          "executed": 8,
+          "passed": 8,
+          "failed": 0,
+          "errored": 0,
+          "skipped_or_pending": 0
+        },
+        "runner_exit_codes": [
+          0
+        ]
+      },
+      {
+        "case": "valid-dynamic-boundary",
+        "expected": "pass",
+        "actual": "pass",
+        "matches": true,
+        "cli_exit_code": 0,
+        "checks": {
+          "preflight": "pass",
+          "import": "pass",
+          "parse": "pass",
+          "tests": "pass"
+        },
+        "test_counts": {
+          "discovered": 8,
+          "executed": 8,
+          "passed": 8,
+          "failed": 0,
+          "errored": 0,
+          "skipped_or_pending": 0
+        },
+        "runner_exit_codes": [
+          0
+        ]
+      },
+      {
+        "case": "dirty-after-success",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true
+      },
+      {
+        "case": "missing-report-after-success",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true
+      },
+      {
+        "case": "corrupt-report-after-success",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true
+      },
+      {
+        "case": "unobserved-required-play",
+        "expected": "blocked",
+        "actual": "blocked",
+        "matches": true
+      }
+    ],
+    "raw_report": ".godot-workflow-artifacts/implementation-calibration/calibration.json",
+    "seconds": 81.87
+  },
+  "editor_play": {
+    "outcome": "pass",
+    "observations": [
+      "editor-reopen",
+      "tuning-effect",
+      "visible-pause"
+    ],
+    "observation_results": "validation/observation-results.json",
+    "historical_blocked_attempt": "validation/editor-play-attempt.json",
+    "actual_method": "Native editor save/quit/fresh reopen, Inspector AX stepper change and real game mouse input; captures and controlled source identities retained"
+  },
+  "skill_validator": "All three source SKILL.md files pass bundled quick_validate.py; its PyYAML dependency was isolated in a temporary environment.",
+  "activation": {
+    "status": "enabled",
+    "skills_repo": "/Users/kyle/Documents/code/Skills",
+    "active_directory": "/Users/kyle/.codex/skills",
+    "skills": [
+      "godot-author-scenes",
+      "godot-state-lifecycle",
+      "godot-verify-behavior"
+    ],
+    "manager_validation": "pass",
+    "manager_doctor": "pass",
+    "existing_manifest_fields_preserved": true,
+    "existing_lockfile_unchanged": true,
+    "standalone_installed_run": "validation/fixture/.godot-workflow-artifacts/20261015T174724-7d6857b9/run.json",
+    "installed_checks": {
+      "preflight": "pass",
+      "import": "pass",
+      "parse": "pass",
+      "tests": "pass"
+    },
+    "installed_test_counts": {
+      "discovered": 8,
+      "executed": 8,
+      "passed": 8,
+      "failed": 0,
+      "errored": 0,
+      "skipped_or_pending": 0
+    },
+    "closure": "GT09 pass: automated checks and all three declared observations are current"
+  },
+  "original_status": "runnable advisory draft; declared fixture evidence complete",
+  "record_scope": "Historical pre-review implementation snapshot; current reviewed-helper evidence is in draft-review.json. Original GUI observations retain their original helper identity."
+}

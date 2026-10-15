@@ -1,0 +1,47 @@
+{
+  "id": "visible-pause",
+  "gate": "GT06",
+  "run_id": "20261015T174724-7d6857b9",
+  "source_digest": "29a705f96d228a35e70e8bca7a85f9bd0b62ea72b37fe6e466560659ea8e94f8",
+  "scene": "res://main.tscn",
+  "expected": "Hit left changes only left health; pause/menu/resume through real input leaves hit count unchanged; gameplay resumes.",
+  "actual": "First hit produced left=2/right=3/hits=1. Resume kept left=2/right=3/hits=1. Following hit produced left=1/hits=2. Third hit defeated left while right stayed 3.",
+  "outcome": "pass",
+  "observer": "Codex via CUA native macOS controls",
+  "method": "Native editor/Inspector accessibility plus real mouse interaction and captured running-game frames",
+  "sequence": "Launch identified main scene; click Hit left once; click Pause; click Resume; click Hit left again, then a third time",
+  "artifacts": [
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/transformations.json",
+      "sha256": "4f4f6a6d1c4f78c9e3f53584df5590a2487fbc6c877056ab2d0b4771f29d9784"
+    },
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/game-visible-baseline.png",
+      "sha256": "46654ce1c02677ce50f40d54a86164186a9f1231b9d98b320c081bcda07e1d83"
+    },
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/game-left-hit.png",
+      "sha256": "b13ce50e81548595899bb3c08290d615de9ec4c628e93a3099fa9c789febea8b"
+    },
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/game-paused.png",
+      "sha256": "b77d9e9a0820a4467b5288d4506fdc941b88a107eb97357f420a2a799da44bb2"
+    },
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/game-resumed-no-leak.png",
+      "sha256": "009ee851685cb4f022d54e7eda4d2abb86504079eb21bca92ef7801eaa6cb8fb"
+    },
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/game-after-resume-hit.png",
+      "sha256": "caf35e9d0f3528f049994f5f9ac5fc0dbe2960bcc5be2fa1bc108fdcd2cb0432"
+    },
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/game-baseline-three-hit-defeat.png",
+      "sha256": "a499d9ca7633e9dc8c09706b419e49758c38bf132f03741c86d26501ec8b1488"
+    }
+  ],
+  "created_at": 1792091755.1493309,
+  "transformation": "Generated application identity and native serialization; tuning case additionally changes Left.health 3 to 5. Exact identities/diff in transformations.json.",
+  "variant_root": "/Users/kyle/Documents/code/godot-workflows/validation/fixture/.godot-workflow-artifacts/20261015T174724-7d6857b9/project",
+  "variant_digest": "3c9107e00025ef84174554c1c5f37fa6766c7bbdec840e3c947e27b2f8718cac"
+}

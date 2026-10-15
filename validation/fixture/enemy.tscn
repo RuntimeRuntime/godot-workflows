@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1"]
+[ext_resource type="Script" path="res://actor_state.gd" id="2"]
+[ext_resource type="Resource" path="res://enemy_definition.tres" id="3"]
+
+[sub_resource type="Resource" id="State"]
+resource_local_to_scene = true
+script = ExtResource("2")
+health = 3
+counters = Array[int]([0])
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1")
+state = SubResource("State")
+definition = ExtResource("3")
+
+[node name="Body" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-56, -65, 56, -65, 65, 40, 30, 65, -30, 65, -65, 40)
+color = Color(0.25, 0.8, 0.7, 1)
+
+[node name="Eyes" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-25, -25, -12, -25, -12, -10, -25, -10)
+color = Color(0.06, 0.09, 0.14, 1)
+
+[node name="OtherEye" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(12, -25, 25, -25, 25, -10, 12, -10)
+color = Color(0.06, 0.09, 0.14, 1)
+
+[node name="Health" type="Label" parent="."]
+offset_left = -70.0
+offset_top = 85.0
+offset_right = 70.0
+offset_bottom = 120.0
+theme_override_font_sizes/font_size = 23
+text = "Health: 3"
+horizontal_alignment = 1
+
+[node name="Pulse" type="Timer" parent="."]
+one_shot = true

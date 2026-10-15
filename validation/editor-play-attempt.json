@@ -1,0 +1,23 @@
+{
+  "outcome": "blocked",
+  "run": "validation/fixture/.godot-workflow-artifacts/20261015T174724-7d6857b9/run.json",
+  "editor_launch_log": "validation/fixture/.godot-workflow-artifacts/20261015T174724-7d6857b9/editor.log",
+  "editor_launch_log_sha256": "05fff866793e837ae689d3652935e055ad5b70a9a6ca463afc96166e85509a95",
+  "editor_graphics_initialized": true,
+  "actual_editor_or_game_observation": false,
+  "named_observer": "Codex using Computer Use",
+  "sequence": [
+    "User reported Mac unlocked",
+    "Native app inventory was available",
+    "Copied Godot editor launched against isolated enemy scene",
+    "Computer control stalled for 1260 seconds then reported Mac locked again",
+    "A bounded subsequent inventory confirmed the Mac remained locked"
+  ],
+  "owned_editor_closed": true,
+  "required_observations": [
+    "editor-reopen",
+    "tuning-effect",
+    "visible-pause"
+  ],
+  "next_step": "Once native control is available, prepare a fresh default fixture run and acquire all three declared observations. Headless checks do not replace them."
+}

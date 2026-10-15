@@ -1,0 +1,63 @@
+{
+  "run": "validation/fixture/.godot-workflow-artifacts/20261015T174724-7d6857b9/run.json",
+  "summary": {
+    "gate": "GT09",
+    "outcome": "pass",
+    "problems": [],
+    "unresolved_failure": false,
+    "claim": "Current selected evidence complete; observation credibility and scope need judgment"
+  },
+  "observer": "Codex via CUA",
+  "observations": [
+    {
+      "id": "editor-reopen",
+      "scene": "res://enemy.tscn",
+      "expected": "After a fresh editor reopen Body, Health and Pulse remain authored and state/definition assignments are inspectable.",
+      "actual": "Body, Eyes, OtherEye, Health and Pulse persisted. Inspector Health remained 3; state and shared definition assignments were visible.",
+      "outcome": "pass",
+      "captures": [
+        "evidence/editor-before-reopen.png",
+        "evidence/editor-after-reopen.png"
+      ]
+    },
+    {
+      "id": "visible-pause",
+      "scene": "res://main.tscn",
+      "expected": "Hit left changes only left health; pause/menu/resume through real input leaves hit count unchanged; gameplay resumes.",
+      "actual": "First hit produced left=2/right=3/hits=1. Resume kept left=2/right=3/hits=1. Following hit produced left=1/hits=2. Third hit defeated left while right stayed 3.",
+      "outcome": "pass",
+      "captures": [
+        "evidence/game-visible-baseline.png",
+        "evidence/game-left-hit.png",
+        "evidence/game-paused.png",
+        "evidence/game-resumed-no-leak.png",
+        "evidence/game-after-resume-hit.png",
+        "evidence/game-baseline-three-hit-defeat.png"
+      ]
+    },
+    {
+      "id": "tuning-effect",
+      "scene": "res://main.tscn",
+      "expected": "Inspector health set from three to five in a saved/reopened variant changes hits-to-defeat to five; the second enemy remains independent.",
+      "actual": "Reopened Inspector Health was 5. Runtime started left=5/right=3; after three hits left=2; after four left=1; fifth defeated left. Right stayed 3 throughout. Baseline defeated on third hit.",
+      "outcome": "pass",
+      "captures": [
+        "evidence/tuning-inspector-saved-five.txt",
+        "evidence/tuning-inspector-after-reopen.txt",
+        "evidence/tuned-game-baseline.png",
+        "evidence/tuned-game-three-hits.png",
+        "evidence/tuned-game-four-hits.png",
+        "evidence/tuned-game-five-hit-defeat.png"
+      ]
+    }
+  ],
+  "prior_attempt": "editor-play-attempt.json",
+  "limit": "Shared 2D fixture only; no real-game, 3D or target certification.",
+  "cleanup": {
+    "owned_user_data_links_removed": true,
+    "task_created_processes_closed": [],
+    "source_and_evidence_retained": true
+  },
+  "helper_sha256": "c1983dc542f75c9e5325efd1cfa8ddafeab377082c0cee05cb82eefb1b073070",
+  "record_scope": "Archived observations acquired before the draft-review helper changes. The recorded GT09 pass belongs to that original helper; these observations were not reacquired during review."
+}

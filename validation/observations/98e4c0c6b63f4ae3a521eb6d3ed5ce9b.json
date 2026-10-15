@@ -1,0 +1,31 @@
+{
+  "id": "editor-reopen",
+  "gate": "GT05",
+  "run_id": "20261015T174724-7d6857b9",
+  "source_digest": "29a705f96d228a35e70e8bca7a85f9bd0b62ea72b37fe6e466560659ea8e94f8",
+  "scene": "res://enemy.tscn",
+  "expected": "After a fresh editor reopen Body, Health and Pulse remain authored and state/definition assignments are inspectable.",
+  "actual": "Body, Eyes, OtherEye, Health and Pulse persisted. Inspector Health remained 3; state and shared definition assignments were visible.",
+  "outcome": "pass",
+  "observer": "Codex via CUA native macOS controls",
+  "method": "Native editor/Inspector accessibility plus real mouse interaction and captured running-game frames",
+  "sequence": "Saved enemy, quit editor, launched fresh editor process, selected Enemy and inspected descendants/exports",
+  "artifacts": [
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/transformations.json",
+      "sha256": "4f4f6a6d1c4f78c9e3f53584df5590a2487fbc6c877056ab2d0b4771f29d9784"
+    },
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/editor-before-reopen.png",
+      "sha256": "96677a24f840adb414ca140a81e8e1d7ee1f3e663050c249abe67ae552ad289b"
+    },
+    {
+      "path": "/Users/kyle/Documents/code/godot-workflows/validation/evidence/editor-after-reopen.png",
+      "sha256": "7c69123e80df653023840cc210763f63b154bdc50dcd397629d71e982ac6883c"
+    }
+  ],
+  "created_at": 1792091755.0976481,
+  "transformation": "Generated application identity and native serialization; tuning case additionally changes Left.health 3 to 5. Exact identities/diff in transformations.json.",
+  "variant_root": "/Users/kyle/Documents/code/godot-workflows/validation/fixture/.godot-workflow-artifacts/20261015T174724-7d6857b9/project",
+  "variant_digest": "3c9107e00025ef84174554c1c5f37fa6766c7bbdec840e3c947e27b2f8718cac"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "godot-workflows",
+  "version": "0.1.0",
+  "python": ">=3.9",
+  "stage": "advisory",
+  "skills": ["godot-author-scenes", "godot-state-lifecycle", "godot-verify-behavior"],
+  "fixture_engine": "4.7.1.stable.official.a13da4feb",
+  "fixture_gut": "9.7.1"
+}

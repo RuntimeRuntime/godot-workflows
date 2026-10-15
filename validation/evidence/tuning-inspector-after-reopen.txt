@@ -1,0 +1,169 @@
+Window: "main.tscn - godot-workflow-20261015T200329-2c1de913 - Godot Engine", App: Godot.
+0 standard window main.tscn - godot-workflow-20261015T200329-2c1de913 - Godot Engine, Secondary Actions: Raise
+	1 container
+		2 unknown
+			3 menu bar
+			4 text (settable) main.tscn - godot-workflow-20261015T200329-2c1de913
+			5 toggle button (settable, boolean) 2D, Value: on
+			6 toggle button (settable, boolean) 3D, Value: off
+			7 toggle button (settable, boolean) Script, Value: off
+			8 toggle button (settable, boolean) Game, Value: off
+			9 toggle button (settable, boolean) Asset Store, Value: off
+			10 toggle button (settable, boolean) Run the project's main scene., Value: off
+			11 toggle button (disabled, settable, boolean) Pause the running project's execution for debugging., Value: off
+			12 button (disabled) Stop the currently running project.
+			13 toggle button (settable, boolean) Play the currently edited scene., Value: off
+			14 toggle button (settable, boolean) Play a custom scene., Value: off
+			15 toggle button (settable, boolean) Enable Movie Maker Mode, Value: off
+			16 tab group
+				17 tab (settable, boolean) Scene, Value: off
+				18 tab (settable, boolean) Import, Value: off
+			19 button
+			20 container Scene
+				21 container Scene
+					22 button Add/Create a New Node.
+					23 button Instantiate a scene file as a Node. Creates an inherited scene if no root node exists.
+					24 text field (settable) Filter Nodes
+					25 button Detach the script from the selected node.
+					26 toggle button (settable, boolean) Extra scene options., Value: off
+					27 outline
+						28 scroll bar (settable, float) 0
+						29 cell
+			30 tab group
+				31 tab (settable, boolean) FileSystem, Value: off
+				32 tab (settable, boolean) History, Value: off
+			33 button
+			34 container FileSystem
+				35 container FileSystem
+					36 button (disabled) Go to previous selected folder/file.
+					37 button (disabled) Go to next selected folder/file.
+					38 text field (settable) Path, Value: res://
+					39 button Change Split Mode
+					40 text field (settable) Filter Files
+					41 toggle button (settable, boolean) Sort Files, Value: off
+					42 outline Directories
+						43 scroll bar (settable, float) 0
+						44 cell
+			45 splitter (settable, float) Drag to resize, Value: 0
+			46 tab group
+				47 button Add a new scene.
+				48 tab (settable, boolean) main, Value: on
+			49 toggle button (settable, boolean) Show Opened Scenes List, Value: off
+			50 toggle button (settable, boolean) Toggle distraction-free mode., Value: off
+			51 container 2D
+				52 toggle button (settable, boolean) Select Mode, Value: on
+				53 toggle button (settable, boolean) Scene Paint Mode, Value: off
+				54 toggle button (settable, boolean) Move Mode, Value: off
+				55 toggle button (settable, boolean) Rotate Mode, Value: off
+				56 toggle button (settable, boolean) Scale Mode, Value: off
+				57 toggle button (settable, boolean) List Selectable Nodes, Value: off
+				58 toggle button (settable, boolean) Change Pivot, Value: off
+				59 toggle button (settable, boolean) Pan View, Value: off
+				60 toggle button (settable, boolean) Ruler Mode, Value: off
+				61 toggle button (settable, boolean) Use Local Space, Value: on
+				62 toggle button (settable, boolean) off
+				63 toggle button (settable, boolean) off
+				64 toggle button (settable, boolean) Snapping Options, Value: off
+				65 button Lock
+				66 button Group
+				67 toggle button (settable, boolean) Skeleton Options, Value: off
+				68 toggle button (settable, boolean) View, Value: off
+				69 button Center View
+				70 button Zoom Out
+				71 button Reset Zoom: 25.0 %
+				72 button Zoom In
+			73 container
+				74 tab group
+					75 tab (settable, boolean) Output, Value: off
+					76 tab (settable, boolean) Debugger, Value: off
+					77 tab (settable, boolean) Audio, Value: off
+					78 tab (settable, boolean) Animation, Value: off
+					79 tab (settable, boolean) Shader Editor, Value: off
+				80 button (disabled) Notifications:
+				81 link 4.7.1.stable
+				82 toggle button (settable, boolean) Pin Bottom Panel Switching, Value: off
+			83 tab group
+				84 tab (settable, boolean) Inspector, Value: on
+				85 tab (settable, boolean) Signals, Value: off
+				86 tab (settable, boolean) Groups, Value: off
+			87 button
+			88 container Inspector
+				89 container Inspector
+					90 button Create a new resource in memory and edit it.
+					91 button Load an existing resource from disk and edit it.
+					92 toggle button (disabled, settable, boolean) Save the currently edited resource., Value: off
+					93 toggle button (settable, boolean) Extra resource options., Value: off
+					94 button (disabled) Go to previous edited object in history.
+					95 button (disabled) Go to next edited object in history.
+					96 toggle button (settable, boolean) History of recently edited objects., Value: off
+					97 button Node2D
+						98 text (settable) Left
+					99 button Open documentation for this object.
+					100 text field (settable) Filter Properties
+					101 toggle button (settable, boolean) Manage object properties., Value: off
+					102 unknown
+						103 button Category: enemy.gd, Help: No description available.
+						104 button Property: Health, Help: No description available.
+							105 stepper (settable, float) 5
+						106 button Property: State, Help: No description available.
+							107 toggle button (settable, boolean) Assign Resource: WorkflowActorState, Value: off
+							108 toggle button (settable, boolean) Edit, Value: off
+						109 button Property: Definition, Help: No description available.
+							110 button Number of Linked Resources.
+							111 toggle button (settable, boolean) Assign Resource: enemy_definition.tres, Value: off
+							112 toggle button (settable, boolean) Edit, Value: off
+						113 button Category: Node2D, Help: A 2D game object, inherited by all 2D-related nodes. Has a position, rotation, scale, and skew.
+A 2D game object, with a transform (position, rotation, and scale). All 2D nodes, including physics objects and sprites, inherit from Node2D. Use Node2D as a parent node to move, scale and rotate children in a 2D project. Also gives control of the node's render order.
+Note: Since both Node2D and Control inherit from CanvasItem, they share several concepts from the class such as the member 'CanvasItem.z_index' and
+						114 button Section: Transform, Help: Transform
+							115 button Property: Position, Help: Position, relative to the node's parent. See also member 'global_position'.
+								116 stepper (settable, float) x, Value: 300
+								117 stepper (settable, float) y, Value: 285
+							118 button Property: Rotation, Help: Rotation in radians, relative to the node's parent. See also member 'global_rotation'.
+Note: This property is edited in the inspector in degrees. If you want to use degrees in a script, use member 'rotation_degrees'.
+								119 stepper (settable, float) 0
+							120 button Property: Scale, Help: The node's scale, relative to the node's parent. Unscaled value: (1, 1). See also member 'global_scale'.
+Note: Negative X scales in 2D are not decomposable from the transformation matrix. Due to the way scale is represented with transformation matrices in Godot, negative scales on the X axis will be changed to negative scales on the Y axis and a rotation of 180 degrees when decomposed.
+								121 stepper (settable, float) x, Value: 1
+								122 stepper (settable, float) y, Value: 1
+								123 toggle button (settable, boolean) on
+							124 button Property: Skew, Help: If set to a non-zero value, slants the node in one direction or another. This can be used for pseudo-3D effects. See also member 'global_skew'.
+Note: Skew is performed on the X axis only, and between rotation and scaling.
+Note: This property is edited in the inspector in degrees. If you want to use degrees in a script, use skew = deg_to_rad(value_in_degrees).
+								125 stepper (settable, float) 0
+						126 button Category: CanvasItem, Help: Abstract base class for everything in 2D space.
+Abstract base class for everything in 2D space. Canvas items are laid out in a tree; children inherit and extend their parent's transform. CanvasItem is extended by Control for GUI-related nodes, and by Node2D for 2D game objects.
+Any CanvasItem can draw. For this, method 'queue_redraw' is called by the engine, then constant 'NOTIFICATION_DRAW' will be received on idle time to request a redraw. Because of this, canvas items don't need to be redrawn on every fr
+						127 button Section: Visibility, Help: Visibility
+						128 button Section: Ordering, Help: Ordering
+						129 button Section: Texture, Help: Texture
+						130 button Section: Material, Help: Material
+						131 button Category: Node, Help: Base class for all scene objects.
+Nodes are Godot's building blocks. They can be assigned as the child of another node, resulting in a tree arrangement. A given node can contain any number of nodes as children with the requirement that all siblings (direct children of a node) should have unique names.
+A tree of nodes is called a scene. Scenes can be saved to the disk and then instantiated into other scenes. This allows for very high flexibility in the architecture and data model of Godot projects.
+Scene tre
+						132 button Section: Process, Help: Process
+							133 button Property: Mode, Help: The node's processing behavior. To check if the node can process in its current mode, use method 'can_process'.
+Inherit: Inherits member 'process_mode' from the node's parent. This is the default for any newly created node.
+Pausable: Processes when member 'SceneTree.paused' is false. This is the inverse of constant 'PROCESS_MODE_WHEN_PAUSED', and the default for the root node.
+When Paused: Processes only when member 'SceneTree.paused' is true. This is the inverse of constant 'PROCESS_MODE_PAUSABLE'.
+Always:
+								134 toggle button (settable, boolean) Pausable, Value: off
+							135 button Property: Priority, Help: The node's execution order of the process callbacks (method '_process', constant 'NOTIFICATION_PROCESS', and constant 'NOTIFICATION_INTERNAL_PROCESS'). Nodes whose priority value is lower call their process callbacks first, regardless of tree order.
+								136 stepper (settable, float) 0
+							137 button Property: Physics Priority, Help: Similar to member 'process_priority' but for constant 'NOTIFICATION_PHYSICS_PROCESS', method '_physics_process', or constant 'NOTIFICATION_INTERNAL_PHYSICS_PROCESS'.
+								138 stepper (settable, float) 0
+							139 button Section: Thread Group, Help: Thread Group
+						140 button Section: Physics Interpolation, Help: Physics Interpolation
+						141 button Add Metadata
+						142 scroll bar (settable, float) 0
+			143 splitter (settable, float) Drag to resize, Value: 560
+			144 splitter (settable, float) Drag to resize, Value: -560
+		145 text
+146 menu bar
+	147 Godot
+	148 Scene
+	149 Project
+	150 Editor
+	151 Window
+	152 Help
