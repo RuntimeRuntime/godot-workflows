@@ -19,6 +19,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):
 		set_paused(not get_tree().paused)
 		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("hit_left"):
+		hit_left()
+		get_viewport().set_input_as_handled()
+	elif event.is_action_pressed("hit_right"):
+		hit_right()
+		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if not get_tree().paused:
 			hit_left()

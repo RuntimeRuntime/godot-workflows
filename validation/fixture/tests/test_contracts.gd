@@ -95,3 +95,50 @@ func test_native_save_ownership() -> void:
 	assert_true(restored.has_node("OwnedChild"))
 	root.free()
 	restored.free()
+
+
+func _send_physical_key(key: Key, pressed: bool) -> void:
+	var event = InputEventKey.new()
+	event.physical_keycode = key
+	event.pressed = pressed
+	Input.parse_input_event(event)
+	Input.flush_buffered_events()
+
+
+func test_physical_bindings_reach_expected_enemy() -> void:
+	# Fixed expected keys are independent of the configured InputMap values.
+	for key in [KEY_LEFT, KEY_A, KEY_RIGHT, KEY_D]:
+		var level = LEVEL.instantiate()
+		add_child(level)
+		var focused = get_viewport().gui_get_focus_owner()
+		if focused:
+			focused.release_focus()
+		_send_physical_key(key, true)
+		await get_tree().process_frame
+		_send_physical_key(key, false)
+		await get_tree().process_frame
+		var hits_left: bool = key == KEY_LEFT or key == KEY_A
+		assert_eq(level.left.state.health, 2 if hits_left else 3, "left health for key %s" % key)
+		assert_eq(level.right.state.health, 3 if hits_left else 2, "right health for key %s" % key)
+		assert_eq(level.hits, 1, "one gameplay hit for key %s" % key)
+		assert_eq(level.hits_label.text, "Gameplay hits: 1")
+		assert_false(Input.is_action_pressed("hit_left"), "left action released")
+		assert_false(Input.is_action_pressed("hit_right"), "right action released")
+		level.queue_free()
+		await get_tree().process_frame
+
+
+func test_physical_pause_keys_reach_scene() -> void:
+	for key in [KEY_P, KEY_ESCAPE]:
+		var level = LEVEL.instantiate()
+		add_child(level)
+		_send_physical_key(key, true)
+		await get_tree().process_frame
+		_send_physical_key(key, false)
+		await get_tree().process_frame
+		assert_true(get_tree().paused, "physical pause key %s" % key)
+		assert_true(level.pause_panel.visible)
+		assert_eq(level.hits, 0)
+		level.set_paused(false)
+		level.queue_free()
+		await get_tree().process_frame

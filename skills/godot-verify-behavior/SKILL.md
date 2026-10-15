@@ -16,6 +16,10 @@ win; this first adapter understands GUT reports and does not replace other runne
 Use a task record for required checks/cases and editor/play scenarios. Public
 typing, test adequacy and source-selection completeness still need judgment.
 
+For controls or binding changes, follow [physical-input verification](references/topics/SH-03.md)
+through device events, saved InputMap and observable scene behavior; keep real-device
+focus/platform observations separate.
+
 Test meaningful behavior through the actual scene path. Include independent
 instances, repeated transitions, pause/input and failure cases when affected.
 Declare relevant randomness/reset, timing, completion and deadlines. Reconcile

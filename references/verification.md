@@ -51,8 +51,16 @@ diagnosis/correction or infrastructure resolution with affected retest.
 declared scenario and source. It hashes attached captures; it does not prove that
 the observer is truthful or that a screenshot establishes timing/audio/feel.
 Record artifact provenance, the actual observed scene and any controlled variant.
+For changed bindings, follow the physical-event path in [input verification](topics/SH-03.md).
 Agent observation requires demonstrated access; named human observation can cover
 unsupported interactions. Missing required observation remains blocked.
+
+When an acquired claim remains applicable to a new run, follow
+[observation reuse](observation-reuse.md). Reuse retains original acquisition and
+provenance, validates declared dependencies and failure history, and is counted
+separately from newly acquired records. Before moving evidence or removing its
+temporary roots, create and verify a [historical archive](evidence-archives.md).
+Archive integrity is separate from current-project acceptance.
 
 The summary can establish current selected evidence completeness, never semantic
 correctness or independent enforcement. The task's outcome and acceptance remain

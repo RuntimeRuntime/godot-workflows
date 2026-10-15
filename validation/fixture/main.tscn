@@ -31,7 +31,7 @@ offset_left = 48.0
 offset_top = 90.0
 offset_right = 900.0
 offset_bottom = 125.0
-text = "Independent enemies · Saved scenes · Inspector tuning · Pause and input"
+text = "Left / A and Right / D hit each enemy · P / Esc pauses · Independent saved scenes"
 
 [node name="HitLeft" type="Button" parent="HUD"]
 offset_left = 210.0

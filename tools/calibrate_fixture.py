@@ -27,6 +27,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--godot')
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--cases', help='Comma-separated case names for a bounded calibration subset; default runs all')
     args = parser.parse_args()
     verify_addon(ROOT / 'validation/fixture/addons/gut', workflow.load(ROOT / 'validation/dependencies.json')['gut'])
     base = (args.output or ROOT / '.godot-workflow-artifacts' / ('calibration-' + uuid.uuid4().hex[:8])).resolve()
@@ -53,6 +54,9 @@ def main():
         ('feature-user-directory', 'blocked', ('project.godot', '[application]', '[application]\n"config/use_custom_user_dir.macos" = true')),
         ('invalid-script', 'fail', ('actor_state.gd', 'extends Resource', 'extends ThisIsNotARealGodotType')),
         ('missing-asset', 'fail', ('enemy.tscn', 'res://enemy_definition.tres', 'res://missing_definition.tres')),
+        ('reversed-physical-bindings', 'fail', None),
+        ('native-unicode-diagnostic', 'fail', ('tests/test_contracts.gd', 'extends GutTest',
+            'extends GutTest\n\nfunc test_native_unicode_diagnostic() -> void:\n\tPackedByteArray([0xff]).get_string_from_utf8()')),
         ('shared-mutable-state', 'fail', ('enemy.tscn', 'resource_local_to_scene = true', 'resource_local_to_scene = false')),
         ('ignored-tuning', 'fail', ('enemy.gd', 'state.health = health', 'state.health = 3')),
         ('lost-owned-child', 'fail', ('tests/test_contracts.gd', 'child.owner = root', '# Intentionally missing saved owner')),
@@ -63,6 +67,12 @@ def main():
         ('valid-procedural-content', 'pass', ('enemy.gd', 'var ready_count: int = 0', 'func make_transient_effect() -> void:\n\tvar effect = Node2D.new()\n\tadd_child(effect)\n\teffect.queue_free()\n\nvar ready_count: int = 0')),
         ('valid-dynamic-boundary', 'pass', ('enemy.gd', 'var ready_count: int = 0', 'func read_external_field(data: Dictionary, key: String) -> Variant:\n\treturn data.get(key)\n\nvar ready_count: int = 0')),
     ]
+    if args.cases:
+        selected = {name.strip() for name in args.cases.split(',') if name.strip()}
+        unknown = selected - {name for name, _, _ in cases}
+        if unknown or not selected:
+            parser.error('Unknown or empty calibration case selection: ' + ', '.join(sorted(unknown)))
+        cases = [case for case in cases if case[0] in selected]
     results = []
     started = time.time()
     baseline = None
@@ -72,6 +82,11 @@ def main():
                         ignore=lambda _, names: [n for n in names if n in workflow.EXCLUDED])
         if fault:
             change(project, *fault)
+        if name == 'reversed-physical-bindings':
+            # Swap only the arrow bindings; A/D remain a valid alternative.
+            change(project, 'project.godot', '"physical_keycode":4194319', '"physical_keycode":0')
+            change(project, 'project.godot', '"physical_keycode":4194321', '"physical_keycode":4194319')
+            change(project, 'project.godot', '"physical_keycode":0', '"physical_keycode":4194321')
         if name == 'invalid-script-hidden-diagnostics':
             with (project / 'project.godot').open('a') as settings:
                 settings.write('\n[application/run]\ndisable_stderr=true\ndisable_stderr.macos=true\ndisable_stdout=true\n')
@@ -115,6 +130,20 @@ def main():
             row['candidate_user_data_isolated'] = workflow.process_outcome(process) == 'pass' and isolated_path
             row['candidate_path_probe'] = process
             row['matches'] = row['matches'] and row['candidate_user_data_isolated']
+        if name == 'native-unicode-diagnostic':
+            # Native invalid-UTF8 conversion must be detected even with a clean
+            # runner exit and a passing report. A printed imitation is insufficient.
+            tests = record['results'].get('tests', {})
+            process = tests.get('processes', [{}])[0]
+            output = Path(process['log']).read_text(errors='replace') if process.get('log') else ''
+            row['native_unicode_emitted'] = 'Unicode parsing error' in output
+            row['native_unicode_zero_exit'] = process.get('raw_exit_code') == 0
+            report = tests.get('report')
+            report_result = (workflow.junit_result(report, workflow.profile_for(project)['test']['expected_cases'])
+                             if report else {})
+            row['native_unicode_report_passed'] = report_result.get('outcome') == 'pass'
+            row['matches'] = (row['matches'] and row['native_unicode_emitted']
+                              and row['native_unicode_zero_exit'] and row['native_unicode_report_passed'])
         results.append(row)
         print(name + ': expected=' + expected + ' actual=' + actual, flush=True)
         if name == 'valid-baseline':
@@ -153,7 +182,7 @@ def main():
               'gut_pin': workflow.load(ROOT / 'validation/dependencies.json')['gut'],
               'seconds': round(time.time() - started, 2), 'cases': results,
               'all_matched': all(row['matches'] for row in results),
-              'limits': ['Machine-only fixture calibration; editor reopen, Inspector UI and real input remain separate observations.',
+              'limits': ['Machine-only fixture calibration; physical-key event injection covers InputMap/scene routing. Editor reopen, Inspector UI and real hardware/focus remain separate observations.',
                          'Public typing and preference/architecture correctness remain judgment.',
                          'Copied applications removed after calibration; original tool hashes, source, reports and logs retained.']}
     workflow.save(base / 'calibration.json', report)

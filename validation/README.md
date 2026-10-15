@@ -48,7 +48,7 @@ the helper; its freshness check now correctly blocks that old run. The captures
 remain evidence of the observed fixture behavior, rather than new observations of
 the reviewed adapter. A fresh full fixture claim would require new observations.
 The reviewed helper has separate current machine-only calibration below. The
-real-game pilot has not run.
+Starfall Courier real-game pilot subsequently ran; its bounded results are below.
 
 ## Draft review
 
@@ -90,5 +90,31 @@ retained locally; no earlier result was relabeled.
 Intentional shared definitions, procedural transient content and a justified
 Variant boundary remain valid. Public declaration typing needs contract review;
 parsing alone does not enforce it. The 2D fixture does not certify 3D, networking,
-XR, exports, renderer performance or arbitrary-code safety. No real game has been
-selected or had policy adopted.
+XR, exports, renderer performance or arbitrary-code safety. Starfall Courier adopts a game-owned acceptance profile while leaving the toolkit
+candidate rules advisory.
+
+
+## Starfall Courier pilot and high-priority follow-up
+
+The local `godot-workflow-pilot` game exercised the installed skills on Godot
+4.7.1. Ten final real-scene tests passed, with saved-scene reopen, Inspector target
+8 → 2 tuning and actual keyboard/mouse observations at 960×640 and 1200×800. The
+pilot first exposed unsafe physics-callback shutdown, cross-instance pickups and
+incorrect arrow bindings. Failed attempts remain evidence rather than being
+relabelled as successful runs.
+
+The 0.2 follow-up adds physical-event guidance/calibration, native Unicode
+parsing diagnostics, linked observation reuse and portable historical archives.
+The native Unicode fixture deliberately returns zero with passing GUT assertions;
+the diagnostic must still fail the checking result. A reversed-arrow fixture must
+fail its physical-input assertion. Reuse tests cover dependencies, timestamps,
+legacy records and retained failures. Archive tests include relocation after
+original temporary roots are deleted, missing/tampered evidence and unsafe paths.
+
+Current calibration, independent-review and installed-pilot results are recorded
+in `high-priority-results.json` after this validation completes. Historical pilot
+bundles explicitly report source snapshots/raw task bytes that are no longer
+available; preserved manifests and embedded task records do not reconstruct missing
+bytes. Observation reuse across helper identities is an explicit reviewed decision,
+not a new UI acquisition. This remains an advisory 2D/macOS pilot, with no measured
+productivity baseline or export, 3D, audio, controller or gameplay-feel certification.

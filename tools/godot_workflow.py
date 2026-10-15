@@ -3,24 +3,26 @@
 import argparse
 import fnmatch
 import hashlib
+import importlib.util
 import json
 import os
 from pathlib import Path
 import re
 import shutil
 import signal
+import stat
 import subprocess
 import sys
 import time
 import uuid
 import xml.etree.ElementTree as ET
 
-VERSION = '0.1.0'
+VERSION = '0.2.0'
 PROFILE = 'godot-workflow.json'
 CHECKS = {'import': 'GT02', 'parse': 'GT03', 'tests': 'GT04'}
 OUTCOMES = {'pass', 'fail', 'error', 'blocked', 'not_applicable'}
 EXCLUDED = {'.git', '.godot', '.godot-workflow-artifacts', '__pycache__', '.DS_Store'}
-DIAGNOSTIC = re.compile(r'(?m)^\s*(?:SCRIPT ERROR:|ERROR:|Parse Error:)')
+DIAGNOSTIC = re.compile(r'(?mi)^\s*(?:(?:SCRIPT ERROR|ERROR|Parse Error):|Unicode parsing error[:,])[^\r\n]*')
 
 
 def digest(path):
@@ -56,6 +58,8 @@ def source_manifest(project):
         for name in sorted(names):
             if name not in EXCLUDED:
                 path = Path(parent) / name
+                if not stat.S_ISREG(path.lstat().st_mode):
+                    raise ValueError('Non-regular source file needs a project-specific adapter: ' + str(path))
                 files[path.relative_to(project).as_posix()] = digest(path)
     return {'files': files, 'digest': encoded_hash(files), 'excluded_names': sorted(EXCLUDED)}
 
@@ -405,6 +409,180 @@ def artifact_issues(record):
     return issues
 
 
+def changed_files(before, after):
+    return [name for name in sorted(set(before['files']) | set(after['files']))
+            if before['files'].get(name) != after['files'].get(name)]
+
+
+def retained_failure_issues(path, visited=None, memo=None):
+    """Reconcile failure history without requiring an old candidate to stay current."""
+    path = Path(path).resolve()
+    seen = set() if visited is None else set(visited)
+    completed = {} if memo is None else memo
+    if path in seen:
+        raise ValueError('Cycle in retained observation/attempt history')
+    if path in completed:
+        return completed[path]
+    seen.add(path)
+    record = load(path)
+    states = [r['outcome'] for r in record['results'].values()]
+    for observation_path in sorted((path.parent / 'observations').glob('*.json')):
+        observation = load(observation_path)
+        states.append(observation['outcome'])
+        if observation.get('kind') == 'reused':
+            # A reused pass cannot hide newly recorded failures in its origin.
+            inherited = retained_failure_issues(observation['derived_from']['run'], seen, completed)
+            states.extend(inherited)
+    if record.get('previous_run'):
+        inherited = retained_failure_issues(record['previous_run'], seen, completed)
+        if not record.get('resolution'):
+            states.extend(inherited)
+    completed[path] = [state for state in ('fail', 'error') if state in states]
+    return completed[path]
+
+
+def observation_scenario(record, identifier):
+    return next((o for o in record['required_observations'] if o['id'] == identifier), None)
+
+
+def observation_dependencies(manifest, selected):
+    if not selected:
+        return dict(manifest['files']), 'all_source'
+    names = set(selected)
+    names.update(n for n in ('project.godot', PROFILE) if n in manifest['files'])
+    dependencies = {}
+    for name in sorted(names):
+        name = name.removeprefix('res://')
+        parts = Path(name).parts
+        if not parts or Path(name).is_absolute() or '..' in parts or '\\' in name or ':' in name:
+            raise ValueError('Dependency must be a project-relative source file: ' + name)
+        if name not in manifest['files']:
+            raise ValueError('Dependency absent from recorded source: ' + name)
+        dependencies[name] = manifest['files'][name]
+    return dependencies, 'files'
+
+
+def reuse_issues(prior, observation, current, allow_helper_change=False):
+    issues = []
+    old_scenario = observation_scenario(prior, observation.get('id'))
+    new_scenario = observation_scenario(current, observation.get('id'))
+    if not old_scenario or old_scenario != new_scenario:
+        issues.append('Observation requirement changed or is absent')
+    if observation.get('outcome') != 'pass':
+        issues.append('Only a passing observation can be reused; retain failures as history')
+    if not prior.get('source_unchanged_during_run') or not current.get('source_unchanged_during_run'):
+        issues.append('Source changed during checking')
+    if any(prior['results'].get(k, {}).get('outcome') != 'pass' for k in prior['required_checks']):
+        issues.append('Original required checks did not pass')
+    if any(current['results'].get(k, {}).get('outcome') != 'pass' for k in current['required_checks']):
+        issues.append('Current required checks must pass before reuse')
+    old_engine, new_engine = prior.get('engine', {}), current.get('engine', {})
+    if not all(old_engine.get(k) and old_engine.get(k) == new_engine.get(k) for k in ('version', 'sha256')):
+        issues.append('Engine version/build identity changed or is unknown')
+    if prior.get('profile_sha256') != current.get('profile_sha256'):
+        issues.append('Project profile changed; reacquire the observation')
+    tool_changed = any(prior.get(k) != current.get(k) for k in ('helper_sha256', 'helper_components'))
+    if tool_changed and not allow_helper_change:
+        issues.append('Checking helper changed; explicit reviewed helper-change reuse is required')
+    dependencies = observation.get('dependencies', prior['source']['files'])
+    scope = observation.get('dependency_scope', 'all_source')
+    if scope not in ('all_source', 'files') or not isinstance(dependencies, dict) or not dependencies:
+        issues.append('Observation dependency scope is invalid')
+    elif scope == 'all_source' and prior['source']['digest'] != current['source']['digest']:
+        issues.append('Full-source observation requires an unchanged source identity')
+    else:
+        mandatory = {n for n in ('project.godot', PROFILE) if n in prior['source']['files']}
+        if scope == 'files' and not mandatory.issubset(dependencies):
+            issues.append('Observation dependencies omit project settings or profile')
+        for name, value in dependencies.items():
+            if (name not in prior['source']['files'] or name not in current['source']['files']
+                    or not isinstance(value, str) or not re.fullmatch(r'[0-9a-f]{64}', value)
+                    or prior['source']['files'][name] != value or current['source']['files'][name] != value):
+                issues.append('Observation dependency changed: ' + name)
+    return issues
+
+
+def observation_issues(observation, record, path, visited=None):
+    path = Path(path).resolve()
+    seen = set() if visited is None else set(visited)
+    if path in seen:
+        return ['Cycle in observation reuse history']
+    seen.add(path)
+    issues = []
+    if observation.get('kind', 'acquired') not in ('acquired', 'reused'):
+        issues.append('Invalid observation kind')
+    dependencies = observation.get('dependencies', record['source']['files'])
+    scope = observation.get('dependency_scope', 'all_source')
+    if scope not in ('all_source', 'files') or not isinstance(dependencies, dict) or not dependencies:
+        issues.append('Invalid observation dependency scope')
+    else:
+        mandatory = {n for n in ('project.godot', PROFILE) if n in record['source']['files']}
+        if ((scope == 'all_source' and dependencies != record['source']['files'])
+                or (scope == 'files' and not mandatory.issubset(dependencies))):
+            issues.append('Observation dependency inventory differs from its scope')
+        for name, value in dependencies.items():
+            if (name not in record['source']['files'] or not isinstance(value, str)
+                    or not re.fullmatch(r'[0-9a-f]{64}', value)
+                    or record['source']['files'][name] != value):
+                issues.append('Invalid recorded observation dependency: ' + str(name))
+    if observation.get('source_manifest') is not None and observation['source_manifest'] != record['source']:
+        issues.append('Observation source manifest differs from its run')
+    scenario = observation_scenario(record, observation.get('id'))
+    if (not scenario or any(observation.get(k) != scenario.get(k) for k in ('gate', 'scene', 'expected'))
+            or observation.get('run_id') != record['run_id']
+            or observation.get('source_digest') != record['source']['digest']):
+        issues.append('Observation does not match the recorded source or scenario')
+    if observation.get('outcome') not in OUTCOMES - {'not_applicable'}:
+        issues.append('Invalid observation outcome')
+    for artifact in observation.get('artifacts', []):
+        target = Path(artifact['path'])
+        if not target.is_file() or digest(target) != artifact['sha256']:
+            issues.append('Observation artifact missing or changed: ' + str(target))
+    if observation.get('variant_root'):
+        try:
+            if source_manifest(get_project(observation['variant_root']))['digest'] != observation['variant_digest']:
+                issues.append('Observation variant source changed')
+        except (OSError, ValueError):
+            issues.append('Observation variant source missing or unsupported')
+    if observation.get('kind') == 'reused':
+        try:
+            original = observation['derived_from']
+            prior_path, original_path = Path(original['run']), Path(original['observation'])
+            if (digest(prior_path) != original['run_sha256']
+                    or digest(original_path) != original['observation_sha256']):
+                raise ValueError('Original reuse records changed')
+            prior, old = load(prior_path), load(original_path)
+            if (original['source_digest'] != prior['source']['digest']
+                    or original['helper_sha256'] != prior.get('helper_sha256')):
+                raise ValueError('Original acquisition identity fields differ from the run')
+            if original_path.resolve().parent != prior_path.resolve().parent / 'observations':
+                raise ValueError('Original observation is outside its recorded run')
+            issues.extend(artifact_issues(prior))
+            if retained_failure_issues(prior_path):
+                issues.append('Originating observation/attempt history has unresolved failures or errors')
+            issues.extend(observation_issues(old, prior, original_path, seen))
+            reuse = observation['reuse']
+            if not reuse['reason'].strip() or not reuse['reviewer'].strip():
+                raise ValueError('Reuse needs a named reviewer and reason')
+            if not isinstance(reuse.get('allow_helper_change', False), bool):
+                raise ValueError('Helper-change review flag must be a boolean')
+            issues.extend(reuse_issues(prior, old, record, reuse.get('allow_helper_change', False)))
+            if reuse['changed_files'] != changed_files(prior['source'], record['source']):
+                raise ValueError('Reuse changed-file inventory differs')
+            for field in ('id', 'gate', 'scene', 'expected', 'actual', 'observer', 'method', 'sequence',
+                          'outcome', 'variant_root', 'variant_digest', 'variant_source', 'transformation', 'artifacts'):
+                if observation.get(field) != old.get(field):
+                    raise ValueError('Reuse altered original observation field: ' + field)
+            if observation['acquired_at'] != old.get('acquired_at', old['created_at']):
+                raise ValueError('Reuse altered the acquisition timestamp')
+            if (observation.get('dependencies') != old.get('dependencies', prior['source']['files'])
+                    or observation.get('dependency_scope') != old.get('dependency_scope', 'all_source')):
+                raise ValueError('Reuse altered the original dependency scope')
+        except (OSError, ValueError, KeyError, TypeError) as exc:
+            issues.append('Invalid reuse provenance: ' + str(exc))
+    return issues
+
+
 def summarize_record(path, visited=None):
     path = Path(path).resolve()
     visited = set() if visited is None else visited
@@ -435,13 +613,9 @@ def summarize_record(path, visited=None):
     observed = []
     for opath in sorted((path.parent / 'observations').glob('*.json')):
         o = load(opath)
-        valid = o.get('source_digest') == r['source']['digest'] and o.get('run_id') == r['run_id']
-        for a in o.get('artifacts', []):
-            valid = valid and Path(a['path']).is_file() and digest(a['path']) == a['sha256']
-        if o.get('variant_root'):
-            valid = valid and source_manifest(Path(o['variant_root']))['digest'] == o['variant_digest']
-        if not valid:
-            problems.append('Observation stale/missing artifacts: ' + o.get('id', '?'))
+        observation_problems = observation_issues(o, r, opath)
+        if observation_problems:
+            problems.extend('Observation ' + o.get('id', '?') + ': ' + issue for issue in observation_problems)
         else:
             observed.append(o)
     for required in r['required_observations']:
@@ -463,6 +637,8 @@ def summarize_record(path, visited=None):
     outcome = 'error' if 'error' in states else 'fail' if 'fail' in states else 'blocked' if problems or 'blocked' in states else 'pass'
     return {'gate': 'GT09', 'outcome': outcome, 'problems': problems,
             'unresolved_failure': 'fail' in states, 'unresolved_error': unresolved_error,
+            'observation_records': {kind: sum(o.get('kind', 'acquired') == kind for o in observed)
+                                    for kind in ('acquired', 'reused')},
             'claim': 'Current selected evidence complete; observation credibility and scope need judgment' if outcome == 'pass' else 'Required verification remains incomplete or failing'}
 
 
@@ -483,18 +659,73 @@ def observe(args):
         raise ValueError('Controlled variant needs --transformation')
     variant = get_project(args.variant_root) if args.variant_root else None
     artifacts = [{'path': str(Path(p).resolve()), 'sha256': digest(p)} for p in args.artifact]
+    dependencies, scope = observation_dependencies(r['source'], args.dependency)
+    now = time.time()
+    acquired_at = args.acquired_at if args.acquired_at is not None else now
+    if not 0 < acquired_at <= now:
+        raise ValueError('Acquisition time must be a positive past/current Unix timestamp')
     o = {'id': args.id, 'gate': selected[0]['gate'], 'run_id': r['run_id'],
-         'source_digest': r['source']['digest'], 'scene': args.scene,
+         'source_digest': r['source']['digest'], 'source_manifest': r['source'], 'scene': args.scene,
          'expected': selected[0]['expected'], 'actual': args.actual, 'outcome': args.outcome,
          'observer': args.observer, 'method': args.method, 'sequence': args.sequence,
-         'artifacts': artifacts, 'created_at': time.time(), 'transformation': args.transformation,
+         'artifacts': artifacts, 'created_at': now, 'recorded_at': now, 'acquired_at': acquired_at,
+         'acquisition_time_basis': 'observer_declared' if args.acquired_at is not None else 'recording_time',
+         'kind': 'acquired', 'dependencies': dependencies, 'dependency_scope': scope,
+         'transformation': args.transformation,
          'variant_root': str(variant) if variant else None,
-         'variant_digest': source_manifest(variant)['digest'] if variant else None}
+         'variant_digest': source_manifest(variant)['digest'] if variant else None,
+         'variant_source': source_manifest(variant) if variant else None}
     # Arbitrary scenario strings cannot escape the observations directory.
     out = path.parent / 'observations' / (uuid.uuid4().hex + '.json')
     save(out, o)
     print(str(out))
     return 0
+
+
+def reuse_observation(args):
+    path, previous_path = Path(args.run).resolve(), Path(args.from_run).resolve()
+    original_path = Path(args.observation).resolve()
+    current, prior, original = load(path), load(previous_path), load(original_path)
+    if path == previous_path:
+        raise ValueError('Reuse requires a different checking run; original observations remain intact')
+    if source_manifest(get_project(current['project']))['digest'] != current['source']['digest']:
+        raise ValueError('Candidate changed; create a current run before reusing observations')
+    if original_path.parent != previous_path.parent / 'observations':
+        raise ValueError('Original observation must belong to the supplied prior run')
+    if not args.reason.strip() or not args.reviewer.strip():
+        raise ValueError('Reuse needs a named reviewer and reason')
+    issues = artifact_issues(prior) + observation_issues(original, prior, original_path)
+    if retained_failure_issues(previous_path):
+        issues.append('Originating observation/attempt history has unresolved failures or errors')
+    issues += reuse_issues(prior, original, current, args.allow_helper_change)
+    if issues:
+        raise ValueError('Cannot reuse observation: ' + '; '.join(issues))
+    now = time.time()
+    o = dict(original)
+    o.update(kind='reused', run_id=current['run_id'], source_digest=current['source']['digest'],
+             source_manifest=current['source'], created_at=now, recorded_at=now,
+             acquired_at=original.get('acquired_at', original['created_at']),
+             acquisition_time_basis=original.get('acquisition_time_basis', 'legacy_recording_time'),
+             dependencies=original.get('dependencies', prior['source']['files']),
+             dependency_scope=original.get('dependency_scope', 'all_source'),
+             derived_from={'run': str(previous_path), 'run_sha256': digest(previous_path),
+                           'observation': str(original_path), 'observation_sha256': digest(original_path),
+                           'source_digest': prior['source']['digest'], 'helper_sha256': prior.get('helper_sha256')},
+             reuse={'reviewer': args.reviewer, 'reason': args.reason,
+                    'changed_files': changed_files(prior['source'], current['source']),
+                    'allow_helper_change': args.allow_helper_change})
+    out = path.parent / 'observations' / (uuid.uuid4().hex + '.json')
+    save(out, o)
+    print(str(out))
+    return 0
+
+
+def archive_module():
+    path = Path(__file__).with_name('evidence_archive.py')
+    spec = importlib.util.spec_from_file_location('godot_evidence_archive', path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 
 def init_project(args):
@@ -573,12 +804,36 @@ def main(argv=None):
     p.add_argument('--artifact', action='append', default=[])
     p.add_argument('--variant-root')
     p.add_argument('--transformation', default='')
+    p.add_argument('--dependency', action='append', default=[], help='Claim dependencies; defaults to all source, settings/profile always included')
+    p.add_argument('--acquired-at', type=float, help='Actual acquisition Unix timestamp; defaults to recording time')
+    p = sub.add_parser('reuse-observation')
+    for key in ('run', 'from-run', 'observation', 'reason', 'reviewer'):
+        p.add_argument('--' + key, required=True)
+    p.add_argument('--allow-helper-change', action='store_true', help='Explicit reviewed reuse across helper identities; current checks still must pass')
+    p = sub.add_parser('archive')
+    p.add_argument('--run', required=True)
+    p.add_argument('--output', required=True)
+    p = sub.add_parser('verify-archive')
+    p.add_argument('--archive', required=True)
     args = parser.parse_args(argv)
     try:
         if args.command == 'check':
             return check(args)
         if args.command == 'observe':
             return observe(args)
+        if args.command == 'reuse-observation':
+            return reuse_observation(args)
+        if args.command in ('archive', 'verify-archive'):
+            archive = archive_module()
+            # Pass a module-like namespace so the sibling has no import-cycle or host-path dependency.
+            from types import SimpleNamespace
+            api = SimpleNamespace(**globals())
+            if args.command == 'archive':
+                result = archive.archive_run(Path(args.run), Path(args.output), api)
+            else:
+                result = archive.verify_archive(Path(args.archive), api)
+            print(json.dumps(result, indent=2))
+            return 0 if result['outcome'] == 'pass' else 1
         if args.command == 'init-project':
             return init_project(args)
         if args.command == 'cleanup-run':

@@ -53,7 +53,9 @@ audio, timing and feel need their corresponding observation.
 Use the helper's `observe` command to record the actual named observer, method,
 sequence, expected/actual outcomes, captures and controlled variant/transformation.
 Run `summarize` against the unchanged candidate after all required evidence is
-recorded. Close only the task-created application processes, then `cleanup-run`
+recorded. For an unchanged claim in a later run, use [explicit reuse](observation-reuse.md)
+rather than re-recording old inputs as a new acquisition. Before deleting temporary
+sources or captures, verify a [historical evidence archive](evidence-archives.md). Close only the task-created application processes, then `cleanup-run`
 removes the owned user-data links while preserving logs, captures and source copies.
 
 The implementation's [Godot editor setting documentation](https://docs.godotengine.org/en/latest/classes/class_editorsettings.html#class-editorsettings-property-interface-accessibility-accessibility-support)

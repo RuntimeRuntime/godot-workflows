@@ -1,0 +1,150 @@
+{
+  "format_version": 1,
+  "prepared_on": "2026-10-15",
+  "toolkit_version": "0.2.0",
+  "stage": "advisory",
+  "implemented": [
+    "Physical device-event to saved InputMap to observable scene verification and faulty-bindings native calibration",
+    "Native Unicode diagnostics with both colon/comma forms and zero-exit failing diagnostic calibration",
+    "Explicit linked observation reuse with original times, dependencies, reviewer, changed files and retained failure history",
+    "Portable content-addressed historical evidence bundles with independent integrity verification"
+  ],
+  "source_hashes": {
+    "tools/godot_workflow.py": "82d15dbaf385d09946a4a01c05120ffe6904d0aa8328e56deaebaf70983282a8",
+    "tools/evidence_archive.py": "ea65170b9ba1accf2561baa5e1e840dd2c93fab2dd42e3991f9ee7ac04d753af",
+    "tools/package_skills.py": "ad38acac5dd76ac366ba195f61c02548b4abf6e655d37fccf879fc9bfa07e1c0",
+    "tests/test_observation_reuse.py": "8b5f5316b322f76cbc834708efdd864cd84499511ad097ed8b19f61901f7d423",
+    "tests/test_evidence_archive.py": "a53030c67cd768f266c0acd3f94c398eb9d9f5663a44ca6201bc867eeedd4c60"
+  },
+  "helper_tests": {
+    "executed": 72,
+    "passed": 72,
+    "failed": 0,
+    "archive_tests": 24,
+    "observation_reuse_tests": 18
+  },
+  "native_calibration": {
+    "cases": 36,
+    "all_matched": true,
+    "seconds": 178.08,
+    "engine": {
+      "path": "/Applications/Godot.app/Contents/MacOS/Godot",
+      "version": "4.7.1.stable.official.a13da4feb",
+      "sha256": "ecc8da2d60100102cfca6e833d3860d7436b46ae062fa072ce89a6c95d664a3f"
+    },
+    "gut_pin": {
+      "repository": "https://github.com/bitwes/Gut.git",
+      "tag": "v9.7.1",
+      "commit": "aeb5d4f3f7f0a6c9b5e178876d6c99b791fda605",
+      "license": "MIT",
+      "scope": "Disposable fixture only; ignored dependency cache",
+      "addon_tree_sha256": "0854258aed870c4dcba9294e76fe618d3b69d193d92cb0cbcdcf4011008dab14"
+    },
+    "report": ".godot-workflow-artifacts/high-priority-20261015/calibration.json",
+    "archives": ".godot-workflow-artifacts/high-priority-20261015/calibration-archive-index.json"
+  },
+  "installed_skills": {
+    "version": "0.2.0",
+    "names": [
+      "godot-author-scenes",
+      "godot-state-lifecycle",
+      "godot-verify-behavior"
+    ],
+    "packages_match_reviewed_source": true,
+    "skill_creator_validation": "all three passed",
+    "manager_validate": "passed",
+    "manager_doctor": "passed",
+    "skills_json_and_lock_unchanged": true
+  },
+  "pilot": {
+    "run": "/Users/kyle/Documents/code/godot-workflow-pilot/.godot-workflow-artifacts/20261015T231520-c7caaa8d/run.json",
+    "game_source_digest": "ae415679a6bad1b9fe2375cc5c268492fa2939e37046a3960bdb2ce158f478a5",
+    "game_source_changed": false,
+    "checks": {
+      "preflight": "pass",
+      "import": "pass",
+      "parse": "pass",
+      "tests": "pass"
+    },
+    "tests": {
+      "discovered": 10,
+      "executed": 10,
+      "passed": 10,
+      "failed": 0,
+      "errored": 0,
+      "skipped_or_pending": 0
+    },
+    "closure": {
+      "gate": "GT09",
+      "outcome": "pass",
+      "problems": [],
+      "unresolved_failure": false,
+      "unresolved_error": false,
+      "observation_records": {
+        "acquired": 0,
+        "reused": 3
+      },
+      "claim": "Current selected evidence complete; observation credibility and scope need judgment"
+    },
+    "observation_scope": "0 new acquisitions; 3 formally reused observations from unchanged game, engine, profile and scenarios with explicit helper-change review. Legacy acquisition times remain labeled legacy recording times."
+  },
+  "pilot_archive": {
+    "directory": ".godot-workflow-artifacts/high-priority-20261015/pilot-evidence-moved",
+    "runs": 6,
+    "observations": 10,
+    "retained_files": 392,
+    "historical_integrity": "verified",
+    "current_project_acceptance": false,
+    "unavailable_source_snapshots": 7,
+    "unavailable_raw_tasks": 2,
+    "moved_and_bundle_only_content_reads_verified": true
+  },
+  "independent_reviews": [
+    {
+      "reviewer": "reuse_review",
+      "scope": "Observation reuse, closure, metadata and graph performance; final installed pilot evidence",
+      "findings_fixed": [
+        "Unresolved originating failures could disappear",
+        "Invalid observation kinds/scopes and null dependencies could pass",
+        "Shared history traversal grew exponentially"
+      ],
+      "result": "No remaining correctness findings; installed pilot closure independently supported",
+      "helper_sha256": "82d15dbaf385d09946a4a01c05120ffe6904d0aa8328e56deaebaf70983282a8"
+    },
+    {
+      "reviewer": "archive_review",
+      "scope": "Archive graph completeness, evidence integrity, unsafe paths, relocation and packaged CLI",
+      "findings_fixed": [
+        "Truncated indices could omit retained observations and required captures",
+        "Dangling supplemental log symlinks could be skipped",
+        "Special source files could block hashing",
+        "Output inside a linked historical run could archive itself"
+      ],
+      "result": "All independent adversarial reproductions now reject; no remaining concrete findings",
+      "archive_helper_sha256": "ea65170b9ba1accf2561baa5e1e840dd2c93fab2dd42e3991f9ee7ac04d753af"
+    },
+    {
+      "reviewer": "skill_forward_test",
+      "scope": "Realistic control verification through packaged input guidance in disposable pilot copies",
+      "original_cases_passed": 10,
+      "expanded_cases_passed": 14,
+      "assertions": 140,
+      "originals_unchanged": true,
+      "report": ".godot-workflow-artifacts/high-priority-20261015/forward-test-report.json",
+      "archives": ".godot-workflow-artifacts/high-priority-20261015/forward-archive-index.json",
+      "limits": "No real-window keyboard delivery claim; first HOME override was an avoidable executor mistake, retained as a blocked infrastructure attempt and retried with unchanged environment."
+    }
+  ],
+  "deferred_low_priority": [
+    {
+      "issue": "Explicit blocked observation summaries can have an empty problems list; acquired/reused counts describe records rather than successful scenarios",
+      "disposition": "GT09 correctly stays blocked. Improve scenario status reporting in a later iteration; no erroneous acceptance observed."
+    }
+  ],
+  "limits": [
+    "Advisory local macOS/Godot 4.7.1 2D scope; no release/export or productivity certification",
+    "Historical integrity is corruption detection, not signature/authenticity or fresh current-project acceptance",
+    "Seven legacy source snapshots and two old raw task variants cannot be recovered; identities and embedded task records are preserved",
+    "Declared file dependency completeness and observation credibility remain reviewer judgments"
+  ]
+}

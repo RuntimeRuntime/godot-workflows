@@ -17,7 +17,9 @@
       "test_remove_reenter_does_not_duplicate_callbacks",
       "test_teardown_settles",
       "test_pause_resume_does_not_hit",
-      "test_native_save_ownership"
+      "test_native_save_ownership",
+      "test_physical_bindings_reach_expected_enemy",
+      "test_physical_pause_keys_reach_scene"
     ]
   },
   "observations": [
@@ -27,5 +29,5 @@
   ],
   "adopted_rules": [],
   "conventions": {"purpose": "Disposable calibration fixture; seed failures only in copies"},
-  "feature_topics": {"SH-02": "present", "SH-04": "present"}
+  "feature_topics": {"SH-02": "present", "SH-04": "present", "SH-03": "present"}
 }

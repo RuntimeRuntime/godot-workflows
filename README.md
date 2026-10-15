@@ -68,7 +68,15 @@ and deliberately broken copies through the real CLI. It retains logs/reports
 and removes only its owned OS user-data links and copied applications afterward.
 
 Use `observe --help` to record a named actual observation against a declared
-scenario. Use `summarize --run /path/to/run.json` to check freshness and completeness.
+scenario. For changed keyboard bindings, exercise physical events through the saved
+InputMap as well as real device/window input. Action-level tests bypass bindings.
+Use `reuse-observation --help` for linked reuse that preserves acquisition time,
+claim dependencies and failure history; summaries distinguish acquired and reused
+records. See [reuse rules](references/observation-reuse.md).
+Use `archive --run /path/to/run.json --output /path/to/new-evidence-directory`
+and `verify-archive --archive /path/to/new-evidence-directory` before removing
+temporary evidence roots. Archives retain historical integrity independently of
+the original paths; they do not claim fresh acceptance. See [archive scope](references/evidence-archives.md). Use `summarize --run /path/to/run.json` to check freshness and completeness.
 After observations finish, `cleanup-run --run /path/to/run.json` removes the owned
 user-data link and retains the run's evidence. Full result semantics are in
 [verification](references/verification.md).

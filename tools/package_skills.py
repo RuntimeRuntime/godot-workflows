@@ -47,6 +47,7 @@ def build(output):
         shutil.copytree(ROOT / 'templates', dest / 'templates')
         (dest / 'scripts').mkdir(exist_ok=True)
         shutil.copy2(ROOT / 'tools/godot_workflow.py', dest / 'scripts/godot_workflow.py')
+        shutil.copy2(ROOT / 'tools/evidence_archive.py', dest / 'scripts/evidence_archive.py')
         validate_links(dest)
         (dest / MANIFEST).write_text(json.dumps({
             'generator': 'godot-workflows', 'version': metadata['version'],
