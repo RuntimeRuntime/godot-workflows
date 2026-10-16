@@ -118,3 +118,72 @@ available; preserved manifests and embedded task records do not reconstruct miss
 bytes. Observation reuse across helper identities is an explicit reviewed decision,
 not a new UI acquisition. This remains an advisory 2D/macOS pilot, with no measured
 productivity baseline or export, 3D, audio, controller or gameplay-feel certification.
+
+## Shape Company follow-up: cohesion and UI contracts
+
+The second pilot in the research workspace exposed mismatched enemy previews,
+gesture tests that bypassed native drag initiation, and malformed native-tool
+drag events. A subsequent architecture review identified a workflow gap: G06/G21
+criteria existed, but normal construction/closure did not explicitly retain a
+cohesion decision. Guidance 0.2.1 adds that decision and targeted UI-contract
+branches, preserving small-project exceptions and existing result semantics.
+
+`cohesion-ui-cases.json` contains authored positive and negative review examples
+and a manual application to the actual pilot. These are explicit decision oracles
+and source-reading exercises, not an independent model forward-test or automated
+cohesion detector. `cohesion-ui-results.json` records package, frontmatter and
+existing helper-suite validation separately. No engine adapter or game behavior
+changed, so this guidance update does not claim new runtime calibration.
+
+Evidence origin: the human/agent pilot report at
+`godot-research/pilots/02-shape-company-report.md`, final candidate digest
+`be811d7f72f504b3a27439ac7232e96f29d4ff447ffe9653567db6244e2752ea`.
+The installed packages remain standalone and do not depend on that research path.
+
+## Independent Sol review of two projects
+
+The 16 October 2026 forward-test is recorded in
+`sol-forward-test-results.json`. A fresh GPT-6 Sol reviewer received complete
+workflow 0.2.1 packages and neutral source snapshots for Shape Company and the
+small two-target fixture, without prior reviews or expected dispositions. Input
+hashes remained unchanged. It traced duplicated recruit-price presentation in the
+pilot while retaining that scene arrangement, and retained the fixture's compact
+Main/Enemy split. The parent compared its findings with six criteria sealed before
+dispatch; this pair met those criteria.
+
+The reviewer found an ambiguity in source-only review routing and reported fresh
+runtime/editor/device evidence unavailable rather than inventing passing results.
+That ambiguity is recorded as a follow-up; no guidance or game code changed in
+this evaluation. Its extra background-click concern is conditional on intended
+controls, not a demonstrated fixture defect.
+
+The original report, independent JSON, input snapshots and parent comparison are
+retained under `godot-research/workflow-forward-tests/2026-10-16-sol/`. This was a
+source-review experiment, not new native certification. Packaged teaching examples
+remained present, so the pilot is a regression case. One reviewer and two projects
+do not establish general reliability or sensitivity to every overloaded controller.
+
+
+## Source-only review clarification
+
+Guidance 0.2.2 adds an explicit source-only assessment branch in `review.md`,
+reached early from all three skill entrypoints and the verification reference.
+It distinguishes test declarations, inspected historical results, fresh checks
+and actual observations. Source review can close with evidence limits; it cannot
+supply behavioral acceptance or waive a change task's required evidence.
+
+`source-review-results.json` records the update and fresh independent GPT-6 Sol
+check. The three regenerated skills were installed and their active bytes checked
+before dispatch. Package/frontmatter validation and all 72 existing helper tests
+passed. The reviewer applied the installed guidance to two separate requests over
+the pilot and small fixture: source-only composition/test review and a current
+behavior-acceptance assessment. It completed the source reviews, retained compact
+composition, withheld behavior acceptance from incomplete evidence, and reported
+no consequential instruction conflict. All 792 input hashes and sealed criteria
+remained unchanged. Extra fixture concerns are qualified in the parent comparison.
+
+The complete report and evaluation packet remain under
+`godot-research/workflow-forward-tests/2026-10-16-source-review/`. This is a bounded
+scope-routing regression with one reviewer and two previously used projects; no
+new native behavior certification or game change is implied. Historical packet
+omissions do not invalidate the original pilot observations.

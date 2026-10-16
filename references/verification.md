@@ -1,5 +1,9 @@
 # Verification and result limits
 
+For a source-only assessment, use [source-only review](review.md#source-only-review).
+The execution and result requirements here apply to the selected verification
+scope; reading source alone does not create a verification run or acceptance.
+
 ## Select evidence
 
 | Family | First-draft support |
@@ -15,6 +19,10 @@
 | GT08 measurement | Project-specific future adapter; lifecycle assertions can already run under GT04 |
 | GT09 closure | Mechanical freshness/completeness summary; judgment and owner acceptance remain separate |
 
+A selected [cohesion review](cohesion.md) supplies its own disposition alongside
+these results. The helper does not validate architectural judgments in task data;
+a passing summary cannot supply a missing cohesion assessment.
+
 Run the bundled `scripts/godot_workflow.py` in an installed skill, or the toolkit's
 `tools/godot_workflow.py`. Use `--help` for exact command options. Inspect first,
 then select `check` operations. Supply a task JSON for declared acceptance and
@@ -28,6 +36,29 @@ For GdUnit4/another runner preserve the game's commands and evaluate its reports
 deliberately; selecting the unsupported GUT adapter reports a blocker.
 
 For editor/play acquisition, read [the demonstrated observation procedure](editor-observations.md).
+
+## Contract examples
+
+Select examples from the changed requirement before interpreting a generated
+result as correct. An oracle is the assertion or observation that distinguishes
+the intended outcome from its relevant failure. Choose applicable cases, not a
+fixed test count or a requirement to exercise unrelated features.
+
+| Changed contract | Useful oracle and boundary |
+| --- | --- |
+| Composite art or authored placement | Discover expected motifs/objects, then check complete footprints, caps and intended clearance. Inspect a real stamp at display scale; nonempty valid cells alone cannot establish art quality. |
+| One-shot animation | Trace ordered poses labeled by animation/state through recovery when replay matters. One completion can still accompany an unwanted final rewind. Explicit loops/combos use their own contract. |
+| Strike filtering | Prove active strike frames occurred with a target just outside the shape; pair with actual contact. A passive enemy outside its AI activation range does not test the strike guard. |
+| Grace or buffering | Accept inside and reject outside the designed window; cover consumption/reset at declared physics timing. Assess feel separately. |
+| Hit response | Cover surviving and fatal outcomes, once-only completion and affected pause/reset/independent-instance state. The chosen visual effects remain design choices. |
+| Render order | Check the intended inherited Z/canvas relationship and observe actual overlap between representative actors and decoration/interactables. |
+
+Record the test entry point: a direct damage method checks local response; an
+engine event checks routing through the saved scene; device input adds delivery
+evidence. Combine them when the requested contract spans those boundaries.
+Collection-wide checks need expected nonempty discovery so missing objects cannot
+make an empty loop pass. Before promoting a new oracle/example, use a targeted
+known-bad case where useful; retain valid exceptions and the result's limits.
 
 ## What records establish
 
@@ -68,6 +99,13 @@ human/model judgments. An explicit owner accepted-risk record may accompany a
 handoff; keep failed checks and GT09 failed and label `accepted_with_risk`.
 This draft does not implement a waiver/approval engine. Missing required evidence
 stays open. A scope change is recorded as a new task, not relabeled failed evidence.
+
+At acceptance and reuse, distinguish original candidate hashes, the adapter's
+normalized checking copy and controlled variants. Characterize native UID/settings
+serialization differences separately from authored edits such as added terrain.
+This comparison supplies judgment, not an automatic freshness exemption: use a
+current check or valid linked reuse before a current acceptance claim. Keep an
+older pass attached to its recorded source when present content has changed.
 
 ## Isolation and compatibility
 

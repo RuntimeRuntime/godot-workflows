@@ -5,10 +5,16 @@ description: Design, change or diagnose Godot mutable state, Resource sharing, i
 
 # Own state and work over time
 
+For a source-only assessment, follow [source-only review](references/review.md#source-only-review).
+The implementation and execution steps below apply to changes or requested
+behavior verification.
+
 Read the game profile and actual scenes/scripts/Resources plus their consumers.
 Use [feature planning](references/feature-planning.md) for substantive changes.
 Identify who owns mutable values, shared definitions and delayed work. Read
 [state/lifetime guidance](references/state.md) for the affected branches.
+When this work adds or expands controller responsibilities, apply the
+[cohesion review](references/cohesion.md).
 
 Check two independent instances, nested Resource/container identity and intended
 aliases. Choose duplication/local-to-scene/explicit construction according to the

@@ -6,9 +6,9 @@ validation fixture. New policy starts advisory.
 
 ## How to use it
 
-With the three skills enabled through your personal Skills repo, start a chat in
-the game you are working on. Ordinary requests can select the relevant skills;
-you can also name them explicitly:
+Install the three standalone skills in your agent’s skill directory, then start
+a chat in the game you are working on. Ordinary requests can select the relevant
+skills; you can also name them explicitly:
 
 - `$godot-author-scenes`: create editable scenes, Resources, tuning and authoring tools.
 - `$godot-state-lifecycle`: own mutable state, Resource sharing and delayed work.
@@ -21,7 +21,7 @@ this entire repo or remember the native node class names.
 | Home | Owns |
 | --- | --- |
 | This toolkit | Reusable skill/workflow sources, references, templates, tools and fixture |
-| Personal Skills repo | Generated copies and personal activation; edit toolkit sources here |
+| Installed skills | Generated packages in your agent’s skill directory; edit toolkit sources here |
 | Each game | Engine pin, commands, conventions, chosen requirements and representative scenarios |
 | Original godot-research project | Evidence packs and reviewed proposal; no runtime dependency |
 
@@ -43,10 +43,20 @@ instructions are preserved. Adoption requires a real `project.godot`.
 ## References to reach when needed
 
 - [Change workflow](references/change.md), [diagnosis](references/diagnose.md), [feature planning](references/feature-planning.md).
+- [Scene/controller cohesion](references/cohesion.md): new or substantially expanded
+  modules get an explicit change trace and keep/extract/unassessed disposition.
+  Compact projects can keep coherent responsibilities together; counts do not
+  determine overload.
+- [UI contracts](references/ui-contracts.md): full pointer gestures, displayed
+  versus live gameplay values, and tool-input diagnosis.
 - [Native topic index](references/topics/index.md): all 51 researched decision groups, with selective briefs and primary sources.
 - [Candidate policy](references/policy.md): all 50 treatments and exceptions; each game decides what to adopt.
-- [Selective review](references/review.md): authored scenes, state/lifetime, behavior/test adequacy and changed contracts.
+- [Selective review](references/review.md): authored scenes, state/lifetime, behavior/test adequacy and changed contracts;
+  [source-only assessments](references/review.md#source-only-review) retain evidence limits without implying fresh execution or behavioral acceptance.
 - [Verification](references/verification.md): exact result meanings, observation ownership, isolation and limits.
+- [Contract examples](references/verification.md#contract-examples): selected visual,
+  temporal and interaction boundaries; the [example task](templates/interaction-task.example.json)
+  shows a descriptive evidence plan, not an additional gate.
 - [Provenance](provenance/README.md): source records and the original research fingerprints.
 
 ## Run the fixture and helper tests
@@ -87,19 +97,22 @@ hosts need permission for that specific link; without access, the run is blocked
 This isolates known fixture state, not arbitrary untrusted code. Keep real mods or
 security-sensitive services behind their topic-specific research boundary.
 
-## Package and update personal skills
+## Build and install standalone skills
+
+Build self-contained packages:
 
 ```sh
 python3 tools/package_skills.py build --output /tmp/godot-skills-new
-python3 tools/package_skills.py install --packages /tmp/godot-skills-new --skills-repo /path/to/Skills
-python3 tools/package_skills.py install --packages /tmp/godot-skills-new --skills-repo /path/to/Skills --apply
 ```
 
-Then run the three printed `npm run enable -- local/...` commands in the Skills
-repo. Its existing manager handles global links and preserves other enabled skills.
-Each package contains its references, templates and helper. A source manifest
-detects modified generated copies; reconcile edits before replacing them.
-Updates are rebuilt here and installed through the same preview/apply path.
+Install the generated `godot-author-scenes`, `godot-state-lifecycle` and
+`godot-verify-behavior` directories in the location your agent uses for skills.
+Each package includes its references, templates and helper, so it works without
+this checkout. Use your agent's normal skill discovery or activation mechanism.
+
+Keep edits in this toolkit and rebuild packages for updates. Preserve any local
+customizations before replacing an installed copy. Generated package manifests
+record file hashes for integrity and change detection.
 
 ## First-draft limits
 

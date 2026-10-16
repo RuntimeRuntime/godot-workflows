@@ -21,6 +21,13 @@ references, not the research project. Edit other workflow/skill guidance here.
 The installed packages contain their references and helper; they never need the
 research checkout at runtime. Generated copies in the Skills repo are outputs.
 
+`topic-refinements.json` owns maintained post-research additions and the preserved
+physical-input clarification. The importer applies these to the original topic
+data; edit that file and regenerate instead of editing generated topic prose.
+The pilot-three refinements distinguish missing examples from already applicable
+principles. Composite footprints, active-strike negatives and temporal traces are
+selected examples; game-specific art, generosity and feedback exceptions remain.
+
 Implementation calibration corrected one proposed assumption: on the installed
 4.7.1 macOS editor binary, self-contained editor mode does not redirect runtime
 `user://`. The implemented adapter uses an exclusively created unique user-data

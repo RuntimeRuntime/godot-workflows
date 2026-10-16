@@ -14,6 +14,12 @@ affect the claim. Project settings and the game profile are always included.
 Computed dependencies or uncertain behavioral reach justify the default full scope.
 The helper checks the nominated hashes; dependency completeness remains judgment.
 
+Choose dependencies at acquisition around the actual claim. A fixed-art overlap
+claim may depend on its scenes, textures and ordering consumers; a hit-response
+claim also depends on damage, motion, material and reset paths. Record affected
+new scenarios instead of replaying an unrelated tuning demonstration. Retain full
+scope when reach is uncertain; protected settings/profile checks still apply.
+
 A controlled Inspector variant retains its own source manifest, digest and stated
 transformation. It does not establish unrelated behavior that differs from the
 candidate. Changing a nominated dependency requires a new observation; a free-text

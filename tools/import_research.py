@@ -1,11 +1,36 @@
 #!/usr/bin/env python3
 """Refresh research-derived references from a deliberately selected research root."""
 import argparse
+import copy
 import hashlib
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def refined_topics(topics, refinements):
+    """Apply maintained additions without changing the historical research input."""
+    result = copy.deepcopy(topics)
+    by_id = {topic['id']: topic for topic in result}
+    if refinements.get('format_version') != 1:
+        raise ValueError('Unsupported topic refinement format')
+    for topic_id, changes in refinements.get('topics', {}).items():
+        if topic_id not in by_id:
+            raise ValueError('Unknown refinement topic: ' + topic_id)
+        topic = by_id[topic_id]
+        for field, value in changes.items():
+            if field in ('native_types', 'verification') and isinstance(value, list):
+                topic[field] = copy.deepcopy(value)
+            elif field in ('pitfalls_append', 'verification_append') and isinstance(value, list):
+                topic[field.removesuffix('_append')].extend(value)
+            elif field == 'approach_append' and isinstance(value, str):
+                topic['native_workflow'] += '\n\n' + value
+            elif field == 'sources_append' and isinstance(value, list):
+                topic['refinement_sources'] = copy.deepcopy(value)
+            else:
+                raise ValueError('Unsupported refinement field: ' + topic_id + '.' + field)
+    return result
 
 
 def write_json(path, data):
@@ -14,6 +39,9 @@ def write_json(path, data):
 
 
 def refresh(source):
+    coverage = json.loads((source / 'godot-feature-coverage-research/coverage.json').read_text())
+    refinements = json.loads((ROOT / 'provenance/topic-refinements.json').read_text())
+    topics = refined_topics(coverage['topics'], refinements)
     inputs = [
         'godot-feature-coverage-research/coverage.json',
         'godot-feature-coverage-research/sources.json',
@@ -72,7 +100,7 @@ def refresh(source):
              'This is a discovery index, not a required feature checklist. '
              'Use [official discovery](../discovery.md) for gaps and research boundaries.\n',
              '| Topic | User-visible trigger |\n| --- | --- |']
-    for t in coverage['topics']:
+    for t in topics:
         index.append('| [{id} — {title}]({id}.md) | {trigger} |'.format(**t))
         body = ['# {id} — {title}\n\nWhen: {trigger}\n\nNative candidates: '.format(**t)
                 + ', '.join('`' + n + '`' for n in t['native_types']) + '.',
@@ -92,6 +120,8 @@ def refresh(source):
         for sid in t['source_ids']:
             s = source_map[sid]
             body.append('- [{id}: {title}]({url}). Scope/limits: {limitations}'.format(**s))
+        for extra in t.get('refinement_sources', []):
+            body.append('- [{title}]({url}). Scope/limits: {limits}'.format(**extra))
         (topic_root / (t['id'] + '.md')).write_text('\n\n'.join(body) + '\n')
     (topic_root / 'index.md').write_text('\n'.join(index) + '\n')
     print('Preserved {} rule treatments and generated {} topic briefs.'.format(len(rules), len(coverage['topics'])))

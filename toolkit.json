@@ -1,6 +1,6 @@
 {
   "name": "godot-workflows",
-  "version": "0.2.0",
+  "version": "0.2.3",
   "python": ">=3.9",
   "stage": "advisory",
   "skills": ["godot-author-scenes", "godot-state-lifecycle", "godot-verify-behavior"],

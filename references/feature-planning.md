@@ -12,12 +12,19 @@ there; unadopted rules remain advisory.
 2. Choose saved scene boundaries, public methods/signals and intended types. Name
    consumers and justified Variant/dynamic boundaries. Parsing does not review
    public-declaration policy.
+   For new or substantially expanded scenes/controllers, start the
+   [cohesion review](cohesion.md); finish it against the implemented source.
 3. Give dependency wiring a clear owner, normally the common ancestor for sibling
    scenes. Keep internal paths local; record a justified scoped alternative.
 4. Name mutable state, intentional sharing and delayed-work owners, including
    initialization, reentry, pause and teardown behavior.
-5. State acceptance examples and relevant checks/editor/play observations. Record
-   native candidate, chosen approach, reason, source version and uncertainty.
+5. For each consequential changed interaction or content class, choose an intended
+   result, a meaningful failure/boundary example and its test or observation
+   [oracle](verification.md#contract-examples). Record the sampled scope and any
+   intentional exception. A small change can use one sentence; the optional
+   `evidence_plan` task field and [interaction example](../templates/interaction-task.example.json)
+   illustrate a larger plan. Record native candidate, approach, reason, source
+   version and uncertainty. These descriptive fields are not evaluated by the CLI.
 
 If a capability is unfamiliar or unlisted, follow [official discovery](discovery.md).
 For untrusted runtime content or security-sensitive networking/services, follow

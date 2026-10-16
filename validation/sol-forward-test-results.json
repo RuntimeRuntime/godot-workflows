@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-16",
+  "workflow_version_tested": "0.2.1",
+  "independent_forward_test_executed": true,
+  "reviewer": "gpt-6-sol",
+  "parent_history_inherited": false,
+  "expected_findings_supplied_in_dispatch": false,
+  "scope": "Read-only review of two actual source snapshots using complete installed workflow packages; no engine execution or new editor/device acquisition.",
+  "projects": {
+    "project_one": {
+      "name": "Shape Company",
+      "disposition": "Keep combined. Shared scene and run lifetime fit one-screen game; consolidate price presentation without extracting a shop scene."
+    },
+    "project_two": {
+      "name": "Small two-target workflow fixture",
+      "disposition": "Keep compact Main/Enemy split; resolve the broad background mouse action if mouse interaction is intended through named controls."
+    }
+  },
+  "parent_comparison": [
+    {
+      "criterion": 1,
+      "parent_assessment": "met",
+      "evidence": "Fresh fork_turns=none Sol dispatch used neutral labels and raw source; no expected findings, prior report or private criteria in dispatch. Packaged workflow teaching examples remain an explicit limitation."
+    },
+    {
+      "criterion": 2,
+      "parent_assessment": "met",
+      "evidence": "Both project entries identify owners, named methods/consumers, a concrete change trace and an explicit disposition."
+    },
+    {
+      "criterion": 3,
+      "parent_assessment": "met",
+      "evidence": "Project one traces UNIT_PRICE vs literal 3g messages/buttons; recommends consolidating runtime price presentation while keeping scene/controller arrangement."
+    },
+    {
+      "criterion": 4,
+      "parent_assessment": "met",
+      "evidence": "Project two keeps its compact Main/Enemy split and explicitly rejects added managers/scenes without a demonstrated benefit."
+    },
+    {
+      "criterion": 5,
+      "parent_assessment": "met",
+      "evidence": "Advisory price/input concerns are distinct from architecture. Source tests are not labeled fresh passes or proof of saved editor state."
+    },
+    {
+      "criterion": 6,
+      "parent_assessment": "met",
+      "evidence": "Report explicitly declares no engine/editor/device execution and marks excluded acquisition evidence unavailable in this packet."
+    }
+  ],
+  "input_files_unchanged": true,
+  "workflow_findings": {
+    "title": "Source-only review routing is implicit",
+    "status": "recorded, not repaired in this evaluation",
+    "assessment": "Supported: entrypoints direct native checks/acquisition, while review.md provides selective lenses without an explicit source-only evidence-labeling branch. Reviewer resolved scope correctly from the dispatch."
+  },
+  "additional_finding_disposition": {
+    "finding": "Project two unhandled left click always hits left",
+    "assessment": "Source behavior verified. Reviewer appropriately made correction conditional on intended controls; no requirement establishes that this calibration fallback is forbidden. Do not promote to a demonstrated defect or alter the fixture on this evidence alone."
+  },
+  "evidence_root": "/Users/kyle/Documents/code/godot-research/workflow-forward-tests/2026-10-16-sol",
+  "artifact_hashes": {
+    "inputs/source-manifest.json": "798b1d4f57184a895346f4e2411a1b620377b4752c66d6abd88ed5f8bbdbbb00",
+    "outputs/sol-review.md": "2e732cdef1a71a5269bd9413cdbf3ef29647aa826887410ee658862143309400",
+    "outputs/sol-review.json": "a136f40a4c724c0194e3eced7199cbfe69b2fe7643fb199eda7ab2477746485d",
+    "evaluation/criteria.json": "b08d6b70d10e9c052aa2bb839c1c5f7cabfafb7b771d6f86aa4dc6b00779ed7c",
+    "evaluation/protocol.json": "e7b48e9800949930edcba10f78172e3840b56f881e7e5a2cef886c0b850dc490"
+  },
+  "limits": [
+    "One reviewer and two projects do not establish general reliability.",
+    "The workflow itself contains teaching examples derived from the pilot; source copies and task prompt are blinded to earlier verdicts, but the pilot is a regression case rather than a wholly unseen generalization case.",
+    "Source review forward-test; no new editor or real-device certification implied.",
+    "These projects exercise a supported maintainability concern and a legitimate compact design; they do not establish sensitivity to every kind of overloaded controller.",
+    "Fresh runtime evidence was excluded by the evaluation scope; prior pilot/editor/device evidence has not been invalidated."
+  ],
+  "runtime_tests_executed_in_this_forward_test": false,
+  "game_or_guidance_changes": false
+}

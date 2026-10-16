@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-16",
+  "guidance_package_version": "0.2.1",
+  "runtime_adapter_version": "0.2.0",
+  "scope": [
+    "Explicit scene/controller cohesion selection, change trace and disposition",
+    "Native pointer gesture coverage",
+    "Preview/gameplay stat agreement",
+    "Tool-input acquisition diagnosis"
+  ],
+  "evidence_origin": {
+    "pilot_report": "godot-research/pilots/02-shape-company-report.md",
+    "pilot_report_sha256": "b3e6d7a3542298dd7aa25fb8aa7fde6e0baa895db7057aff60f2628599b7e7c5",
+    "pilot_source_digest": "be811d7f72f504b3a27439ac7232e96f29d4ff447ffe9653567db6244e2752ea"
+  },
+  "checks": {
+    "existing_helper_suite": {
+      "command": "python3 -m unittest discover -s tests",
+      "outcome": "pass",
+      "tests": 72,
+      "exit_code": 0
+    },
+    "standalone_package_build_and_local_links": {
+      "outcome": "pass",
+      "skills": 3
+    },
+    "skill_frontmatter": {
+      "outcome": "pass",
+      "skills": 3,
+      "validator": "skill-creator quick_validate.py",
+      "runtime": "bundled Python 3.12 with PyYAML 6.0.2 in a temporary --target directory",
+      "attempts": [
+        "System Python: missing yaml dependency",
+        "Bundled Python: missing yaml dependency",
+        "Bundled Python plus temporary pinned dependency: all three passed"
+      ]
+    }
+  },
+  "manual_guidance_exercises": {
+    "case_count": 9,
+    "record": "cohesion-ui-cases.json",
+    "executor": "Codex /root",
+    "kind": "author source review against explicit oracles",
+    "independent_forward_test": false,
+    "automated_architecture_detection": false
+  },
+  "unchanged": [
+    "Godot game source",
+    "Engine/test adapters",
+    "Derived research policies/topics and all 50 exceptions",
+    "Existing machine gate semantics",
+    "Unrelated installed skills and user modifications"
+  ],
+  "limits": [
+    "Helper tests and package validation do not establish future model judgment or adoption reliability.",
+    "No engine or target recalibration is claimed for a prose-only guidance change.",
+    "Cohesion remains a selected evidence-backed judgment; task field storage is not validation."
+  ]
+}

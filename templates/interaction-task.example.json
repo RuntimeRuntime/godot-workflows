@@ -1,0 +1,40 @@
+{
+  "_example": "Adapt scene paths, scenario and test IDs to the game. evidence_plan is descriptive and not evaluated by the CLI.",
+  "outcome": "Confirm a strict enemy strike uses the authored shape during active frames.",
+  "acceptance": [
+    "Contact during active strike damages once; an attacking nearby miss outside the shape does not damage."
+  ],
+  "evidence_plan": [
+    {
+      "contract": "Enemy strike filtering",
+      "expected": "Real saved-scene contact in active frames damages the target once.",
+      "counterexample": "Nearby target stays outside the strike shape while the attacker reaches active frames.",
+      "oracle": "Assert the strike phase was reached and compare resulting health for contact and miss; include relevant facing/vertical/filter cases.",
+      "entry_point": "Drive the saved actor scene into its attack via its real input or AI path, not direct take_damage.",
+      "observation_scope": "Sample actual shapes over the art in the intended viewport; timing precision comes from scene tests.",
+      "exceptions": "A designed radial/distance rule or deliberate large attack uses its own contract."
+    }
+  ],
+  "required_checks": [
+    "import",
+    "parse",
+    "tests"
+  ],
+  "required_test_cases": [
+    "test_enemy_strike_contact_and_active_miss"
+  ],
+  "observations": [
+    {
+      "id": "strike-readability",
+      "gate": "GT06",
+      "scene": "res://scenes/main.tscn",
+      "expected": "Real input/AI strike and near miss observed with actual shape overlay; document any staging and sampled scope."
+    }
+  ],
+  "conditions": {
+    "randomness": "Declare relevant seed/reset or absence of gameplay RNG.",
+    "timing": "Declare physics rate, active-frame completion condition and bounded deadline."
+  },
+  "feature_decisions": [],
+  "cohesion_review": null
+}

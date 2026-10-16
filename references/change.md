@@ -17,10 +17,12 @@ exercise the real scene contract and expected player behavior.
 
 Validate the combined source state. Assign an acquisition executor and name the
 actual observer for required editor/play scenarios. Inspect existing evidence
-before asking for recapture. Use [review](review.md) when a consequential risk
+before asking for recapture. Finish any selected [cohesion review](cohesion.md)
+against the final source. Use [review](review.md) when a consequential risk
 needs another judgment; choose lenses instead of a standing committee.
 
-Close with the outcome, changed artifacts, supported exceptions, observations,
+Close with the outcome, changed artifacts, selected cohesion disposition,
+supported exceptions, observations,
 unresolved findings and limits. A verified claim needs current required evidence.
 An explicit owner acceptance of a demonstrated risk retains failed results.
 Task completion does not independently authorize publication or release.

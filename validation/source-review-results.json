@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-16",
+  "guidance_version": "0.2.2",
+  "change": "Shared source-only review branch with early pointers in all three skills; origin-specific evidence labels and explicit preservation of implementation/behavior-verification requirements.",
+  "installed_before_independent_dispatch": true,
+  "mechanical_validation": {
+    "package_build_and_local_links": "pass for all three skills",
+    "frontmatter": "pass for all three skills",
+    "existing_helper_tests": "72 passed",
+    "active_packages_match_generated_and_reviewer_snapshots": true,
+    "adapter_changed": false,
+    "game_changed": false
+  },
+  "independent_review": {
+    "model": "gpt-6-sol",
+    "task": "/root/sol_source_review_verification",
+    "parent_history_inherited": false,
+    "expected_findings_supplied": false,
+    "scenarios": [
+      "Source-only composition/test-contract review of both projects",
+      "Separate current behavior-acceptance assessment from supplied artifacts"
+    ],
+    "result": "No consequential instruction conflict found. Both source reviews completed without fresh execution; behavior acceptance withheld pending required evidence. Compact composition retained.",
+    "input_files_unchanged": true,
+    "sealed_criteria_unchanged": true,
+    "input_file_count": 792
+  },
+  "parent_comparison": [
+    {
+      "criterion": 1,
+      "assessment": "Met: Request A explicitly adopts source-only scope, completes both composition dispositions, and reports runtime/editor/device limits without making them blockers of the source review."
+    },
+    {
+      "criterion": 2,
+      "assessment": "Met with qualification: both reviews name actual owners/consumers and concrete change traces, retaining compact composition. The project-two pause-removal finding is a conditional future transition/embedding risk; the supplied fixture has no current scene transition."
+    },
+    {
+      "criterion": 3,
+      "assessment": "Met: test source is called declarations; historical import/parse/16-case results are attributed to the earlier run, with project.godot hash mismatch and missing chain/captures identified. Executed checks and acquired observations are explicitly empty."
+    },
+    {
+      "criterion": 4,
+      "assessment": "Met: Request B withholds current behavioral acceptance for both projects and retains required import/parse/tests and declared GT05/GT06 observations, source identity and failure history. It does not relabel evidence or narrow the task."
+    },
+    {
+      "criterion": 5,
+      "assessment": "Met: all three entrypoint source-review pointers are cited; reviewer reports no consequential instruction conflict after applying both request types."
+    },
+    {
+      "criterion": 6,
+      "assessment": "Met on available evidence: reviewer states read boundary and no execution; all 792 hashed input files and sealed criteria remained unchanged. Only the two designated output files were created in outputs. No claim of a sandbox-enforced read audit."
+    }
+  ],
+  "additional_game_findings": [
+    {
+      "finding": "Project-one duplicated recruit-price text",
+      "parent_disposition": "Supported source-level advisory finding already observed in original pilot review; no extraction required. Game code unchanged in this guidance task."
+    },
+    {
+      "finding": "Project-two global pause survives removal of main while paused",
+      "parent_disposition": "Source shows global pause set with no root exit release. Treat as conditional transition/embedding lifecycle risk: no scene transition exists in supplied one-scene fixture, so this is not an observed current gameplay failure or a reason to split the scene."
+    },
+    {
+      "finding": "Project-two Node2D references invoke enemy-specific take_damage",
+      "parent_disposition": "Source contract is loosely typed; stronger typing is advisory unless an adopted requirement demands it. No current parser failure established; retain existing dynamic-boundary exception. Game code unchanged."
+    }
+  ],
+  "evidence_root": "/Users/kyle/Documents/code/godot-research/workflow-forward-tests/2026-10-16-source-review",
+  "artifact_hashes": {
+    "README.md": "94e95537000ecaf61155e727b692d3db432cf289aee3f99569ae85ef1f73e0f8",
+    "inputs/source-manifest.json": "632364d2f3fc5a63d2cd31061f80e95725c89e97b29cce3fc1ee7a9d0545ae05",
+    "outputs/sol-review.md": "b185ee01b7c9dd6f1648bb5c509dae6d570e49d89e69e54c276f0a3527571fbc",
+    "outputs/sol-review.json": "6466304795a4324d4ee41526aa6d77e0d7cc19aae482ba0e47bec440bf431a2a",
+    "evaluation/criteria.json": "815a28ec9be35d672ac9282c29f3e1f82b31032290e51b44044ef48c81e3498a",
+    "evaluation/protocol.json": "7c90b0013306752befa82a99e2e92d3155e81e6756b06e242bdb201f57eb2203",
+    "evaluation/mechanical-checks.json": "ce7383cf22218120cb51c6ce323d64e0a2eadd45ad6215b5765909eee546313b",
+    "evaluation/comparison.json": "cc0833ed714a29f967d06ee20d7b12de07a2b6a8bc29a08433f1d3f2ce1da7fe"
+  },
+  "limits": [
+    "One fresh reviewer and two previously used projects; bounded regression check, not broad generalization.",
+    "Complete workflow includes normal pilot-derived examples.",
+    "No engine/editor/device execution is part of this evaluation.",
+    "Historical machine report is partial evidence, not a portable verified archive.",
+    "Copied partial machine run evidence only; linked observation records/captures and prior attempt were deliberately absent. Missing packet evidence does not invalidate original pilot results, including later human-confirmed drag."
+  ]
+}

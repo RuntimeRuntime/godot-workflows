@@ -22,6 +22,13 @@ or a stale-completion guard when their scene is removed/restarted. Exercise repe
 cycles, not just the first happy path. Simple enum state is often adequate; add
 state abstractions for concrete transition/ownership complexity.
 
+For actor hit response, trace both surviving and fatal branches before early
+returns or processing disablement. A per-actor flash uniform, reaction motion and
+emitter can share that actor's reset/pause boundary while shader definitions stay
+immutable and shared. Check independent actors, once-only defeat, response
+completion and affected pause/reset. Flash, recoil, particles and hit-stop are
+optional design choices; a shared service needs a concrete cross-actor lifetime.
+
 Consult selected SH-04/SH-10/SH-14 and physics/navigation/input topics in
 [the index](topics/index.md), then the exact engine's official class documentation.
 Security-sensitive SH-09/SH-11/SH-12 work also follows [discovery](discovery.md).

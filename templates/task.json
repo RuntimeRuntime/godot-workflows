@@ -1,6 +1,7 @@
 {
   "outcome": "Describe the requested player or authoring outcome",
   "acceptance": [],
+  "evidence_plan": [],
   "required_checks": ["import", "parse", "tests"],
   "required_test_cases": [],
   "observations": [],
@@ -8,5 +9,6 @@
     "randomness": "Declare seed/reset or why irrelevant",
     "timing": "Declare completion condition and deadline"
   },
-  "feature_decisions": []
+  "feature_decisions": [],
+  "cohesion_review": null
 }

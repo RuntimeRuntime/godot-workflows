@@ -5,6 +5,10 @@ description: Create or change editable Godot scenes, Resources, Inspector tuning
 
 # Author native Godot content
 
+For a source-only assessment, follow [source-only review](references/review.md#source-only-review).
+The authoring and evidence-acquisition steps below apply to implementation or
+requested behavior verification.
+
 Read the game's instructions/profile and the affected saved files. Distinguish
 fixed authored content, procedural runtime content and transient effects. Preserve
 the game's engine pin and existing conventions.
@@ -15,6 +19,9 @@ For substantive composition, dependency or facility choices, use
 sources for the actual version. [Discovery](references/discovery.md) covers gaps
 and conditional untrusted-content/protocol follow-up. Custom/procedural choices
 remain legitimate when requirements justify them.
+
+For new or substantially expanded scenes/controllers, apply the
+[cohesion review](references/cohesion.md) and retain its disposition.
 
 Save fixed hierarchy and editable data in native scenes/Resources where suitable.
 Separate parentage from ownership and persistence; preserve nested instances.

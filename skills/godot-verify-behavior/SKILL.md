@@ -5,6 +5,10 @@ description: Verify or diagnose changed Godot behavior through native import/par
 
 # Establish intended Godot behavior
 
+For a source-only assessment of tests or behavior contracts, follow
+[source-only review](references/review.md#source-only-review). The execution and
+observation steps below apply to requested behavior verification or diagnosis.
+
 Read the requested outcome, game instructions/profile and affected native files.
 Define concrete acceptance examples before interpreting generated behavior as
 correct. Follow [verification](references/verification.md) for check scope,
@@ -16,9 +20,13 @@ win; this first adapter understands GUT reports and does not replace other runne
 Use a task record for required checks/cases and editor/play scenarios. Public
 typing, test adequacy and source-selection completeness still need judgment.
 
-For controls or binding changes, follow [physical-input verification](references/topics/SH-03.md)
+For action-binding changes, follow [physical-input verification](references/topics/SH-03.md)
 through device events, saved InputMap and observable scene behavior; keep real-device
 focus/platform observations separate.
+
+For changed pointer gestures or UI previews of computed gameplay values, use
+[UI contracts](references/ui-contracts.md). Distinguish handler tests, native
+event routing and real-device observation.
 
 Test meaningful behavior through the actual scene path. Include independent
 instances, repeated transitions, pause/input and failure cases when affected.
@@ -38,3 +46,5 @@ attempts before the final bounded claim. Explicit accepted-risk closure keeps
 failed evidence failed. [Diagnosis](references/diagnose.md) and selected
 [native topics](references/topics/index.md) resolve unfamiliar failures;
 [discovery](references/discovery.md) preserves specialist follow-up boundaries.
+Reconcile any selected [cohesion review](references/cohesion.md) separately from
+machine-check completeness.

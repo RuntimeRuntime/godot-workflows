@@ -1,0 +1,90 @@
+{
+  "format_version": 1,
+  "purpose": "Maintained post-research refinements; original research provenance remains separate. Apply only the branches selected by the task.",
+  "basis": [
+    "Kings and Pigs pilot three, 16 October 2026: retained raw failures and independent source-first review",
+    "Godot 4.7 official TileMapPattern class reference, checked 16 October 2026",
+    "Preserved pre-existing SH-03 physical-input refinement"
+  ],
+  "topics": {
+    "D2-01": {
+      "pitfalls_append": [
+        "An atlas cell can be valid yet contain only part of a motif or an unintended transparent region. Identify complete composite footprints and intended top/side/bottom caps from the actual artwork.",
+        "In Godot 4.7, `TileMapPattern.set_cell` defaults `alternative_tile` to -1. Supply the intended valid alternative explicitly (often 0); preserve deliberate erase cells as an explicit pattern choice."
+      ],
+      "verification_append": [
+        "For a repeated motif, stamp a representative complete pattern, save/reopen and inspect its entire footprint at game scale, including edge/corner/isolated caps. Confirm intended painted cells are nonempty and reference valid source/atlas/alternative IDs; a loop over zero cells proves nothing.",
+        "Keep fixed actors/pickups named and selectable. Check their relevant visual/collision footprint against solids and declared decoration exclusions across the authored set where practical. Record intentional hidden rewards, cropping, overlap or procedural exceptions."
+      ],
+      "sources_append": [
+        {
+          "title": "`TileMapPattern.set_cell` (Godot 4.7)",
+          "url": "https://docs.godotengine.org/en/4.7/classes/class_tilemappattern.html#class-tilemappattern-method-set-cell",
+          "limits": "Version-specific defaults; a valid alternative alone does not establish complete artwork or intended paint output."
+        }
+      ]
+    },
+    "D2-02": {
+      "verification_append": [
+        "When authored art needs closed edges or complete composites, include open-neighbor and underside cases plus the intended motif anchors. Check both required placements and forbidden overlaps; preserve deliberate open/broken art. For native pattern stamping and valid alternatives, see [grid worlds](D2-01.md)."
+      ]
+    },
+    "D2-04": {
+      "verification_append": [
+        "Inspect the actual opaque artwork and transparent margins before choosing atlas regions or sprite pivots. Check complete motifs and body alignment in both facings at game scale; nearest filtering alone does not establish correct slicing or placement."
+      ]
+    },
+    "D2-05": {
+      "pitfalls_append": [
+        "Starting a completed one-shot again from a per-frame loop can rewind a pose even when a completion signal fires only once. Give the start, completion and recovery transition an explicit owner."
+      ],
+      "verification_append": [
+        "When replay or strike timing matters, record ordered frame/state changes through completion and recovery, not just a completion count. For example, intended `0,1,2` must reject an unrequested `0,1,2,0` rewind; explicit combos, cancellations and loops retain their own contract. Include affected hit/death interruptions and restart. Label each sample with its animation/state so recovery to idle frame 0 is not mistaken for attack replay."
+      ]
+    },
+    "D2-08": {
+      "verification_append": [
+        "For designed grace, buffering or cooldown, test accepted and expired boundaries, one-time consumption and reset at declared physics timing; observe feel separately. Window lengths and the presence of coyote time are game choices. Distinguish the movement body from the sensor roles in [overlap filtering](D2-09.md)."
+      ]
+    },
+    "D2-09": {
+      "approach_append": "Declare the purpose of movement, incoming hurt/strike, outgoing strike and pickup geometry separately. Choose their margins from the game contract: forgiving beneficial interactions and strict incoming damage are one valid design; precision or symmetric games can choose differently.",
+      "verification_append": [
+        "For a strike-filtering negative, prove the attacker reached its active strike frames while the target remained outside the intended shape. A target outside AI activation distance only tests activation. Pair contact with relevant horizontal/vertical/facing near misses, mask exclusions and repeat-hit guards.",
+        "For changed pickup or outgoing reach, check a chosen nearby success and a distant/behind rejection as appropriate. Display the actual native shapes over both-facing artwork; fixed pixel sizes and a shared global generosity multiplier are not universal."
+      ]
+    },
+    "D2-11": {
+      "verification_append": [
+        "Declare intended actor, interactable, decoration, feedback and HUD relationships. Check inherited/relative Z, Y-sort and canvas boundaries, then observe a representative actual overlap such as player with flag/door or foreground art. Preserve deliberate occlusion and isometric depth; player priority over all artwork is not universal."
+      ]
+    },
+    "SH-03": {
+      "native_types": [
+        "InputMap",
+        "Input",
+        "InputEventKey",
+        "InputEventAction"
+      ],
+      "verification": [
+        "For changed keyboard bindings, test fixed expected device events through InputEventKey → the saved InputMap → observable scene behavior. Set physical_keycode for physical bindings or keycode for logical bindings. Inject press/release events with Input.parse_input_event, allow relevant process/physics frames, and assert the resulting interaction. Keep expected keys independent of InputMap.action_get_events() so reversed or missing mappings fail. Release every injected key and restore input/focus state.",
+        "Action-level tests (Input.action_press or InputEventAction) exercise downstream logic but bypass device bindings; pair them with the physical-event path when bindings are in scope.",
+        "Keep visible interaction on each nominated real device/platform for window focus, layout, delivery and controller behavior. Injected events establish engine routing, not OS or hardware delivery.",
+        "Remap and restart to check settings persistence.",
+        "Confirm UI focus actions remain distinct."
+      ],
+      "sources_append": [
+        {
+          "title": "Input.parse_input_event",
+          "url": "https://docs.godotengine.org/en/4.7/classes/class_input.html#class-input-method-parse-input-event",
+          "limits": "Injects events into Godot; does not send events to the operating system."
+        },
+        {
+          "title": "InputEventKey.physical_keycode",
+          "url": "https://docs.godotengine.org/en/4.7/classes/class_inputeventkey.html#class-inputeventkey-property-physical-keycode",
+          "limits": "Physical positions and logical keycodes have distinct layout semantics; match the chosen binding model."
+        }
+      ]
+    }
+  }
+}

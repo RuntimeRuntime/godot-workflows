@@ -1,0 +1,128 @@
+{
+  "guidance_version": "0.2.3",
+  "date": "2026-10-16",
+  "status": "applied_and_independently_reviewed",
+  "scope": "Godot workflow/skill references, example task and durable topic regeneration; not gameplay or adapter certification",
+  "source_root": "/Users/kyle/Documents/code/godot-workflows",
+  "active_skills": [
+    "godot-author-scenes",
+    "godot-state-lifecycle",
+    "godot-verify-behavior"
+  ],
+  "preserved": [
+    "three skill entrypoints and implicit selection",
+    "existing gate/result meanings and engine/test adapter",
+    "advisory policy and game-specific exceptions",
+    "pre-existing uncommitted toolkit/Skills edits"
+  ],
+  "validation": {
+    "helper_tests": "76/76 pass (including4 pure importer-refinement cases)",
+    "packages": "build/local links, manifests and3 frontmatter checks pass",
+    "regeneration": "final second generation byte-stable",
+    "source_identity": "366 final reviewed input hashes unchanged at closure",
+    "native_execution": "No new Godot or GUI execution; no current pilot gameplay acceptance claimed"
+  },
+  "independent_review": {
+    "model": "gpt-6-sol",
+    "reasoning": "medium",
+    "fork_turns": "none",
+    "initial": {
+      "review_type": "Independent source-only review of pilot-three workflow and installed skill update",
+      "verdict": "No consequential update findings",
+      "findings": [],
+      "case_dispositions": [
+        {
+          "id": "C1",
+          "disposition": "test_inadequate_for_strict_damage_geometry",
+          "response": "At 32 px, the enemy never crosses its <30 px attack gate, so unchanged health does not exercise the active strike shape. Add a nearby outside-shape case that proves active strike frames occurred, pair it with contact, and check the health result. This is a coverage gap, not a demonstrated production defect.",
+          "evidence_limit": "Source and test declarations only; no runtime check."
+        },
+        {
+          "id": "C2",
+          "disposition": "temporal_evidence_insufficient; possible contract violation requires phase attribution",
+          "response": "One completion signal and final idle do not establish the ordered one-shot. The 0,1,2,0 trace may reveal an unwanted attack-frame rewind, but the supplied artifacts do not identify whether the last 0 belongs to the attack or idle. Record animation/state with each frame and assert the intended completion-to-idle transition. If the final 0 is an attack replay, the contract is violated; if it is idle pose 0, it may be expected.",
+          "evidence_limit": "Inspected historical diagnostic text, not a fresh run."
+        },
+        {
+          "id": "C3",
+          "disposition": "plan_consistent_with_guidance; no finding",
+          "response": "Declared broken art, foreground occlusion, symmetric margins, no coyote time, and no flash/particles are valid game-specific choices. The plan preserves editable objects, checks intended crop/depth and collision, shares immutable frames and keeps mutable response actor-owned. Its checks should use the declared precision contract and representative overlaps.",
+          "evidence_limit": "Plan/source assessment only; saved scene and play result not supplied."
+        },
+        {
+          "id": "C4",
+          "disposition": "source_learning_review_can_close; current_map_acceptance_blocked",
+          "response": "Complete the source-only learning review with explicit evidence limits. Source A historical passes and observations remain attached to A. Four added terrain cells make them insufficient to accept all current Source B map content; characterize and recheck affected content or use valid scoped reuse. UID-only and deliberate application-name transformations need separate characterization. The stale acceptance claim does not block the separate source-only review.",
+          "evidence_limit": "Supplied source identity and historical-result descriptions only; no Godot execution."
+        }
+      ],
+      "inspected_inputs": [
+        "Toolkit AGENTS.md; approved comparison and update diff; current toolkit source references, template, importer and refinement overlay; three current installed SKILL.md entrypoints and references; review-cases.json; candidate and review-input manifests; package snapshots; selected historical validation logs."
+      ],
+      "checks_executed": [
+        "Current toolkit candidate-manifest: 22/22 SHA-256 matches.",
+        "Review input manifest: 366/366 SHA-256 matches.",
+        "All three active installed package files match their recorded deployed-package snapshots.",
+        "Installed markdown local-reference file targets: 0 missing across 68 files per package.",
+        "Pure importer refinement unit tests: 4/4 pass from packet source with bytecode disabled.",
+        "Official Godot 4.7 TileMapPattern class reference confirms set_cell alternative_tile default -1."
+      ],
+      "historical_logs_read": [
+        "Stored helper-tests.log reports 76 tests passed; this review did not rerun the suite.",
+        "Stored regeneration-check.json reports second regeneration changed no files.",
+        "Stored active-package-verification.json reports no package problems; current package bytes were independently compared."
+      ],
+      "evidence_limits": [
+        "No Godot execution, GUI use, fresh editor/device observations or gameplay acceptance.",
+        "The four case dispositions use only review-cases.json and updated installed guidance; parent-review-criteria.json was not opened.",
+        "The review judges the supplied update diff and current files, not pre-existing unrelated changes."
+      ]
+    },
+    "followup": {
+      "review_type": "Targeted independent follow-up to initial source-only review",
+      "verdict": "No consequential issue remains in the D2-05 clarification or final package identity",
+      "findings": [],
+      "clarification": "D2-05 now requires animation/state labels on ordered samples, and the verification matrix repeats this. This addresses the C2 ambiguity: idle frame 0 is distinguishable from attack replay. It does not assert that the historical case was a demonstrated replay defect.",
+      "checks_executed": [
+        "Final candidate manifest: 22/22 current toolkit hashes match.",
+        "Final review input manifest: 366/366 hashes match.",
+        "All files in each of three final package snapshots byte-match the corresponding active installed package.",
+        "Each installed D2-05 contains the animation/state labeling sentence."
+      ],
+      "historical_records_read": [
+        "active-final-package-verification.json reports version 0.2.3, 76 packaged files and passing frontmatter for each skill."
+      ],
+      "limits": [
+        "No Godot, GUI, gameplay or fresh engine compatibility check was run.",
+        "This follow-up reviewed the small wording clarification and final identity only; the first review remains unchanged.",
+        "The sealed parent criteria were not read."
+      ]
+    }
+  },
+  "case_limit": "C2 diagnostic text omitted animation labels. Reviewer correctly withheld unconditional replay attribution; phase labels are now explicit in guidance. Historical pilot trace was attack-filtered. No4/4 unqualified success claim.",
+  "evidence_packet": "/Users/kyle/Documents/code/godot-research/workflow-forward-tests/2026-10-16-pilot03-updates",
+  "reviewed_candidate_sha256": {
+    "README.md": "2bf4a679093722fc124a5d9708e08f560420f916dd0a6537ef25ec4994cb8450",
+    "provenance/README.md": "6647df816b0701d3c49e7852efcd7ecd8a763127f4808f86d48a1d3dc5e45f93",
+    "provenance/topic-refinements.json": "d4f7860eef64784583555436a3ada2f35f7fe207302e49ed1e14e0e1343c12ee",
+    "references/editor-observations.md": "b0c2d1ceb534ed0600bd64fd4f7dd81c26c5b1dae89c72c99234ef8d4b3d8170",
+    "references/feature-planning.md": "fcb1fed3435ff93291582e46946a213b86724040ca3bc1e1b05339757c930b4c",
+    "references/observation-reuse.md": "b4b7e599f8dc22aaa8395b1a71b165e3b1622ef946d84997ea91d2b039454c3d",
+    "references/review.md": "35726ccd8e58fccccc83c49b53abdca6fd5b38c3ee253fa2a7dc53c450a744bd",
+    "references/state.md": "56479c0425f48b4ac8163238d70b393d9d273a95c8e04aa766920cb999343e19",
+    "references/topics/D2-01.md": "cba016c23a9353a2fba6daf39eb104d1317cb0398f0846be281fe37cd1065539",
+    "references/topics/D2-02.md": "295c21f7f77d13f4cb414b4e1f6765ccacadce5130d5e523bc1e27c2abc4baaf",
+    "references/topics/D2-04.md": "a7fe8123043c8d436ea7a8950adc06ba0a748fd2a32d50eb9e00d6e2d10e91b4",
+    "references/topics/D2-05.md": "5496651da76e527f23ee8590e061ea7ad4558bb2ff710361fd87223b79fdc2f5",
+    "references/topics/D2-08.md": "1bb31f9d9cffc5e0f9b96a315b61ee65ab4abe76d5a0368c770c9c47470a6181",
+    "references/topics/D2-09.md": "027f9b9dd391f67d4d924d99857c92a592ba9a4f0a506c8e6e13dc2391cc2e0b",
+    "references/topics/D2-11.md": "de5dd8a5fef6560df1892eea645b1d61a9752345a3e39a186976a4f1bfcfefa2",
+    "references/topics/SH-03.md": "17be276e3ce96fee9fe0958e54402e29bce0ba1b3616e101646f50caa9f1bdb1",
+    "references/verification.md": "ff4725fbc58ec2df94d8f32c996eecdb0ffde4edba99a664dac7e2c75ce3806c",
+    "templates/interaction-task.example.json": "72f06e408be32bb10ad1741ce9ff4a78532c7c96428f19ada2bc81212f80d51d",
+    "templates/task.json": "2669802eb7d42d974d11ec8fb1ab1fb77a6fa3015c5cd7fd2606821da86f2fae",
+    "tests/test_topic_refinements.py": "dacbf5282c337cf6e364e50542c3c297d40a83cb1ff505b3257f40e08620d7b2",
+    "toolkit.json": "f0df5e794de7d8224f3918e4c1c608519f7eb1aee964cbd3c99045f40ea9a49a",
+    "tools/import_research.py": "a3d5e9ef858c6c532f59f0bf0ace4fcb24acd39110a46a95a869e636b4f24bae"
+  }
+}

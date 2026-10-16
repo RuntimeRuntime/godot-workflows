@@ -4,6 +4,8 @@ Capture intended versus observed behavior, exact engine and scene, input/state
 sequence, and frequency. Use native debugger, remote scene tree and collision or
 navigation overlays when they resolve a concrete question. Read the relevant
 [topic](topics/index.md) rather than guessing unfamiliar native behavior.
+For disagreement between tool-driven interaction and engine-event tests, follow
+the delivered-input diagnosis in [UI contracts](ui-contracts.md).
 
 Test one falsifiable hypothesis with the cheapest useful observation. Preserve
 the original failure. Declare relevant RNG seed/state/reset, physics/timing

@@ -39,6 +39,9 @@ human observer. A tool listing alone establishes no observation capability.
   compare the expected gameplay effect with the baseline. Preserve source hashes,
   the exact saved diff and the actual UI value. A native accessibility value is
   Inspector evidence when clearly identified as such.
+  Choose a value relevant to the change: a flash-duration edit should change the
+  observed flash, rather than repeat an unrelated run-speed demonstration. Select
+  affected new evidence and valid [bounded reuse](observation-reuse.md).
 - **Visible play:** launch the identified scene as a game, perform real inputs and
   reconcile expected/observed states. For the fixture: baseline left/right health
   is three; one left hit changes only left; Pause/Resume adds no hit; the next
@@ -49,6 +52,13 @@ Confirm each capture actually depicts the intended scene/state before attaching
 it. Save accessibility text when it establishes a property more accurately than
 pixels. Interaction claims need the actual sequence and intermediate outcomes;
 audio, timing and feel need their corresponding observation.
+
+A staged observation can load the saved scene and drive real input while setting
+initial position/health/speed or freezing a brief state for capture. Retain the
+harness and record its overrides, sample timing and hidden UI/camera changes.
+Identify what still uses production handling. Such samples support bounded
+readability/state claims; ordinary traversal, input delivery and subjective feel
+need their own corresponding evidence when claimed.
 
 Use the helper's `observe` command to record the actual named observer, method,
 sequence, expected/actual outcomes, captures and controlled variant/transformation.

@@ -1,0 +1,107 @@
+{
+  "kind": "authored guidance calibration cases and manual source-reading application",
+  "independent_forward_test_executed": false,
+  "automated_semantic_detection_claimed": false,
+  "runtime_execution_for_this_update": false,
+  "cases": [
+    {
+      "id": "C01-native-layout-kept",
+      "request": "Create a small one-screen card game with a large saved Control hierarchy and repeated card instances.",
+      "facts": [
+        "The root owns one run lifetime and wires card requests.",
+        "Rules read one price value; presentation consumes that value.",
+        "Rearranging layout does not change gameplay rules."
+      ],
+      "expected": "Select cohesion review; a supported keep-combined decision is valid. Neither node count nor presence of UI requires extraction.",
+      "manual_assessment": "Keep combined: trace price/layout changes to the existing single authority and local presentation. Revisit when concrete independent behavior or lifetime appears."
+    },
+    {
+      "id": "C02-short-script-overload",
+      "request": "Change health display to add a localized suffix.",
+      "source_excerpt": "func hit(amount: int) -> void:\n    health = int($HUD/Health.text) - amount\n    $HUD/Health.text = str(health)\n",
+      "facts": [
+        "Health display text supplies gameplay authority.",
+        "Localization changes the value subsequently parsed by damage logic."
+      ],
+      "expected": "Select responsibility review despite short code and apparently small UI edit. Correct gameplay authority/presentation coupling; a new scene file is optional.",
+      "manual_assessment": "Concrete finding: presentation formatting changes damage state. Store authoritative numeric health and render it; no automatic scene split."
+    },
+    {
+      "id": "C03-paper-extraction",
+      "request": "Assess whether moving Shop into its own scene solved overload.",
+      "facts": [
+        "Main still reaches into Shop/%Price and Shop/%Buy.",
+        "Main charges UNIT_PRICE but duplicates a literal price in feedback and rendering."
+      ],
+      "expected": "Trace consumers and duplicated price changes; another tscn alone is insufficient evidence of separation.",
+      "manual_assessment": "Correct shared price authority first; extract presentation only if its interface hides the internal fields and removes demonstrated coordination cost."
+    },
+    {
+      "id": "C04-arithmetic-only",
+      "request": "Change damage multiplier from 2 to 3 without changing ownership, composition or dependencies.",
+      "facts": [
+        "One existing formula changes; UI consumes its returned value."
+      ],
+      "expected": "No new architecture review; perform affected behavior verification.",
+      "manual_assessment": "Cohesion is not selected. This request changes a value within the existing owner."
+    },
+    {
+      "id": "C05-actual-shape-company",
+      "request": "Review the completed pilot against scene/controller cohesion.",
+      "source_identity": "be811d7f72f504b3a27439ac7232e96f29d4ff447ffe9653567db6244e2752ea",
+      "source_locations": [
+        "scripts/shape_game.gd:9,97,194,248,265",
+        "scenes/main.tscn:89,133,160",
+        "scripts/shape_slot.gd:5,26,78"
+      ],
+      "facts": [
+        "Main owns run state, combat, wiring and UI rendering.",
+        "Ten native slot scenes encapsulate card presentation and emit requests.",
+        "A price change must update UNIT_PRICE plus literal price copy in feedback and button rendering; saved placeholders also need an authoring decision."
+      ],
+      "expected": "Flag the concrete policy/presentation coupling. A compact pilot can retain its scene aggregation; do not require HUD/shop/footer extraction solely by count.",
+      "manual_assessment": "Keep aggregate scene for the pilot; record advisory pricing-duplication correction and presentation extraction as a revisit when its independent changes warrant it. Passing runtime evidence does not settle coherence."
+    },
+    {
+      "id": "C06-missing-source",
+      "request": "Approve the controller architecture from a screenshot and line count.",
+      "facts": [
+        "The saved scene, script consumers and state owners are unavailable."
+      ],
+      "expected": "Record unassessed with the missing sources; do not invent a split or infer cohesion from passing import/tests.",
+      "manual_assessment": "Unassessed: actual responsibilities and a change trace cannot be established from those artifacts."
+    },
+    {
+      "id": "U01-handler-bypass",
+      "request": "Verify drag-to-merge through a native Control.",
+      "test_excerpt": "target._drop_data(Vector2.ZERO, valid_payload)\nassert_eq(roster[1].level, 2)\n",
+      "expected": "Useful payload/handler test, incomplete gesture coverage. Pair it with press, held-button motion, native drag-start assertion and release through the scene Viewport, plus nominated device observation.",
+      "manual_assessment": "Handler passes do not cover drag initiation; new branch selects the missing event-path evidence."
+    },
+    {
+      "id": "U02-malformed-tool-input",
+      "request": "Native tool drag fails, while complete engine-event drag passes.",
+      "delivered_events": [
+        "button left pressed",
+        "motion mask=0 relative=(0,0)",
+        "button left released"
+      ],
+      "expected": "Diagnose delivered event protocol in a controlled copy, retain failure, avoid product workaround, and require valid real-device or named human evidence before closing that observation.",
+      "manual_assessment": "Acquisition limitation supported by delivered events; synthetic success alone does not close visible drag evidence. Pilot human confirmation supplies the separate evidence."
+    },
+    {
+      "id": "U03-preview-overrides",
+      "request": "Check enemy preview after per-round stat scaling.",
+      "facts": [
+        "Definition attack is 5 but combat uses scaled attack 3.",
+        "UI shows 5 ATK and 5/8 HP even though scaled maximum/current health is 5."
+      ],
+      "expected": "Select a non-default value case and compare displayed stats/max/current with actual gameplay values using an independently specified expectation.",
+      "manual_assessment": "Presentation mismatch: display authoritative live attack and scaled maximum/current health. Checking only authored defaults would miss it."
+    }
+  ],
+  "limits": [
+    "Manual assessments are author judgments and are not an independent test of future model compliance.",
+    "Package/frontmatter checks and helper tests validate packaging and unchanged mechanics, not architectural quality."
+  ]
+}
